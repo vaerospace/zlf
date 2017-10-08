@@ -1,4 +1,5 @@
-\ lasukang  vaerospace dec2015 version 2.0 .5 (beta )
+\ Newzlf2017  vaerospace 2017 version 3.0 .1 (alpha )
+\ This is the file you use to do a F12 compile in win32forth
 
 \ xor chars on compare stack and add subtract for linearity
 \ anew avaero-   ver 2014
