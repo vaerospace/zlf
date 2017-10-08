@@ -1,3 +1,5 @@
+\ EDIT THIS FILE TO CHANGE INTERFACE
+\ THIS FILE IS NEEDED BY AZLF.F TO COMPILE APPLICATION
 needs  resources.f
 needs  excontrols.f
 
