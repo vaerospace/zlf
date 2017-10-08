@@ -639,9 +639,9 @@ Font WinFont
 
 :M On_Paint:    ( -- )
                 0 0 GetSize: self Addr:  FrmColor FillArea: dc
-                5 72  s" zipstack" TextOut: dc
-                5 31  s" xorstack"  TextOut: dc
-                525 31 s" SpecStack" TextOut: dc
+                5 72  s" Stack 2" TextOut: dc
+                5 31  s" Stack 1"  TextOut: dc
+                525 31 s" Prev Stack" TextOut: dc
                 ;M
 ;Object
 
