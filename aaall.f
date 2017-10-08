@@ -1,3 +1,6 @@
+\ THIS FILE INTILISES THE SYSTEM AND IS THE HEART OF THE ZLF SYSTEM
+\ REQUIERED BY AZLF.F TO COMPILE .EXE   
+\ YOU NEED 3 FILES TO COMPILE THIS APPLICATION aaall.f amenuron.f azlf.f
 \ jstyle  v2.0.1 (lasukang)
 \ ver 10.0 (1 pos marker kernel private) vaerosoft
 \ kernel 10.0.0 (beta )
