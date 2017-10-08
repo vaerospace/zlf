@@ -607,7 +607,7 @@ Font WinFont
 :M ParentWindow:        ( -- hwndParent | 0=NoParent )    parent        ;M
 :M SetParent:           ( hwndparent -- )       to parent               ;M
 :M WindowHasMenu:       ( -- f )                true                    ;M
-:M WindowTitle:         ( -- ztitle )           z" Lasukang "      ;M
+:M WindowTitle:         ( -- ztitle )           z" 2017 NewZLF "      ;M
 :M StartSize:          \  ( -- width height )     screen-size >r 2/ r> 2/
                        750 650   ;M
 
