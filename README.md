@@ -20,11 +20,11 @@ change path to appicon in azlf.f  at bottom of file
 #  s" C:\USERS\VAEROSPACE\DESKTOP\FORTH\favicon.ico" s" 2017newtests4.exe" AddAppIcon
  change path to location of your icon and make sure to change your exe name in AddAppIcon"
 
-change name od exe here   
+Change name of exe here   
 
 #  ' apmes   turnkey 2017newtests4.exe 
 
-simply call the exe what you want
+simply call the exe what you want ' apmes turnkey  mynewapp.exe
 
-sace and hit F12  the exe will be saved in the directory azlf is in
+Save and hit F12  the exe will be saved in the directory azlf.f is in
 
