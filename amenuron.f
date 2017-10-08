@@ -1,5 +1,3 @@
-\ EDIT THIS FILE TO CHANGE INTERFACE
-\ THIS FILE IS NEEDED BY AZLF.F TO COMPILE APPLICATION
 needs  resources.f
 needs  excontrols.f
 
@@ -452,12 +450,12 @@ Font WinFont
                self Start: FullInitialise
                 150 205 110 22 Move: FullInitialise
                 Handle: Winfont SetFont: FullInitialise
-                s" Execute" SetText: FullInitialise
+                s" Addtostack" SetText: FullInitialise
 
                  self Start: zipstack
                 280 205 110 22 Move: zipstack
                 Handle: Winfont SetFont: zipstack
-                s" Zippit" SetText: zipstack
+                s" Stack 2" SetText: zipstack
 
                  self Start: test
                 420 205 110 22 Move: test
@@ -468,132 +466,132 @@ Font WinFont
                 self Start: abutt
                 5 165 15 22 Move: abutt
                 Handle: Winfont SetFont: abutt
-                s" a" SetText: abutt
+                s" 1" SetText: abutt
 
                   self Start: bbutt
                 25 165 15 22 Move: bbutt
                 Handle: Winfont SetFont: bbutt
-                s" b" SetText: bbutt
+                s" 2" SetText: bbutt
 
                   self Start: cbutt
                 45 165 15 22 Move: cbutt
                 Handle: Winfont SetFont: cbutt
-                s" c" SetText: cbutt
+                s" 3" SetText: cbutt
 
                   self Start: dbutt
                 65 165 15 22 Move: dbutt
                 Handle: Winfont SetFont: dbutt
-                s" d" SetText: dbutt
+                s" 4" SetText: dbutt
 
                   self Start: ebutt
                 85 165 15 22 Move: ebutt
                 Handle: Winfont SetFont: ebutt
-                s" e" SetText: ebutt
+                s" 5" SetText: ebutt
 
                   self Start: fbutt
                 105 165 15 22 Move: fbutt
                 Handle: Winfont SetFont: fbutt
-                s" f" SetText: fbutt
+                s" 6" SetText: fbutt
 
                    self Start: gbutt
                 125 165 15 22 Move: gbutt
                 Handle: Winfont SetFont: gbutt
-                s" g" SetText: gbutt
+                s" 7" SetText: gbutt
 
                   self Start: hbutt
                 145 165 15 22 Move: hbutt
                 Handle: Winfont SetFont: hbutt
-                s" h" SetText: hbutt
+                s" 8" SetText: hbutt
 
                   self Start: ibutt
                 165 165 15 22 Move: ibutt
                Handle: Winfont SetFont: ibutt
-                s" i" SetText: ibutt
+                s" 8" SetText: ibutt
 
                   self Start: jbutt
                 185 165 15 22 Move: jbutt
                 Handle: Winfont SetFont: jbutt
-                s" j" SetText: jbutt
+                s" 9" SetText: jbutt
 
                   self Start: kbutt
                 205 165 15 22 Move: kbutt
                 Handle: Winfont SetFont: kbutt
-                s" k" SetText: kbutt
+                s" 0" SetText: kbutt
 
                self Start: lbutt
                 225 165 15 22 Move: lbutt
                 Handle: Winfont SetFont: lbutt
-                s" l" SetText: lbutt
+                s" P" SetText: lbutt
 
                 self Start: mbutt
                 245 165 15 22 Move: mbutt
                 Handle: Winfont SetFont: mbutt
-                s" m" SetText: mbutt
+                s" r" SetText: mbutt
 
                 self Start: nbutt
                 265 165 15 22 Move: nbutt
                 Handle: Winfont SetFont: nbutt
-                s" n" SetText: nbutt
+                s" e" SetText: nbutt
 
                 self Start: obutt
                 285 165 15 22 Move: obutt
                 Handle: Winfont SetFont: obutt
-                s" o" SetText: obutt
+                s" s" SetText: obutt
 
                 self Start: pbutt
                 305 165 15 22 Move: pbutt
                 Handle: Winfont SetFont: pbutt
-                s" p" SetText: pbutt
+                s" s" SetText: pbutt
 
                 self Start: qbutt
                 325 165 15 22 Move: qbutt
                 Handle: Winfont SetFont: qbutt
-                s" q" SetText: qbutt
+                s" +" SetText: qbutt
 
                 self Start: rbutt
                 345 165 15 22 Move: rbutt
                 Handle: Winfont SetFont: rbutt
-                s" r" SetText: rbutt
+                s" c" SetText: rbutt
 
               self Start: sbutt
                 365 165 15 22 Move: sbutt
                 Handle: Winfont SetFont: sbutt
-                s" s" SetText: sbutt
+                s" l" SetText: sbutt
 
                 self Start: tbutt
                 385 165 15 22 Move: tbutt
                 Handle: Winfont SetFont: tbutt
-                s" t" SetText: tbutt
+                s" c" SetText: tbutt
 
                self Start: ubutt
                 405 165 15 22 Move: ubutt
                 Handle: Winfont SetFont: ubutt
-                s" u" SetText: ubutt
+                s" k" SetText: ubutt
 
                self Start: vbutt
                 425 165 15 22 Move: vbutt
                 Handle: Winfont SetFont: vbutt
-                s" v" SetText: vbutt
+                s" A" SetText: vbutt
 
                 self Start: wbutt
                 445 165 15 22 Move: wbutt
                 Handle: Winfont SetFont: wbutt
-                s" w" SetText: wbutt
+                s" d" SetText: wbutt
 
                self Start: xbutt
                 465 165 15 22 Move: xbutt
                 Handle: Winfont SetFont: xbutt
-                s" x" SetText: xbutt
+                s" d" SetText: xbutt
 
               self Start: ybutt
                 485 165 15 22 Move: ybutt
                 Handle: Winfont SetFont: ybutt
-                s" y" SetText: ybutt
+                s" 2" SetText: ybutt
 
               self Start: zbutt
                 505 165 15 22 Move: zbutt
                 Handle: Winfont SetFont: zbutt
-                s" z" SetText: zbutt
+                s" B" SetText: zbutt
 
 
 
@@ -641,7 +639,7 @@ Font WinFont
                 0 0 GetSize: self Addr:  FrmColor FillArea: dc
                 5 72  s" Stack 2" TextOut: dc
                 5 31  s" Stack 1"  TextOut: dc
-                525 31 s" Prev Stack" TextOut: dc
+                525 31 s" No Idea" TextOut: dc
                 ;M
 ;Object
 
