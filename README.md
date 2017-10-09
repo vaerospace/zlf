@@ -1,6 +1,8 @@
 # zlf
 zero length compressor
-See wiki page for details and explanations of XOR stack logic technology
+# XOR stack logic technology
+https://steemit.com/life/@vaerospace/zero-length-files-explained-for-dummies-clear-and-simple-for-everyone
+https://www.youtube.com/watch?v=NiHhzHvJpaQ
 intro video  https://dtube.video/v/vaerospace/sf067rhy
 
 Exciting new code coming in 2017 should be ready in days
