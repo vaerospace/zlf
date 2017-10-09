@@ -2,7 +2,8 @@
 
 \ xor chars on compare stack and add subtract for linearity
 \ anew avaero-   ver 2014
-\ hitting Addto stack again will execute the contents stored in the vars
+\ hitting Addto stack again will execute the contents stored in the vars I was experimenting
+\ so the behavious can be changed by changing which vars are used to build S1
 create box 1024 allot
  variable vtext
  variable vnext
