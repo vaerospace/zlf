@@ -1,14 +1,14 @@
 \ THIS FILE INTILISES THE SYSTEM AND IS THE HEART OF THE ZLF SYSTEM
-\ REQUIERED BY AZLF.F TO COMPILE .EXE   
+\ REQUIERED BY AZLF.F TO COMPILE .EXE
 \ YOU NEED 3 FILES TO COMPILE THIS APPLICATION aaall.f amenuron.f azlf.f
-\ jstyle  v2.0.1 (lasukang)
-\ ver 10.0 (1 pos marker kernel private) vaerosoft
-\ kernel 10.0.0 (beta )
+\ jstyle  v3.0.0 (2017NewZLF)
+\ ver 11.0 (1 pos marker kernel private) vaerosoft
+\ kernel 11.0.0 (beta )
 \ needs woxtable
-\ vocabulary vaero1
+\ vocabulary vaero1 --- Were going Faster
 create woxbuff 1024 allot
 
-\ current state
+\ current state == now known as stack 1
 variable ax   variable kx   variable  ux
 variable bx   variable lx   variable  vx
 variable cx   variable mx   variable  wx
@@ -20,7 +20,7 @@ variable hx   variable rx   variable  sp2
 variable ix   variable sx   variable  sp3
 variable jx   variable tx   variable  sp4
 
-\ full compile state
+\ full compile stack 1 prev
 variable axa   variable kxa   variable  uxa
 variable bxa   variable lxa   variable  vxa
 variable cxa   variable mxa   variable  wxa
@@ -31,7 +31,7 @@ variable gxa   variable qxa   variable  sp1a
 variable hxa   variable rxa   variable  sp2a
 variable ixa   variable sxa   variable  sp3a
 variable jxa   variable txa   variable  sp4a
-\ marker state
+\ marker state stack 1 prev-prev
 variable axb   variable kxb   variable  uxb
 variable bxb   variable lxb   variable  vxb
 variable cxb   variable mxb   variable  wxb
@@ -42,7 +42,7 @@ variable gxb   variable qxb   variable  sp1b
 variable hxb   variable rxb   variable  sp2b
 variable ixb   variable sxb   variable  sp3b
 variable jxb   variable txb   variable  sp4b
-\ intermediate marker state
+\ intermediate marker state  -- stack1 prev-prev test results
 variable axc   variable kxc   variable  uxc
 variable bxc   variable lxc   variable  vxc
 variable cxc   variable mxc   variable  wxc
@@ -53,7 +53,7 @@ variable gxc   variable qxc   variable  sp1c
 variable hxc   variable rxc   variable  sp2c
 variable ixc   variable sxc   variable  sp3c
 variable jxc   variable txc   variable  sp4c
-\ lastmarker two
+\ lastmarker - prev          --stack 1 prev-prev test results two
 variable axd   variable kxd   variable  uxd
 variable bxd   variable lxd   variable  vxd
 variable cxd   variable mxd   variable  wxd

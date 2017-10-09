@@ -445,7 +445,7 @@ Font WinFont
                 self Start: FtoCbutt
                 5 205 110 22 Move: FtoCbutt
                Handle: Winfont SetFont: FtoCbutt
-                s"  Infinity " SetText: FtoCbutt
+                s"  ZERO THE SYSTEM" SetText: FtoCbutt
 
                self Start: FullInitialise
                 150 205 110 22 Move: FullInitialise
@@ -506,17 +506,17 @@ Font WinFont
                   self Start: ibutt
                 165 165 15 22 Move: ibutt
                Handle: Winfont SetFont: ibutt
-                s" 8" SetText: ibutt
+                s" 9" SetText: ibutt
 
                   self Start: jbutt
                 185 165 15 22 Move: jbutt
                 Handle: Winfont SetFont: jbutt
-                s" 9" SetText: jbutt
+                s" 0" SetText: jbutt
 
                   self Start: kbutt
                 205 165 15 22 Move: kbutt
                 Handle: Winfont SetFont: kbutt
-                s" 0" SetText: kbutt
+                s"  +" SetText: kbutt
 
                self Start: lbutt
                 225 165 15 22 Move: lbutt

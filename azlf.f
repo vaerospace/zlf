@@ -1,8 +1,8 @@
-\ Newzlf2017  vaerospace 2017 version 3.0 .1 (alpha )
-\ This is the file you use to do a F12 compile in win32forth
+\ lasukang  vaerospace dec2015 version 2.0 .5 (beta )
 
 \ xor chars on compare stack and add subtract for linearity
 \ anew avaero-   ver 2014
+\ hitting Addto stack again will execute the contents stored in the vars
 create box 1024 allot
  variable vtext
  variable vnext
@@ -135,7 +135,7 @@ getid: zbutt of
 endof
 
  getid: ftocbutt of
-
+       dozero
 
     ax @    (.)
    settext: Inbox
@@ -222,8 +222,7 @@ endof
 
      sp2 @     (.)
     settext: InBoxsp2
-
-        getset
+\       getset
      endof
 
 
@@ -429,7 +428,7 @@ getid: zipstack of
 
 
 
-     doset
+ \    doset
      endof
 
  getid: test of
@@ -438,7 +437,7 @@ getid: zipstack of
 
   endcase
 
-        ;
+        ;  \ end of the main procedurural loop
 
 MENUBAR wox
     POPUP "File"
@@ -483,8 +482,8 @@ msgBox: aeron1 ;
 
 \ also trantor
 
-' apmes   turnkey 2017newtests4.exe
-  s" C:\USERS\VAEROSPACE\DESKTOP\FORTH\favicon.ico" s" 2017newtests4.exe" AddAppIcon
+' apmes   turnkey 2017newtests5.exe
+  s" C:\USERS\VAEROSPACE\DESKTOP\FORTH\favicon.ico" s" 2017newtests5.exe" AddAppIcon
 \ change path to location of your icon and make sure to change your exe name in AddAppIcon"
 
 \ : isone   aa @  1 = if true ." yes"  else ." no"  then  ;
