@@ -1,3 +1,11 @@
+\ forward state flag tells us if sp has more than on solution and modifies the UPZIP so only one solution
+\ exists for the UNZIP
+\ the  3 ASCII flags tell us whether the char has 1 2 or 3 digits
+\ the repeat flags tell us how many repeat DIGITS up to 10
+\ and then the repeat sytem unzips those digits and add those
+\ repeated chars to the upzipped file and subtracts no from main index counter
+\ the index flags tells us to store S1 (and output) as INDEX and check the subindex stack (advanced)
+
 : dowox axx  bxx   cxx  dxx  exx  fxx  gxx  hxx  ixx  jxx  kxx  lxx  mxx
  nxx  oxx  pxx  qxx  rxx  sxx  txx  uxx  vxx   wxx zlfxx  yxx  zxx  ;
 
