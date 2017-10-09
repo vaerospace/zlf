@@ -7,6 +7,7 @@
 \ the index flags tells us to store S1 (and output) as INDEX and check the subindex stack (advanced)
 \ TO MASSIIVLY REV UP THE SYSTEM , THE FIRST 5 REPEATS ARE FLAGS
 \ only after than is the number stack used
+\ unzip ambiguities can be flageed both can be added only the flagged solution used
 
 : dowox axx  bxx   cxx  dxx  exx  fxx  gxx  hxx  ixx  jxx  kxx  lxx  mxx
  nxx  oxx  pxx  qxx  rxx  sxx  txx  uxx  vxx   wxx zlfxx  yxx  zxx  ;
