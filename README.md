@@ -4,6 +4,13 @@ See wiki page for details and explanations of XOR stack logic technology
 intro video  https://dtube.video/v/vaerospace/sf067rhy
 
 Exciting new code coming in 2017 should be ready in days
+<h1>Creating your Bug Free  ZLF EXE from source code</h1>
+<h2>Is EXTREMELY EASY and takes 5 Minutes  !! Just watch the video !!</h2>
+<p>https://www.youtube.com/watch?v=iHom3YXJIOE&feature=youtu.be</p>
+<hr>
+
+
+
 
 new post explaining the 2017 breakthrough and the uncoming fuctional code changes
 https://steemit.com/zlf/@vaerospace/solving-the-zero-length-file-riddle
