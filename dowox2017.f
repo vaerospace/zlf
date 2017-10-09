@@ -1,4 +1,3 @@
-\ added for dev
 : dowox axx  bxx   cxx  dxx  exx  fxx  gxx  hxx  ixx  jxx  kxx  lxx  mxx
  nxx  oxx  pxx  qxx  rxx  sxx  txx  uxx  vxx   wxx zlfxx  yxx  zxx  ;
 
@@ -35,3 +34,6 @@
 : dobuff1  noop ;
 : doxb   ax  bx  cx  dx  ex  fx  gx  hx  ix  jx
     kx  lx  mx  nx  ox  px  qx  rx  sx  tx   ux  vx  wx  zlfx  yx   zx woxbuff c! ;
+: dozero 0 ax ! 0 bx ! 0 cx ! 0 dx ! 0 ex ! 0 fx ! 0 gx ! 0 hx ! 0 ix !   0 jx !
+   0 kx ! 0 lx ! 0 mx ! 0 nx ! 0 ox ! 0 px ! 0 qx ! 0 rx ! 0 sx ! 0 tx ! 0 ux ! 0 vx ! 0 wx ! 0 zlfx !
+0  yx  !  0 zx !  ;
