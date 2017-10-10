@@ -75,6 +75,7 @@ variable a    variable b   variable c variable d
                    3 of doupzipasciichar3 endof
                                  endcase
                                      ;
+: ascount woxup count ascii123 ;  \ how many ascii code chars to bang onto S1
 
 \ : whichascii    c@   3 = if doupzipasciichar3
      \                      2 =  if doupzipasciichar2
