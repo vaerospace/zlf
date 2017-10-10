@@ -4,11 +4,6 @@ create woxup
 variable a    variable b   variable c variable d variable e
 
 \ : ts1 ( intitial zlf char pile ) cr woxup 512  expect  cr woxup span @  type  cr span ?  # #  ." letters typed"  ;
-
-\ put char a in zlf as 9 first the 7 requires splitting and knowing how many digits in the ascii char code
-
-
-
 : >string  >r dup >r abs s>d <# #s r> sign #> r@ char+ swap dup >r cmove r> r> c! ;
 ( n a -- )
 
@@ -24,19 +19,16 @@ variable a    variable b   variable c variable d variable e
 \ : ?repeats  \ anything on stack if so is this char = last char ? not finished yet
 : shw      woxup  >string woxup count  c ! ( the number of digits ) drop ;  \  the code that worked
 
-
-
-: woks  a @ . b @ . c @ . ;
 : stt      dup e !  ;
 : zed1   stt shw ;
 
 : doupzip case
  48 of axx  endof
- 49 of bxx endof
+ 49 of bxx  endof
  50 of cxx  endof
  51 of dxx  endof
  52 of exx  endof
- 53 of fxx    endof
+ 53 of fxx  endof
  54 of gxx  endof
  55 of hxx  endof
  56 of ixx  endof
@@ -44,13 +36,13 @@ variable a    variable b   variable c variable d variable e
 
             endcase ;
 
-: doupzipasciichar1  \ has 1 digits
-                     kxx    woxup 2 +  c@ doupzip
+: doupzipasciichar1  \ has 1 digit
+                 kxx    woxup 2 +  c@ doupzip
                                      ;
 
 : doupzipasciichar2 \ has 2 digits
-                  kxx   woxup 2 + c@   doupzip
-                  lxx   woxup 1 + c@  doupzip
+                 kxx   woxup 2 +   c@  doupzip
+                 lxx   woxup 1 +   c@  doupzip
                                  \ still needs stack flags
                                      ;
 : doupzipasciichar3   \ has 3 digits
@@ -75,5 +67,6 @@ variable a    variable b   variable c variable d variable e
 : sht      doupzipasciichar3  ;
 : test shw shr sht doaero ;
 : runx zed1 ascount ; \ main start word need number between 0 and 255 use : zlfclear   to zero stack
-\  to test  type:      244 runx      or some ascii decimal code     TO check result type:     doaero
+\  to test F12 this file
+\  type:      244 runx      or some ascii decimal code     TO check result type:     doaero
 
