@@ -38,34 +38,6 @@ variable a    variable b   variable c variable d
 : woks  a @ . b @ . c @ . ;
 \ flush woxip buffer to check how many digits in ascii char code 1 2 or 3
 \  : doasciicount   case
-: ascii123    case
-                   1 of doupzipasciichar1 endof
-                   2 of doupzipasciichar2 endof
-                   3 of doupzipasciichar3 endof
-                                 endcase
-                                     ;
-
-: doupzipasciichar1  \ has 1 digits
-                     a @ doupzip   \  stack flags
-                                     ;
-
-: doupzipasciichar2 \ has 2 digits
-                     a @  doupzip
-                     b @  doupzip
-                                 \ still needs stack flags
-                                     ;
-: doupzipasciichar3   \ has 3 digits
-                     a @  doupzip
-                     b @  doupzip
-                     d @  doupxip
-                             \ include  stack flags will ya
-                                     ;
-: whichascii    c@   3 = if doupzipasciichar3
-                           2 =  if doupzipasciichar2
-                               1=  if doupzipasciichar1
-                              then then then ;
-
-
 : doupzip case
  48 of ax endof
  49 of bx endof
@@ -79,6 +51,37 @@ variable a    variable b   variable c variable d
  57 of jx endof
 
             endcase ;
+
+: doupzipasciichar1  \ has 1 digits
+                        a @ doupzip
+                                     ;
+
+: doupzipasciichar2 \ has 2 digits
+                     a @  doupzip
+                     b @  doupzip
+                                 \ still needs stack flags
+                                     ;
+: doupzipasciichar3   \ has 3 digits
+                     a @  doupzip
+                     b @  doupzip
+                     d @  doupzip
+                             \ include  stack flags will ya
+                                     ;
+
+: ascii123    case
+                   1 of doupzipasciichar1 endof
+                   2 of doupzipasciichar2 endof
+                   3 of doupzipasciichar3 endof
+                                 endcase
+                                     ;
+
+: whichascii    c@   3 = if doupzipasciichar3
+                           2 =  if doupzipasciichar2
+                               1 =  if doupzipasciichar1
+                              then then then ;
+
+
+
 
 \     woxup 1 +  c@ emit 9 ok
 
