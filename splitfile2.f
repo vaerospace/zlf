@@ -46,23 +46,24 @@ variable a    variable b   variable c variable d
                                      ;
 
 : doupzipasciichar1  \ has 1 digits
-                     a @ of doupzip  endof
-
-                             endcase
+                     a @ doupzip   \  stack flags
                                      ;
 
 : doupzipasciichar2 \ has 2 digits
-                     a @ of doupzip  endof
-                     b @ of doupzip  endof
-
-                             endcase
+                     a @  doupzip
+                     b @  doupzip
+                                 \ still needs stack flags
                                      ;
 : doupzipasciichar3   \ has 3 digits
-                     a @ of doupzip  endof
-                     b @ of doupzip  endof
-                     d @ of doupxip  endof
-                             endcase
+                     a @  doupzip
+                     b @  doupzip
+                     d @  doupxip
+                             \ include  stack flags will ya
                                      ;
+: whichascii    c@   3 = if doupzipasciichar3
+                           2 =  if doupzipasciichar2
+                               1=  if doupzipasciichar1
+                              then then then ;
 
 
 : doupzip case
