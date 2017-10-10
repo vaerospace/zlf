@@ -36,7 +36,8 @@ variable a    variable b   variable c variable d variable e
 \ : shx      woxup 3 +  c@  d !  ;
 
 : woks  a @ . b @ . c @ . ;
-: stt      2dup e ! shw ;
+: stt      dup e !  ;
+: zed1   stt shw ;
 
   \ count c !  not C@ store not worling ascii123  fix IT now
 \ flush woxip buffer to check how many digits in ascii char code 1 2 or 3
@@ -88,6 +89,7 @@ variable a    variable b   variable c variable d variable e
 : shr      doupzipasciichar2  ;
 : sht      doupzipasciichar3  ;
 : test shw shr sht doaero ;
+: runx zed1 ascount ; \ main start word need number between 0 and 255 use : zlfclear   to zero stack
 
 \     woxup 1 +  c@ emit 9 ok
 
