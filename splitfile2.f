@@ -31,12 +31,12 @@ variable a    variable b   variable c variable d
 
 \ num$ count type cr
 
-: shw   woxup  >string woxup count c ! ( the number of digits ) drop ;  \  the code that worked
+: shw   woxup  >string woxup count  c ! ( the number of digits ) drop ;  \  the code that worked
 : shr      woxup 2 +  c@  a !  ;
 : sht      woxup 1 +  c@  b !  ;
 : shx      woxup 3 +  c@  d !  ;
 : woks  a @ . b @ . c @ . ;
-  \ dont forget the argument
+  \ count c !  not C@ store not worling ascii123  fix IT now
 \ flush woxip buffer to check how many digits in ascii char code 1 2 or 3
 \  : doasciicount   case
 : doupzip case
@@ -69,7 +69,7 @@ variable a    variable b   variable c variable d
                              \ include  stack flags will ya
                                      ;
 
-: ascii123    case
+: ascii123    case   \ argument is :: woxup count
                    1 of doupzipasciichar1 endof
                    2 of doupzipasciichar2 endof
                    3 of doupzipasciichar3 endof
