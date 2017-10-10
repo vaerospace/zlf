@@ -36,24 +36,25 @@ variable a    variable b   variable c variable d
 : sht      woxup 1 +  c@  b !  ;
 : shx      woxup 3 +  c@  d !  ;
 : woks  a @ . b @ . c @ . ;
+  \ dont forget the argument
 \ flush woxip buffer to check how many digits in ascii char code 1 2 or 3
 \  : doasciicount   case
 : doupzip case
- 48 of ax endof
- 49 of bx endof
- 50 of cx endof
- 51 of dx endof
- 52 of ex endof
- 53 of fx endof
- 54 of gx endof
- 55 of hx endof
- 56 of ix endof
- 57 of jx endof
+ 48 of axx  endof
+ 49 of bxx endof
+ 50 of cxx  endof
+ 51 of dxx  endof
+ 52 of exx  endof
+ 53 of fxx    endof
+ 54 of gxx  endof
+ 55 of hxx  endof
+ 56 of ixx  endof
+ 57 of jxx  endof
 
             endcase ;
 
 : doupzipasciichar1  \ has 1 digits
-                        a @ doupzip
+                         woxup 2 +  c@ doupzip
                                      ;
 
 : doupzipasciichar2 \ has 2 digits
@@ -75,13 +76,13 @@ variable a    variable b   variable c variable d
                                  endcase
                                      ;
 
-: whichascii    c@   3 = if doupzipasciichar3
-                           2 =  if doupzipasciichar2
-                               1 =  if doupzipasciichar1
-                              then then then ;
+\ : whichascii    c@   3 = if doupzipasciichar3
+     \                      2 =  if doupzipasciichar2
+        \                       1 =  if doupzipasciichar1
+             \                 then then then ;
 
 
-
+: test shw shr sht doaero ;
 
 \     woxup 1 +  c@ emit 9 ok
 
