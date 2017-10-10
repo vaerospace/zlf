@@ -1,4 +1,4 @@
-baaall2017.f
+needs baaall2017.f
 create woxup
 \ variable zlf   variable zlf1  variable zlf2   variable intzed
 variable a    variable b   variable c variable d
