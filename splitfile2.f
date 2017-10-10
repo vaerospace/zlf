@@ -1,7 +1,7 @@
 baaall2017.f
 create woxup
 \ variable zlf   variable zlf1  variable zlf2   variable intzed
-variable a    variable b   variable c
+variable a    variable b   variable c variable d
 \ : ax   a @ . b @ . c @ . ;
 \ : ts1 ( intitial zlf char pile ) cr woxup 512  expect  cr woxup span @  type  cr span ?  # #  ." letters typed"  ;
 
@@ -31,10 +31,40 @@ variable a    variable b   variable c
 
 \ num$ count type cr
 
-: shw   woxup  >string woxup count c ! drop ;  \  the code that worked
+: shw   woxup  >string woxup count c ! ( the number of digits ) drop ;  \  the code that worked
 : shr      woxup 2 +  c@  a !  ;
 : sht      woxup 1 +  c@  b !  ;
+: shx      woxup 3 +  c@  d !  ;
 : woks  a @ . b @ . c @ . ;
+\ flush woxip buffer to check how many digits in ascii char code 1 2 or 3
+\  : doasciicount   case
+: ascii123    case
+                   1 of doupzipasciichar1 endof
+                   2 of doupzipasciichar2 endof
+                   3 of doupzipasciichar3 endof
+                                 endcase
+                                     ;
+
+: doupzipasciichar1  \ has 1 digits
+                     a @ of doupzip  endof
+
+                             endcase
+                                     ;
+
+: doupzipasciichar2 \ has 2 digits
+                     a @ of doupzip  endof
+                     b @ of doupzip  endof
+
+                             endcase
+                                     ;
+: doupzipasciichar3   \ has 3 digits
+                     a @ of doupzip  endof
+                     b @ of doupzip  endof
+                     d @ of doupxip  endof
+                             endcase
+                                     ;
+
+
 : doupzip case
  48 of ax endof
  49 of bx endof
