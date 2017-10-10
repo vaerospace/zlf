@@ -58,14 +58,14 @@ variable a    variable b   variable c variable d
                                      ;
 
 : doupzipasciichar2 \ has 2 digits
-                     a @  doupzip
-                     b @  doupzip
+                     woxup 2 + c@   doupzip
+                     woxup 1 + c@  doupzip
                                  \ still needs stack flags
                                      ;
 : doupzipasciichar3   \ has 3 digits
-                     a @  doupzip
-                     b @  doupzip
-                     d @  doupzip
+                     woxup 2 +  c@  doupzip
+                     woxup 1 +  c@  doupzip
+                     woxup 3 +  c@  doupzip
                              \ include  stack flags will ya
                                      ;
 
