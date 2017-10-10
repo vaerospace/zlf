@@ -1,7 +1,7 @@
 needs baaall2017.f
 create woxup
 \ variable zlf   variable zlf1  variable zlf2   variable intzed
-variable a    variable b   variable c variable d
+variable a    variable b   variable c variable d variable e
 \ : ax   a @ . b @ . c @ . ;
 \ : ts1 ( intitial zlf char pile ) cr woxup 512  expect  cr woxup span @  type  cr span ?  # #  ." letters typed"  ;
 
@@ -30,12 +30,14 @@ variable a    variable b   variable c variable d
 \ -1024 num$ >string
 
 \ num$ count type cr
+\ : ?repeats  \ anything on stack if so is this char = last char ?
+: shw      woxup  >string woxup count  c ! ( the number of digits ) drop ;  \  the code that worked
 
-: shw   woxup  >string woxup count  c ! ( the number of digits ) drop ;  \  the code that worked
-: shr      woxup 2 +  c@  a !  ;
-: sht      woxup 1 +  c@  b !  ;
-: shx      woxup 3 +  c@  d !  ;
+\ : shx      woxup 3 +  c@  d !  ;
+
 : woks  a @ . b @ . c @ . ;
+: stt      2dup e ! shw ;
+
   \ count c !  not C@ store not worling ascii123  fix IT now
 \ flush woxip buffer to check how many digits in ascii char code 1 2 or 3
 \  : doasciicount   case
@@ -82,7 +84,9 @@ variable a    variable b   variable c variable d
         \                       1 =  if doupzipasciichar1
              \                 then then then ;
 
-
+: sh1      doupzipasciichar1 ;
+: shr      doupzipasciichar2  ;
+: sht      doupzipasciichar3  ;
 : test shw shr sht doaero ;
 
 \     woxup 1 +  c@ emit 9 ok
