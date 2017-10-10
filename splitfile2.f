@@ -54,18 +54,18 @@ variable a    variable b   variable c variable d
             endcase ;
 
 : doupzipasciichar1  \ has 1 digits
-                         woxup 2 +  c@ doupzip
+                     kxx    woxup 2 +  c@ doupzip
                                      ;
 
 : doupzipasciichar2 \ has 2 digits
-                     woxup 2 + c@   doupzip
-                     woxup 1 + c@  doupzip
+                  kxx   woxup 2 + c@   doupzip
+                  lxx   woxup 1 + c@  doupzip
                                  \ still needs stack flags
                                      ;
 : doupzipasciichar3   \ has 3 digits
-                     woxup 2 +  c@  doupzip
-                     woxup 1 +  c@  doupzip
-                     woxup 3 +  c@  doupzip
+                 kxx    woxup 2 +  c@  doupzip
+                 lxx    woxup 1 +  c@  doupzip
+                 mxx    woxup 3 +  c@  doupzip
                              \ include  stack flags will ya
                                      ;
 
