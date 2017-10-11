@@ -1,16 +1,15 @@
 \ Make sue you are in this file when compiling using F12
-\ NewZLF2017  vaerospace dec2015 version 3.0 .0 ( Alpha )
+\ NewZLF2017  vaerospace 2017 version 3.0 .2 ( Alpha )
 
-\ xor chars on compare stack and add subtract for linearity
-\ anew avaero-   ver 2014
-\ hitting Addto stack again will execute the contents stored in the vars I was experimenting
+
+\  (deprecated) hitting Addto stack again will execute the contents stored in the vars I was experimenting
 \ so the behavious can be changed by changing which vars are used to build S1
 create box 1024 allot
  variable vtext
  variable vnext
-\ 0 vtext !
+
  1 vnext !
-\ needs micator
+
 needs NewConsole.f
 needs amenuron.f
 needs baaall2017.f
@@ -18,7 +17,7 @@ needs aaaspecfind.f
 needs aaaspec.f
 needs exutils
 needs dowox2017.f
-\  needs aaaspec.f
+
 
 create wox1 1024 allot
 \ : 2next  1 vnext ! ; \ key press twice already
