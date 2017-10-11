@@ -107,74 +107,411 @@ variable jxd   variable txd   variable  sp4d
 1 jxa ! 1 txa !        ;
 
 
-
-\ initialiser ...layer 1 change of n
-: axx     ( n1 - n2 )   \ DATA STACK  DIGIT ONE [SP1]
+: axx     ( n1 - n2 )
      ax @ 1 xor  ax !
-       ;
-: bxx     ( n1 - n2 )   \ DATA STACK  DIGIT TWO [SP1]
-
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+      1 axa !   ;
+: bxx     ( n1 - n2 )
+     ax @ 0 xor  ax !
      bx @ 1 xor  bx !
-     ;
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 bxb ! ;
 
 
 
-: cxx     ( n1 - n2 )    \ DATA STACK  DIGIT THREE [SP1]
-
+: cxx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
      cx @ 1 xor  cx !
-     ;
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 cxb ! ;
 
-: dxx     ( n1 - n2 )     \ DATA STACK  DIGIT FOUR [SP1]
-
+: dxx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
      dx @ 1 xor  dx !
-      ;
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 dxb ! ;
 
-: exx     ( n1 - n2 )       \ DATA STACK  DIGIT FIVE [SP1]
+: exx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 1 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 exb ! ;
 
-      ex @ 1 xor  ex !
-      ;
 
+: fxx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 1 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 fxb ! ;
 
-: fxx     ( n1 - n2 )       \ DATA STACK  DIGIT SIX [SP1]
-
-    fx @ 1 xor  fx !
-      ;
-
-: gxx     ( n1 - n2 )       \ DATA STACK  DIGIT 7   [SP1]
-
+: gxx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
      gx @ 1 xor  gx !
-      ;
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 gxb ! ;
 
-: hxx     ( n1 - n2 )     \ DATA STACK  DIGIT EIGHT [SP1]
-
+: hxx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
      hx @ 1 xor  hx !
-      ;
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 hxb ! ;
 
-: ixx     ( n1 - n2 )     \ DATA STACK  DIGIT NINE [SP1]
-
+: ixx     ( n1 - n2 )
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
      ix @ 1 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 hxb ! ;
 
-      ;
-
-: jxx     ( n1 - n2 )      \ Last DATA DIGIT  ZERO [SP1]
-
+: jxx     ( n1 - n2 )  \ Last DATA DIGIT
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
      jx @ 1 xor  jx !
-      ;
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 jxb ! ;
 
-: kxx     ( n1 - n2 )    \ Ascii  Flag 1
-
+: kxx     ( n1 - n2 )  \ Forward State Flag 1
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
      kx @ 1 xor  kx !    \ ASCII FLAG 1 if char has One digit
-     ;
+     lx @ 0 xor  lx !
+     mx @ 0 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 kxb ! ;
 
-: lxx     ( n1 - n2 )    \ Ascii flag 2
+: lxx     ( n1 - n2 ) \ Ascii flag 2
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 1 xor  lx !   \ ASCII FLAG 2 if char has two digits
+     mx @ 1 xor  mx !
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 lxb ! ;
 
-     lx @ 1 xor  lx !    \ ASCII FLAG 2 if char has two digits
-     ;
-
-: mxx     ( n1 - n2 )     \ Ascii Flag 3
-
+: mxx     ( n1 - n2 )  \ M is now  Ascii Flag 3
+     ax @ 0 xor  ax !
+     bx @ 0 xor  bx !
+     cx @ 0 xor  cx !
+     dx @ 0 xor  dx !
+     ex @ 0 xor  ex !
+     fx @ 0 xor  fx !
+     gx @ 0 xor  gx !
+     hx @ 0 xor  hx !
+     ix @ 0 xor  ix !
+     jx @ 0 xor  jx !
+     kx @ 0 xor  kx !
+     lx @ 0 xor  lx !
      mx @ 1 xor  mx !     \ ASCII FLAG 3 if char has three digit
-     ;
+     nx @ 0 xor  nx !
+     ox @ 0 xor  ox !
+     px @ 0 xor  px !
+     qx @ 0 xor  qx !
+     rx @ 0 xor  rx !
+     sx @ 0 xor  sx !
+     tx @ 0 xor  tx !
+     ux @ 0 xor  ux !
+     vx @ 0 xor  vx !
+     wx @ 0 xor  wx !
+     zlfx @ 0 xor zlfx !
+     yx @ 0 xor  yx !
+     zx @ 0 xor zx !
+     sp1 @ 0 xor sp1 !
+     sp2 @ 0 xor sp2 !
+     1 mxb ! ;
+
 
 : nxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -604,7 +941,7 @@ variable jxd   variable txd   variable  sp4d
 \ : dobuff ( intitial zlf char pile ) cr woxbuff 140  expect  cr woxbuff span @  type  cr span ?   ." letters typed"  ;
 : dobuff1  noop ;
 : doxb   ax  bx  cx  dx  ex  fx  gx  hx  ix  jx
-    kx  lx  mx  nx  ox  px  qx  rx  sx  tx   ux  vx  wx  zlfx  yx   zx woxbuff c! ;
+    kx  lx  mx  nx  ox  px  qx  rx  sx  tx   ux  vx  wx  zlfx  yx   zx  ;
 
 
 
