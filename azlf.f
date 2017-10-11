@@ -1,4 +1,5 @@
-\ lasukang  vaerospace dec2015 version 2.0 .5 (beta )
+\ Make sue you are in this file when compiling using F12
+\ NewZLF2017  vaerospace dec2015 version 3.0 .0 ( Alpha )
 
 \ xor chars on compare stack and add subtract for linearity
 \ anew avaero-   ver 2014
