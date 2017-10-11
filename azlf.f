@@ -1,4 +1,4 @@
-\ Make sue you are in this file when compiling using F12
+\ Make sure you are in this file when compiling using F12
 \ NewZLF2017  vaerospace 2017 version 3.0 .2 ( Alpha )
 
 
