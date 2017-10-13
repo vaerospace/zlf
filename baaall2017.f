@@ -60,10 +60,22 @@ variable cxd   variable mxd   variable  wxd
 variable dxd   variable nxd   variable  zlfxd
 variable exd   variable oxd   variable  yxd
 variable fxd   variable pxd   variable  zxd
-variable gxg   variable qxd   variable  sp1d
+variable gxd   variable qxd   variable  sp1d
 variable hxd   variable rxd   variable  sp2d
 variable ixd   variable sxd   variable  sp3d
 variable jxd   variable txd   variable  sp4d
+\ lastmarker - prev          --stack 1 prev-prev test results two
+variable xad   variable xkd   variable  xud
+variable xbd   variable xld   variable  xvd
+variable xcd   variable xmd   variable  xwd
+variable xdd   variable xnd   variable  xxd
+variable xed   variable xod   variable  xyd
+variable xfd   variable xpd   variable  xzd
+variable xgd   variable xqd   variable  sp1x
+variable xhd   variable xrd   variable  sp2x
+variable xid   variable xsd   variable  sp3x
+variable xjd   variable xtd   variable  sp4x
+
 
 
 
@@ -94,6 +106,43 @@ variable jxd   variable txd   variable  sp4d
 0 ix ! 0 sx !
 0 jx ! 0 tx !        ;
 
+: saclear
+0 axa ! 0 kxa ! 0 uxa !
+0 bxa ! 0 lxa ! 0 vxa !
+0 cxa ! 0 mxa ! 0 wxa !
+0 dxa ! 0 nxa ! 0 zlfxa !
+0 exa ! 0 oxa ! 0 yxa !
+0 fxa ! 0 pxa ! 0 zxa !
+0 gxa ! 0 qxa !
+0 hxa ! 0 rxa !
+0 ixa ! 0 sxa !
+0 jxa ! 0 txa !        ;
+
+: sbclear
+0 axb ! 0 kxb ! 0 uxb !
+0 bxb ! 0 lxb ! 0 vxb !
+0 cxb ! 0 mxb ! 0 wxb !
+0 dxb ! 0 nxb ! 0 zlfxb !
+0 exb ! 0 oxb ! 0 yxb !
+0 fxb ! 0 pxb ! 0 zxb !
+0 gxb ! 0 qxb !
+0 hxb ! 0 rxb !
+0 ixb ! 0 sxb !
+0 jxb ! 0 txb !        ;
+
+: s2clear
+0 axc ! 0 kxc ! 0 uxc !
+0 bxc ! 0 lxc ! 0 vxc !
+0 cxc ! 0 mxc ! 0 wxc !
+0 dxc ! 0 nxc ! 0 zlfxc !
+0 exc ! 0 oxc ! 0 yxc !
+0 fxc ! 0 pxc ! 0 zxc !
+0 gxc ! 0 qxc !
+0 hxc ! 0 rxc !
+0 ixc ! 0 sxc !
+0 jxc ! 0 txc !        ;
+\ cxaall clears al stacks
+: cxaall  zlfclear saclear sbclear s2clear ;
 : ezlf
 1 axa ! 1 kxa ! 1 uxa !
 1 bxa ! 1 lxa ! 1 vxa !
@@ -106,6 +155,9 @@ variable jxd   variable txd   variable  sp4d
 1 ixa ! 1 sxa !
 1 jxa ! 1 txa !        ;
 
+\ : letsfind  \ sets up word for checking
+ \   is it the number on S2  --then ingnore flag  retry
+  \  load number for testing into vars  ---- load SP into vars
 
 : axx     ( n1 - n2 )
      ax @ 1 xor  ax !
@@ -136,7 +188,8 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-      1 axa !   ;
+              ;
+
 : bxx     ( n1 - n2 )
      ax @ 0 xor  ax !
      bx @ 1 xor  bx !
@@ -166,7 +219,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 bxb ! ;
+        ;
 
 
 
@@ -199,7 +252,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 cxb ! ;
+          ;
 
 : dxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -230,7 +283,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 dxb ! ;
+     ;
 
 : exx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -261,7 +314,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 exb ! ;
+          ;
 
 
 : fxx     ( n1 - n2 )
@@ -293,7 +346,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 fxb ! ;
+      ;
 
 : gxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -324,7 +377,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 gxb ! ;
+      ;
 
 : hxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -355,7 +408,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 hxb ! ;
+          ;
 
 : ixx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -386,7 +439,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 hxb ! ;
+             ;
 
 : jxx     ( n1 - n2 )  \ Last DATA DIGIT
      ax @ 0 xor  ax !
@@ -417,7 +470,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 jxb ! ;
+               ;
 
 : kxx     ( n1 - n2 )  \ Forward State Flag 1
      ax @ 0 xor  ax !
@@ -448,7 +501,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 kxb ! ;
+                ;
 
 : lxx     ( n1 - n2 ) \ Ascii flag 2
      ax @ 0 xor  ax !
@@ -479,7 +532,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 lxb ! ;
+              ;
 
 : mxx     ( n1 - n2 )  \ M is now  Ascii Flag 3
      ax @ 0 xor  ax !
@@ -510,7 +563,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 mxb ! ;
+             ;
 
 
 : nxx     ( n1 - n2 )
@@ -542,7 +595,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 nxb ! ;
+              ;
 
 : oxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -573,7 +626,7 @@ variable jxd   variable txd   variable  sp4d
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-     1 oxb ! ;
+              ;
 
 : pxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -603,7 +656,8 @@ variable jxd   variable txd   variable  sp4d
      yx @ 0 xor  yx !
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
-     sp2 @ 0 xor sp2 ! ;
+     sp2 @ 0 xor sp2 !
+                 ;
 
 : qxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -633,7 +687,8 @@ variable jxd   variable txd   variable  sp4d
      yx @ 0 xor  yx !
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
-     sp2 @ 0 xor sp2 ! ;
+     sp2 @ 0 xor sp2 !
+                ;
 
 : rxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -663,7 +718,8 @@ variable jxd   variable txd   variable  sp4d
      yx @ 0 xor  yx !
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
-     sp2 @ 0 xor sp2 ! ;
+     sp2 @ 0 xor sp2 !
+                 ;
 
 : sxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -693,7 +749,8 @@ variable jxd   variable txd   variable  sp4d
      yx @ 0 xor  yx !
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
-     sp2 @ 0 xor sp2 ! ;
+     sp2 @ 0 xor sp2 !
+                 ;
 
 : txx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -723,7 +780,8 @@ variable jxd   variable txd   variable  sp4d
      yx @ 0 xor  yx !
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
-     sp2 @ 0 xor sp2 ! ;
+     sp2 @ 0 xor sp2 !
+                  ;
 
 : uxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -907,41 +965,19 @@ variable jxd   variable txd   variable  sp4d
 
 
 
-: dowox axx  bxx   cxx  dxx  exx  fxx  gxx  hxx  ixx  jxx  kxx  lxx  mxx
- nxx  oxx  pxx  qxx  rxx  sxx  txx  uxx  vxx   wxx zlfxx  yxx  zxx  ;
-: getset  ax @  axb ! bx @  bxb !   cx @  cxb !  dx @  dxb ! ex @  exb !  fx @  fxb !  gx @  gxb !
-     hx @  hxb !   ix @  ixb !  jx @  jxb !  kx @  kxb !  lx @  lxb !  mx @  mxb !  nx @  nxb !
-     ox @  oxb !  px @  pxb !  qx @  qxb !   rx @  rxb !  sx @  sxb !  tx @  txb !  ux @  uxb !
-     vx @  vxb !   wx @  wxb !  zlfx @  zlfxb !  yx @  yxb !  zx @  zxb !  ;
+
+: doaero  ax ?  bx ?  cx ?  dx ?  ex ?  fx ?  gx ?  hx ?  ix ?  jx ?
+          kx ?  lx ?  mx ?  nx ?  ox ?  px ?  qx ?  rx ?  sx ?  tx ?  ux ? vx ? wx ? zlfx ? yx ?  zx  ?  sp1 ? ;
+: doxsb  axb ? bxb ? cxb ? dxb ? exb ? fxb ? gxb ? hxb ? ixb ? jxb ?
+         kxb ? lxb ? mxb ? nxb ? oxb ? pxb ? qxb ? rxb ? sxb ? txb ?  uxb ? vxb ? wxb ? zlfxb ? yxb ?  zxb  ?  sp1b ? ;
+: doxs2  axc ? bxc ? cxc ? dxc ? exc ? fxc ? gxc ? hxc ? ixc ? jxc ?
+         kxc ? lxc ? mxc ? nxc ? oxc ? pxc ? qxc ? rxc ? sxc ? txc ?  uxc ? vxc ? wxc ? zlfxc ? yxc ?  zxc  ?  sp1c ? ;
+: doxsa  axa ? bxa ? cxa ? dxa ? exa ? fxa ? gxa ? hxa ? ixa ? jxa ?
+         kxa ? lxa ? mxa ? nxa ? oxa ? pxa ? qxa ? rxa ? sxa ? txa ?  uxa ? vxa ? wxa ? zlfxa ? yxa ?  zxa  ?  sp1a ? ;
+: doxs3  axd ? bxd ? cxd ? dxd ? exd ? fxd ? gxd ? hxd ? ixd ? jxd ?
+         kxd ? lxd ? mxd ? nxd ? oxd ? pxd ? qxd ? rxd ? sxd ? txd ?  uxd ? vxd ? wxd ? zlfxd ? yxd ?  zxd  ?  sp1d ? ;
 
 
-
-: doset ax @ not axb !
-        bx @ not bxb !
-        cx @ not cxb !
-        dx @ not dxb !
-        ex @ not exb !
-        fx @ not fxb !
-        gx @ not gxb !
-        hx @ not hxb !
-        ix @ not ixb !
-        jx @ not jxb !
-        kx @ not kxb !  lx @ not lxb !  mx @ not mxb !  nx @ not nxb !
-     ox @ not oxb !  px @ not pxb !  qx @ not qxb !   rx @ not rxb !  sx @ not sxb !  tx @ not txb !  ux @ not uxb !
-     vx @ not vxb !   wx @ not wxb !  zlfx @ not zlfxb !  yx @ not yxb !  zx @ not zxb !  ;
-
- : doaero  ax ? bx ? cx ? dx ? ex ? fx ? gx ? hx ? ix ? jx ?
-    kx ? lx ? mx ? nx ? ox ? px ? qx ? rx ? sx ? tx ?  ux ? vx ? wx ? zlfx ? yx ?  zx  ?  sp1 ? ;
-
-  \ : doa  ax  @  bx @  cx @  dx @  ex @  fx  @  gx @
- \    hx  @  ix @  jx @  kx @  lx @
-  \   mx @  nx @  ox @  px @  qx @  rx @  sx @
-  \   tx @  ux @  vx  @  wx  @  zlfx @  yx @  zx @
-  \   box c! ;
-\ : dobuff ( intitial zlf char pile ) cr woxbuff 140  expect  cr woxbuff span @  type  cr span ?   ." letters typed"  ;
-: dobuff1  noop ;
-: doxb   ax  bx  cx  dx  ex  fx  gx  hx  ix  jx
-    kx  lx  mx  nx  ox  px  qx  rx  sx  tx   ux  vx  wx  zlfx  yx   zx  ;
 
 
 
