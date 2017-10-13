@@ -42,7 +42,7 @@ needs letsfinishit.f
 
 
 : twww  bxx  csp0 cxx csp1 csp0 c22  hxx csp1 csp0 c22 jxx csp1 csp0 c22 ixx ;
-: doxx doaero cr doxsa cr doxsb cr doxs2 cr dodx ;
+: doxx cr doaero cr doxsa cr doxsb cr doxs2 cr dodx ;
 
 
 
