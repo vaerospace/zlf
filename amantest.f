@@ -1,6 +1,5 @@
 \ do unzip manually profiler  adds doxsp doxs2 to doaero in baaall
 needs baaall2017.f
-needs testbaall1.f
 \ sets up SP in axa and axb
 : cspab   ax @ axa ! axb ! bx @ bxa ! bxb ! cx @ cxa ! cxb ! dx @ dxa ! dxb ! ex @ exa ! exb !
              fx @ fxa ! fxb ! gx @ gxa ! gxb ! hx @ hxa ! hxb ! ix @ ixa ! ixb ! jx @ jxa ! jxb !  ;

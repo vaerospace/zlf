@@ -41,11 +41,15 @@ needs letsfinishit.f
 \  Main test sequence -  UPZIP
 \                             ...  to  *exx* *fxx* *gxx* *hxx* *ixx* *jxx* (5 through 0 )
 \  type :  sx21    <enter>    ///note sx21 puts dxx(4) on the pile unitialised
+\                                bxx csp0 ( move to A ) gxx csp1 csp0 ( save A to B )  c22 ( create S2 )csp3a dxx
 \       :  sx22    <enter>   ///intialises any of the 10 chars-digits  ie :  hxx sx22 <enter>   or jxx sx22 <enter>   ect
+\
 \                               so piling a new char is ie:   fxx sx22 <enter>     press <enter> that type
-\  Main test sequence -  UNZIP
-\                    type::   cx11
+\                               csp1 csp0 ( update a)   c22 ( xor onto NEW CHAR to C)
 
+\  Main test sequence -  UNZIP
+\                    type::
+\
 
 
 
