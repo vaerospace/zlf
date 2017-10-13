@@ -33,23 +33,26 @@ needs amantest.f
                              endcase ;
 \ SET UP STACK REVERSE
 
-: doxt10  axb @ axa ! bxb @ bxa ! cxb @ cxa ! dxb @ dxa ! exb @ exa !
+: doxt10  \ move axb to axa sp to s1 once prevnumber is determined
+          axb @ axa ! bxb @ bxa ! cxb @ cxa ! dxb @ dxa ! exb @ exa !
           fxb @ fxa ! gxb @ gxa ! hxb @ hxa ! ixb @ ixa ! jxb @ jxa !
                  ;
-: doxt77  xad @ axb ! xbd @ bxb ! xcd @ cxb ! xdd @ dxb ! xed @ dxb !
+: doxt77   \ move spp to sp once we have it
+           xad @ axb ! xbd @ bxb ! xcd @ cxb ! xdd @ dxb ! xed @ dxb !
           xfd @ fxb ! xgd @ gxb ! xhd @ hxb ! xid @ ixb ! xjd @ jxb !
                                                    ;
 
-: dotx88  axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
-          axa @ axb @ xor acx !
+: dotx88 \ create new S2
+          axa @ axb @ xor axc !
+          bxa @ bxb @ xor bxc !
+          cxa @ cxb @ xor cxc !
+          dxa @ dxb @ xor dxc !
+          exa @ exb @ xor exc !
+          fxa @ fxb @ xor fxc !
+          gxa @ gxb @ xor gxc !
+          hxa @ hxb @ xor hxc !
+          ixa @ ixb @ xor ixc !
+          jxa @ jxb @ xor jxc !
                               ;
 
 \ we got correct result (4) or dxx / dxx1 now we execute it on SP and put the resuth somewhere pref axb using ****csp4***

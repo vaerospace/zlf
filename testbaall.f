@@ -352,8 +352,8 @@ needs baaall2017.f
 : csp3  xad @ ax ! xbd @ bx ! xcd @ cx ! xdd @ dx ! xed @ ex ! \ move SP to storeB
         xfd @ fx ! xgd @ gx ! xhd @ hx ! xid @ ix ! xjd @ jx !  ;
 
-\ : csp4  xad @ ax ! xbd @ bx ! xcd @ cx ! xdd @ dx ! xed @ ex ! \ move SP to storeB
-\        xfd @ fx ! xgd @ gx ! xhd @ hx ! xid @ ix ! xjd @ jx !  ;
+: csp4  xad @ axb ! xbd @ bxb ! xcd @ cxb ! xdd @ dxb ! xed @ exb !  \ xor S2 search axb and store where ?
+       xfd @ fxb ! xgd @ gxb ! xhd @ hxb ! xid @ ixb ! xjd @ jxb !  ;
 
 
 
