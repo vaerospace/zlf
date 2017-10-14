@@ -16,5 +16,6 @@ https://steemit.com/life/@vaerospace/zero-length-files-complete-test-system-rebu
 <a href="https://steemit.com/@vaerospace">
 <p><img src="http://37.247.51.130/steem/zlfpix/z1.png"/></p></a>
 <a href="https://steemit.com/@vaerospace">
+
 <p><img src="http://37.247.51.130/steem/zlfpix/z2.png"/></p></a>
 
