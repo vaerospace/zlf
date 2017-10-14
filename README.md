@@ -1,3 +1,5 @@
+<a href="https://steemit.com/@vaerospace">
+<p><img src="http://37.247.51.130/steem/zlfpix/zlflogosm.png"/></p></a></center>
 # zlf
 zero length compressor - THE ULTIMATE FILE COMPRESSOR IS HERE !!!
 # XOR stack logic technology - USES XOR STACKING TO COMPRESS COMPUTER FILES TO ALMOST NOTHING
