@@ -1,6 +1,7 @@
 # zlf
-zero length compressor
-# XOR stack logic technology
+zero length compressor - THE ULTIMATE FILE COMPRESSOR IS HERE !!!
+# XOR stack logic technology - USES XOR STACKING TO COMPRESS COMPUTER FILES TO ALMOST NOTHING
+#                              A BILLIION TERRA BYTES CAN BE COMPRESSED INTO 10 KILOBYTES
 
 Sat Oct 14 2017 <br><br>
 --- new working code and build tutorial for beginners under construction<br>
