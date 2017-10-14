@@ -4,6 +4,7 @@ needs testbaall1.f
 needs amantest.f
 needs letsfindspp.f
 needs letsfinishit.f
+needs findspp.f
 
 \ CURRENT UPZIP AND DOWNZIP
 
@@ -41,8 +42,11 @@ needs letsfinishit.f
 \  executing this char on testbaal gives us last char
 
 
-: twww  bxx  csp0 cxx csp1 csp0 c22  hxx csp1 csp0 c22 jxx csp1 csp0 c22 ixx ;
-: doxx cr doaero cr doxsa cr doxsb cr doxs2 cr dodx ;
+\ : twww aafilo kxx csp0 bxx  csp1 cxx csp1 csp0 c22 csp0 c22  hxx csp1 csp0 c22 jxx csp1 csp0 c22 ixx ; \ intorduces the filo digit
+
+
+: dox1 cr doaero cr doxsa cr doxsb cr doxs2 cr dodx cr doxs3 ;
+
 
 
 
@@ -52,9 +56,9 @@ needs letsfinishit.f
 \  spp (xad) is xored with current s2 axc   result stored in S2 axc( must not be changed by c22)
 \  axa now updated    csp2  axb to axa  which is cx10 again
 
-: buz   c24  cx1   \ move this data to xad and a check against sp exhaustib=vly ie all digits for match
-       c23 csp2 ;
-:  finalunzip   sx22 cc10 ; \  on the digit not looped ie last digit
+\ : buz   c24  cx1   \ move this data to xad and a check against sp exhaustib=vly ie all digits for match
+\       c23 csp2 ;
+\ :  finalunzip   sx22 cc10 ; \  on the digit not looped ie last digit
 
 
 

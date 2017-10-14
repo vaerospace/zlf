@@ -44,6 +44,83 @@ needs buildvaeromanual.f
                                                                                 then
                                                              jxa @ jxb @  xor 0=  if  ." it's a zero @ 10" cr
                                                                     else  ." its 0"   cr
+                                                                                       then
+                                                               kxa @ kxb @  xor 0=  if  ." it's zero @ 11" cr
+                                                                    else  ." its FILO"   cr
+                                                                                       then  ;
+: cnn1  \ checks for spp  . will also createnew S2 once result is zored with current SP
+         \ cursp ... result not S2   xor result with SP >>> = SPP spp xor so for new S2
+
+
+              cr               axc @ axb @  xor 0=  if  ." it's a zero @ 1" cr
+                                             else    ." its 1"   cr
+                                                 then
+                                 bxc @ bxb @  xor 0=  if  ." it's a zero @ 2 " cr
+                                               else   ." its 2"   cr
+                                                    then
+                                    cxc @ cxb @  xor 0=  if   ." it's a zero @ 3" cr
+                                                 else    ." its 3"   cr
+                                                        then
+                                        dxc @ dxb @  xor 0=  if   ." it's a zero @ 4" cr
+                                                   else    ." its 4"  cr
+                                                            then
+                                           exc @ exb @  xor 0=  if   ." it's a zero @ 5" cr
+                                                      else   ." its 5"  cr
+                                                                 then
+                                              fxc @ fxb @  xor 0=  if  ." it's a zero @ 6" cr
+                                                         else   ." its 6"  cr
+                                                                    then
+                                                 gxc @ gxb @  xor 0=  if  ." it's a zero @ 7" cr
+                                                           else    ." its 7"  cr
+                                                                        then
+                                                     hxc @ hxb @  xor 0=  if ." it's a zero @ 8" cr
+                                                              else    ." its a 8"  cr
+                                                                           then
+                                                        ixc @ ixb @  xor 0=  if  ." it's a zero @ 9" cr
+                                                                 else   ." its 9"   cr
+                                                                                then
+                                                             jxc @ jxb @  xor 0=  if  ." it's a zero @ 10" cr
+                                                                    else  ." its 0"   cr
+                                                                                       then
+                                                               kxc @ kxb @  xor 0=  if  ." it's zero @ 11" cr
+                                                                    else  ." its FILO"   cr
+                                                                                       then  ;
+: cnn2  \ checks for spp  . will also createnew S2 once result is zored with current SP
+         \ cursp ... result not S2   xor result with SP >>> = SPP spp xor so for new S2
+
+
+              cr               axc @ axb @  xor 1 =  if  ." it's a zero @ 1" cr
+                                             else    ." its 1"   cr
+                                                 then
+                                 bxc @ bxb @  xor 1 =  if  ." it's a zero @ 2 " cr
+                                               else   ." its 2"   cr
+                                                    then
+                                    cxc @ cxb @  xor 1 =  if   ." it's a zero @ 3" cr
+                                                 else    ." its 3"   cr
+                                                        then
+                                        dxc @ dxb @  xor 1 =  if   ." it's a zero @ 4" cr
+                                                   else    ." its 4"  cr
+                                                            then
+                                           exc @ exb @  xor 1 =  if   ." it's a zero @ 5" cr
+                                                      else   ." its 5"  cr
+                                                                 then
+                                              fxc @ fxb @  xor 1 =  if  ." it's a zero @ 6" cr
+                                                         else   ." its 6"  cr
+                                                                    then
+                                                 gxc @ gxb @  xor 1 =  if  ." it's a zero @ 7" cr
+                                                           else    ." its 7"  cr
+                                                                        then
+                                                     hxc @ hxb @  xor 1 =  if ." it's a zero @ 8" cr
+                                                              else    ." its a 8"  cr
+                                                                           then
+                                                        ixc @ ixb @  xor 1 =  if  ." it's a zero @ 9" cr
+                                                                 else   ." its 9"   cr
+                                                                                then
+                                                             jxc @ jxb @  xor 1 =  if  ." it's a zero @ 10" cr
+                                                                    else  ." its 0"   cr
+                                                                                       then
+                                                               kxc @ kxb @  xor 1 =  if  ." it's zero @ 11" cr
+                                                                    else  ." its FILO"   cr
                                                                                        then  ;
 
 \ cnn

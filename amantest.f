@@ -1,74 +1,145 @@
 \ do unzip manually profiler  adds doxsp doxs2 to doaero in baaall
 needs baaall2017.f
 \ sets up SP in axa and axb
-: cspab   ax @ axa ! axb ! bx @ bxa ! bxb ! cx @ cxa ! cxb ! dx @ dxa ! dxb ! ex @ exa ! exb !
+: cspab      ax @ axa ! axb ! bx @ bxa ! bxb ! cx @ cxa ! cxb ! dx @ dxa ! dxb ! ex @ exa ! exb !
              fx @ fxa ! fxb ! gx @ gxa ! gxb ! hx @ hxa ! hxb ! ix @ ixa ! ixb ! jx @ jxa ! jxb !  ;
 
-: csp0   ax @ axa !  bx @ bxa !  cx @ cxa !  dx @ dxa ! ex @ exa !
-         fx @ fxa !  gx @ gxa !  hx @ hxa !  ix @ ixa ! jx @ jxa !  ;
-
-: csp0x   ax @ axb !  bx @ bxb !  cx @ cxb !  dx @ dxb ! ex @ exb !
-          fx @ fxb !  gx @ gxb !  hx @ hxb !  ix @ ixb ! jx @ jxb !  ;
 
 
+: csp0x      ax @ axb !  bx @ bxb !  cx @ cxb !  dx @ dxb ! ex @ exb !
+             fx @ fxb !  gx @ gxb !  hx @ hxb !  ix @ ixb ! jx @ jxb !  ;
+: cmsp0      ax @ axa !  bx @ bxa !  cx @ cxa !  dx @ dxa ! ex @ exa !
+             fx @ fxa !  gx @ gxa !  hx @ hxa !  ix @ ixa ! jx @ jxa !  ;
 
-: csp1  axa @ axb ! bxa @ bxb ! cxa @ cxb ! dxa @ dxb ! exa @ exb ! \ move SP to storeB
-             fxa @ fxb ! gxa @ gxb ! hxa @ hxb ! ixa @ ixb ! jxa @ jxb !  ;
+: cmsp0x     ax @ axb !  bx @ bxb !  cx @ cxb !  dx @ dxb ! ex @ exb !
+             fx @ fxb !  gx @ gxb !  hx @ hxb !  ix @ ixb ! jx @ jxb !  ;
+\ UPBUILD
 
-: csp2  axb @ axa ! bxb @ bxa ! cxb @ cxa ! dxb @ dxa ! exb @ exa ! \ reverse SP to storeB
-             fxb @ fxa ! gxb @ gxa ! hxb @ hxa ! ixb @ ixa ! jxb @ jxa !  ;
+: csp0       ax @ axa !  bx @ bxa !  cx @ cxa !  dx @ dxa ! ex @ exa !
+             fx @ fxa !  gx @ gxa !  hx @ hxa !  ix @ ixa ! jx @ jxa !  kx @ kxa ! ;
 
-: csp3a  axc @ axd ! bxc @ bxd ! cxc @ cxd ! dxc @ dxd ! exc @ exd ! \ move SP to storeB
-        fxc @ fxd ! gxc @ gxd ! hxc @ hxd ! ixc @ ixd ! jxc @ jxd !  ;
+: csp1       axa @ axb ! bxa @ bxb ! cxa @ cxb ! dxa @ dxb ! exa @ exb !      \ move A to B
+             fxa @ fxb ! gxa @ gxb ! hxa @ hxb ! ixa @ ixb ! jxa @ jxb ! kxa @ kxb !  ;
+
+: csp2       axb @ axc ! bxb @ bxc ! cxb @ cxc ! dxb @ dxc ! exb @ exc !      \ B to C
+             fxb @ fxc ! gxb @ gxc ! hxb @ hxc ! ixb @ ixc ! jxb @ jxc ! kxb @ kxc ! ;
+
+: csppx      axc @ axd ! bxc @ bxd ! cxc @ cxd ! dxc @ dxd ! exc @ exd !       \ move B to C
+            fxc @ fxd ! gxc @ gxd ! hxc @ hxd ! ixc @ ixd ! jxc @ jxd ! kxc @ kxd ! ;
+
+: testrunfinal  csp0  \  ax  to axa
+                csp1  \  axa to axb  A to B
+                csp2  \  axb to axc  B to C
+                csppx  \  axc to axd  C to D
+                                             ;
+\ REBUILD once R is f ound
+
+: cspup      axa @ ax !  bxa @ bx !  cxa @ cx !  dxa @ dx ! exa @ ex !
+             fxa @ fx !  gxa @ gx !  hxa @ hx !  ixa @ ix ! jxa @ jx !  kxa @ kx ! ;
+
+: cuploop1   axb @ axa ! bxb @ bxa ! cxb @ cxa ! dxb @ dxa ! exb @ exa !       \ reverse SP to storeB
+             fxb @ fxa ! gxb @ gxa ! hxb @ hxa ! ixb @ ixa ! jxb @ jxa ! kxb @ kxa ! ;
+
+: cuploop2   axc @ axb ! bxc @ bxb ! cxc @ cxb ! dxc @ dxb ! exc @ exb !       \ reverse SP to storeB
+             fxc @ fxb ! gxc @ gxb ! hxc @ hxb ! ixc @ ixb ! jxc @ jxb ! kxc @ kxb !  ;
+
+: cuploop3   axd @ axc ! bxd @ bxc ! cxd @ cxd ! dxd @ dxc ! exd @ exc !       \ reverse SP to storeB
+             fxd @ fxc ! gxd @ gxc ! hxd @ hxc ! ixd @ ixc ! jxd @ jxc ! kxd @ kxc ! ;
+\ setup for manual testing
+
+: c22         axa @ axb @ xor  xad !   \  S2  A+B
+              bxa @ bxb @ xor  xbd !
+              cxa @ cxb @ xor  xcd !
+              dxa @ dxb @ xor  xdd !
+              exa @ exb @ xor  xed !
+              fxa @ fxb @ xor  xfd !
+              gxa @ gxb @ xor  xgd !
+              hxa @ hxb @ xor  xhd !
+              ixa @ ixb @ xor  xid !
+              jxa @ jxb @ xor  xjd !
+                                   ;
+: c23         xad @ axb @ xor  xad !     \ S2 + B
+              xbd @ bxb @ xor  xbd !
+              xcd @ cxb @ xor  xcd !
+              xdd @ dxb @ xor  xdd !
+              xed @ exb @ xor  xed !
+              xfd @ fxb @ xor  xfd !
+              xgd @ gxb @ xor  xgd !
+              xhd @ hxb @ xor  xhd !
+              xid @ ixb @ xor  ixc !
+              xjd @ jxb @ xor  jxc !
+                                   ;
+: c24         xad @ axc @ xor  xad !      \ s2 + C
+              xbd @ bxc @ xor  xbd !
+              xcd @ cxc @ xor  xcd !
+              xdd @ dxc @ xor  xdd !
+              xed @ exc @ xor  xed !
+              xfd @ fxc @ xor  xfd !
+              xgd @ gxc @ xor  xgd !
+              xhd @ hxc @ xor  xhd !
+              xid @ ixc @ xor  xid !
+              xjd @ jxc @ xor  xjd !
+                                   ;
+
+: cdc0        axd @ axc @ xor axc !        \ D to C
+              bxd @ bxc @ xor bxc !
+              cxd @ cxc @ xor cxc !
+              dxd @ dxc @ xor dxc !
+              exd @ exc @ xor exc !
+              fxd @ fxc @ xor fxc !
+              gxd @ gxc @ xor gxc !
+              hxd @ hxc @ xor hxc !
+              ixd @ ixc @ xor ixc !
+              jxd @ jxc @ xor jxc !
+                                   ;
 
 
-
-\ IS S2 THE RESULT  OF SPP AND SP ?   LETS CHECK
-
-\  put 1 char in s1 axx
-\  S2 is the resut of c2b xored with c2a before next char is stacked ?
-: c2b         axb @ ax @ xor axc !  \ xors S1 and SP  to S2
-              bxb @ bx @ xor bxc !
-              cxb @ cx @ xor cxc !
-              dxb @ dx @ xor dxc !
-              exb @ ex @ xor exc !
-              fxb @ fx @ xor fxc !
-              gxb @ gx @ xor gxc !
-              hxb @ hx @ xor hxc !
-              ixb @ ix @ xor ixc !
-              jxb @ jx @ xor jxc !
+: cab0        axa @ ax @ xor ax !         \ A to ax
+              bxa @ bx @ xor bx !
+              cxa @ cx @ xor cx !
+              dxa @ dx @ xor dx !
+              exa @ ex @ xor ex !
+              fxa @ fx @ xor fx !
+              gxa @ gx @ xor gx !
+              hxa @ hx @ xor hx !
+              ixa @ ix @ xor ix !
+              jxa @ jx @ xor jx !
                                     ;
-: c22         axa @ axb @ xor  dup axc ! xad ! \ xors S1 and SP  to S2
-              bxa @ bxb @ xor  dup bxc ! xbd !
-              cxa @ cxb @ xor  dup cxc ! xcd !
-              dxa @ dxb @ xor  dup dxc ! xdd !
-              exa @ exb @ xor  dup exc ! xed !
-              fxa @ fxb @ xor  dup fxc ! xfd !
-              gxa @ gxb @ xor  dup gxc ! xgd !
-              hxa @ hxb @ xor  dup hxc ! xhd !
-              ixa @ ixb @ xor  dup ixc ! xid !
-              jxa @ jxb @ xor  dup jxc ! xjd !
-                                   ;
-: c2a         axa @ ax @ xor axc !  \ xors S1 and SP  to S2
-              bxa @ bx @ xor bxc !
-              cxa @ cx @ xor cxc !
-              dxa @ dx @ xor dxc !
-              exa @ ex @ xor exc !
-              fxa @ fx @ xor fxc !
-              gxa @ gx @ xor gxc !
-              hxa @ hx @ xor hxc !
-              ixa @ ix @ xor ixc !
-              jxa @ jx @ xor jxc !
-                                   ;
+: cbc0        axc @ axb @ xor axb !       \ C to B
+              bxc @ bxc @ xor bxb !
+              cxc @ cxb @ xor cxb !
+              dxc @ dxb @ xor dxb !
+              exc @ exb @ xor exb !
+              fxc @ fxb @ xor fxb !
+              gxc @ gxb @ xor gxb !
+              hxc @ hxb @ xor hxb !
+              ixc @ ixb @ xor ixb !
+              jxc @ jxb @ xor jxb !
+                                    ;
+: cba0        axa @ axb @ xor axa !       \ A to B
+              bxa @ bxb @ xor bxa !
+              cxa @ cxb @ xor cxa !
+              dxa @ dxb @ xor dxa !
+              exa @ exb @ xor exa !
+              fxa @ fxb @ xor fxa !
+              gxa @ gxb @ xor gxa !
+              hxa @ hxb @ xor hxa !
+              ixa @ ixb @ xor ixa !
+              jxa @ jxb @ xor jxa !
+                                    ;
+: cbc1        axc @ axb @ xor axc !       \ B to C
+              bxc @ bxb @ xor bxc !
+              cxc @ cxb @ xor cxc !
+              dxc @ dxb @ xor dxc !
+              exc @ exb @ xor exc !
+              fxb @ fxb @ xor fxc !
+              gxc @ gxb @ xor gxc !
+              hxc @ hxb @ xor hxc !
+              ixc @ ixb @ xor ixc !
+              jxc @ jxb @ xor jxb !
+                                    ;
 
 
-\ words  ::   doxsa dosxb doxs2 doaero  c2b creates S2 from PREVIOUS RESULT cxaall  -- clear all stacks
-: sx21  bxx csp0 ( move to A ) gxx csp1 csp0 ( save A to B )  c22 ( create S2 )csp3a dxx ( put char on without updating a b or s2) ;
-: sx22  csp1 csp0 ( update a)   c22 ( xor onto NEW CHAR to C) ;   \ AWESOME THIS WORKS !!!
-: sysx         sx21   ;        \ creates initialised stacks S1 SP S2
-\ aweome  sx22 actuall places
-\ combine letsfind pps and a maintest
-: tword    7 axa !  6 axb ! axa @ axb @ 2dup axa @ . axb @ . ;
 : ttw       1 axa !  0 axb !  axa @ axb @ xor dup axc ! xad !   axc @ . xad @ . ; \ xor axc !
 
 

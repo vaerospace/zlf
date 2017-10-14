@@ -313,34 +313,34 @@ needs baaall2017.f
 
 
 : jxx2    ( n1 - n2 )  \ Last DATA DIGIT
-     ax @ 0 xor  xad !
-     bx @ 0 xor  xbd !
-     cx @ 0 xor  xcd !
-     dx @ 0 xor  xdd !
-     ex @ 0 xor  xed !
-     fx @ 0 xor  xfd !
-     gx @ 0 xor  xgd !
-     hx @ 0 xor  xhd !
-     ix @ 0 xor  xid !
-     jx @ 1 xor  xjd !
-     kx @ 0 xor  xkd !
-     lx @ 0 xor  xld !
-     mx @ 0 xor  xmd !
-     nx @ 0 xor  xnd !
-     ox @ 0 xor  xod !
-     px @ 0 xor  xpd !
-     qx @ 0 xor  xqd !
-     rx @ 0 xor  xrd !
-     sx @ 0 xor  xsd !
-     tx @ 0 xor  xtd !
-     ux @ 0 xor  xud !
-     vx @ 0 xor  xvd !
-     wx @ 0 xor  xwd !
-     zlfx @ 0 xor xxd !
-     yx @ 0 xor  xyd !
-     zx @ 0 xor xzd !
-     sp1 @ 0 xor sp1x !
-     sp2 @ 0 xor sp2x !
+     axb @ 0 xor  axb !
+     bxb @ 0 xor  bxb !
+     cxb @ 0 xor  cxb !
+     dxb @ 0 xor  dxb !
+     exb @ 0 xor  exb !
+     fxb @ 0 xor  fxb !
+     gxb @ 0 xor  gxb !
+     hxb @ 0 xor  hxb !
+     ixb @ 0 xor  ixb !
+     jxb @ -1 xor  jxb !
+     kxb @ 0 xor  kxb !
+     lxb @ 0 xor  lxb !
+     mxb @ 0 xor  mxb !
+     nxb @ 0 xor  nxb !
+     oxb @ 0 xor  oxb !
+     pxb @ 0 xor  pxb !
+     qxb @ 0 xor  qxb !
+     rxb @ 0 xor  rxb !
+     sxb @ 0 xor  sxb !
+     txb @ 0 xor  txb !
+     uxb @ 0 xor  uxb !
+     vxb @ 0 xor  vxb !
+     wxb @ 0 xor  wxb !
+     zlfxb @ 0 xor zlfxb !
+     yxb @ 0 xor  yxb !
+     zxb @ 0 xor zxb !
+     sp1b @ 0 xor sp1b !
+     sp2b @ 0 xor sp2b !
                ;
 
 \ : doaero2  ax ?  bx ?  cx ?  dx ?  ex ?  fx ?  gx ?  hx ?  ix ?  jx ?

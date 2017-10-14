@@ -142,18 +142,33 @@ variable xjd   variable xtd   variable  sp4x
 0 ixc ! 0 sxc !
 0 jxc ! 0 txc !        ;
 \ cxaall clears al stacks
-: cxaall  zlfclear saclear sbclear s2clear ;
-: ezlf
-1 axa ! 1 kxa ! 1 uxa !
-1 bxa ! 1 lxa ! 1 vxa !
-1 cxa ! 1 mxa ! 1 wxa !
-1 dxa ! 1 nxa ! 1 zlfxa !
-1 exa ! 1 oxa ! 1 yxa !
-1 fxa ! 1 pxa ! 1 zxa !
-1 gxa ! 1 qxa !
-1 hxa ! 1 rxa !
-1 ixa ! 1 sxa !
-1 jxa ! 1 txa !        ;
+
+: xadclear
+0 xad ! 0 xkd ! 0 xud !
+0 xbd ! 0 xld ! 0 xvd !
+0 xcd ! 0 xmd ! 0 xwd !
+0 xdd ! 0 xnd ! 0 xxd !
+0 xed ! 0 xod ! 0 xyd !
+0 xfd ! 0 xpd ! 0 xzd !
+0 xgd ! 0 xqd !
+0 xhd ! 0 xrd !
+0 xid ! 0 xsd !
+0 xjd ! 0 xtd ! ;
+
+: cxaall  zlfclear saclear sbclear s2clear xadclear ;
+
+
+: aafilo
+1 ax ! 1 kx ! 1 ux !
+1 bx ! 1 lx ! 1 vx !
+1 cx ! 1 mx ! 1 wx !
+1 dx ! 1 nx ! 1 zlfx !
+1 ex ! 1 ox ! 1 yx !
+1 fx ! 1 px ! 1 zx !
+1 gx ! 1 qx !
+1 hx ! 1 rx !
+1 ix ! 1 sx !
+1 jx ! 1 tx !        ;
 
 \ : letsfind  \ sets up word for checking
  \   is it the number on S2  --then ingnore flag  retry
@@ -974,6 +989,8 @@ variable xjd   variable xtd   variable  sp4x
          kxc ? lxc ? mxc ? nxc ? oxc ? pxc ? qxc ? rxc ? sxc ? txc ?  uxc ? vxc ? wxc ? zlfxc ? yxc ?  zxc  ?  sp1c ? ;
 : doxsa  axa ? bxa ? cxa ? dxa ? exa ? fxa ? gxa ? hxa ? ixa ? jxa ?
          kxa ? lxa ? mxa ? nxa ? oxa ? pxa ? qxa ? rxa ? sxa ? txa ?  uxa ? vxa ? wxa ? zlfxa ? yxa ?  zxa  ?  sp1a ? ;
+
+
 : doxs3  axd ? bxd ? cxd ? dxd ? exd ? fxd ? gxd ? hxd ? ixd ? jxd ?
          kxd ? lxd ? mxd ? nxd ? oxd ? pxd ? qxd ? rxd ? sxd ? txd ?  uxd ? vxd ? wxd ? zlfxd ? yxd ?  zxd  ?  sp1d ? ;
 

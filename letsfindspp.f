@@ -74,7 +74,7 @@ needs amantest.f
                                              else  ." its 1" cr bxx
                                                       then ;
 
- : xsys   axx  csp3 gxx  csp3 hxx  csp3 jxx csp3 ixx csp3 axx csp3 gxx ;
+ \ : xsys   axx  csp3 gxx  csp3 hxx  csp3 jxx csp3 ixx csp3 axx csp3 gxx ;
 
 
 \ : xts   case
