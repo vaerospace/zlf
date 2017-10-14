@@ -5,5 +5,7 @@ zero length compressor
 Fri Oct 13 2017 --- new working code and build tutorial for beginners
                            --Video will be posted later today or tomorrow
 
-https://steemit.com/life/@vaerospace/zero-length-files-new-code-posted-new-beginner-tutorial-video
+New complete system with manual step through rest and guid under construction 
+should be ready tomorrow
+https://steemit.com/life/@vaerospace/zero-length-files-complete-test-system-rebuild
 
