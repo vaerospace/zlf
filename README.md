@@ -3,7 +3,7 @@ zero length compressor - THE ULTIMATE FILE COMPRESSOR IS HERE !!!
 # XOR stack logic technology - USES XOR STACKING TO COMPRESS COMPUTER FILES TO ALMOST NOTHING
 <H1>                              A BILLION TERRA BYTES CAN BE COMPRESSED INTO 10 KILOBYTES</H1>
 
-Sat Oct 14 2017 <br><br>
+Sat Oct 14 2017 <== system confirmed functionalbr><br>
 --- new working code and build tutorial for beginners under construction<br>
                 --- new scafforlding code posted and new process outline<br>
                 ---Video will be posted later today or tomorrow<br><br><br>
