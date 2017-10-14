@@ -2,7 +2,7 @@
 zero length compressor
 # XOR stack logic technology
 
-Sat Oct 14 2017 --- new working code and build tutorial for beginners under construction
+Sat Oct 14 2017 --- new working code and build tutorial for beginners under construction<br>
                 --- new scafforlding code posted and new process outline
                 ---Video will be posted later today or tomorrow
 
