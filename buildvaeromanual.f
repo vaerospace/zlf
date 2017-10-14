@@ -1,11 +1,7 @@
 needs baaall2017.f
-needs testbaall.f
-needs testbaall1.f
-needs amantest.f
-needs letsfindspp.f
-needs letsfinishit.f
-needs findspp.f
-
+\ needs testbaall.f
+\ needs testbaall1.f
+\ needs amantest.f
 \ CURRENT UPZIP AND DOWNZIP
 
 \ UPZIP  : sx21  bxx csp0 ( move to A ) gxx csp1 csp0 ( save A to B )  c22 ( create S2 )csp3a dxx ( put char on without updating a b or s2) ;
@@ -13,12 +9,6 @@ needs findspp.f
 \          bxx csp0
 \          gxx csp1 csp0 c22
 \          fxx csp1 csp0 c22
-
-
-
-
-
-
 \ UNZIP:  cxaall  to clear all data   cx10  xad axb xor(spp)
 
 \  this get digit  cx10 |gets digit| N1  |axc and xad have digit|  now xor it with axb  (spp)  move axb to move spp axb xor  create s2p
@@ -28,25 +18,21 @@ needs findspp.f
 \                              /  update axb
 \  CXWW should reset s2 to prev
 \
-
 \                    doxt88    / the axa does not contain fxx
 \                     / rebuild S2
-
 \           doxt77 doxt10
 \ first unxip must xor axc with new newchar(axx) and store on xad  this sets xad (dodx) to prec char
-
-
-
 \ unzip
 \ create next char by using testball  ---  scan axa for char that zero+1
 \  executing this char on testbaal gives us last char
-
-
 \ : twww aafilo kxx csp0 bxx  csp1 cxx csp1 csp0 c22 csp0 c22  hxx csp1 csp0 c22 jxx csp1 csp0 c22 ixx ; \ intorduces the filo digit
 
-
-: dox1 cr doaero cr doxsa cr doxsb cr doxs2 cr dodx cr doxs3 ;
-
+\ type sdxx set up
+: dox1 cr srttt cr cr
+        ." Ax  S1  " doaero  cr cr ." AxA SP  " doxsa cr cr
+          ." AxBSPP  "  doxsb cr cr ." AxC  R  " doxs2
+      cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx   ;
+: sdxx   gxx csp1 csp0 csp2 cs2pp c22   dxx csp1 csp0 csp2 cs2pp c22    jxx csp1 csp0 csp2 cs2pp c22  ;
 
 
 
