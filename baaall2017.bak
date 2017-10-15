@@ -7,7 +7,7 @@
 \ needs woxtable
 \ vocabulary vaero1 --- Were going Faster
 create woxbuff 1024 allot
-\ needs WinEdColorize.f
+needs WinEdColorize.f
 \ current state == now known as stack 1
 variable ax   variable kx   variable  ux
 variable bx   variable lx   variable  vx
