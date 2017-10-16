@@ -7,7 +7,7 @@
 \ needs woxtable
 \ vocabulary vaero1 --- Were going Faster
 create woxbuff 1024 allot
-needs WinEdColorize.f
+\ needs WinEdColorize.f
 \ current state == now known as stack 1
 variable ax   variable kx   variable  ux
 variable bx   variable lx   variable  vx
@@ -76,21 +76,18 @@ variable xhd   variable xrd   variable  sp2x
 variable xid   variable xsd   variable  sp3x
 variable xjd   variable xtd   variable  sp4x
 
+0 value zlf-handle
+: zlfo ( addr len -- )
+  r/w open-file abort" file failed to open" to zlf-handle ;
+: zlfw ( addr len -- )
+  zlf-handle write-line abort" failed to write" ;
+: zlfd ( addr len -- )
+  zlf-handle write-file abort" failed to write" ;
+: zlfc ( -- )
+  zlf-handle close-file abort" failed to close" ;
 
 
 
-\ : zlfr
-
-\  ax ?  kx ?  ux ?
-\  bx ?  lx ?  vx ?
-\  cx ?  mx ?  wx ?
-\  dx ?  nx ?  zlfx ?
-\  ex ?  ox ?  yx ?
-\  fx ?  px ?  zx ?
-\ gx ?  qx ?
-\  hx ?  rx ?
-\  ix ?  sx ?
-\  jx ?  tx ?        ;
 
 : cspab      ax @ axa ! axb ! bx @ bxa ! bxb ! cx @ cxa ! cxb ! dx @ dxa ! dxb ! ex @ exa ! exb !
              fx @ fxa ! fxb ! gx @ gxa ! gxb ! hx @ hxa ! hxb ! ix @ ixa ! ixb ! jx @ jxa ! jxb !  ;
@@ -1158,24 +1155,41 @@ variable xjd   variable xtd   variable  sp4x
           ." AxBSPP  "  doxsb cr cr ." AxC  R  " doxs2
       cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx   ;
 
+\ File Saving you test results from the F12   forth Console
+\ TYPE dob1 :: to file open vaerospace.f for writing
+\ then TYPE domagic to write the stack result of dox1 to vaerospace.f
+\ To save to a different file TYPE :         s" C: \path\to\file\mynamedfile.txt" r/w create file
+\  if you want it in the current directory   s" myfilestackresult1.f"   r/w create-file
+\                                            s"   <<< must be space"   after S"
+: dob1 s" vaerospace.f" zlfo ;
+: domagic     s"  Vaerospace ZLF Stack States: " zlfw s"    " zlfw
+     s" AX          " zlfd ax @ (.) zlfd  s"   "   zlfd  bx @ (.) zlfd s"   " zlfd cx @ (.) zlfd s"   "  zlfd  dx @ (.) zlfd  s"   "  zlfd
+             ex @ (.) zlfd  s"    "   zlfd fx @ (.) zlfd  s"    " zlfd gx @ (.) zlfd  s"    " zlfd
+           hx @ (.)  zlfd s"    "   zlfd ix @ (.) zlfd  s"    " zlfd jx @ (.)  zlfw
 
-\ do unzip manually profiler  adds doxsp doxs2 to doaero in baaall
+s" AXA        " zlfd  axa @ (.)  zlfd s"   "   zlfd bxa @ (.) zlfd s"   " zlfd cxa @ (.) zlfd  s"   " zlfd dxa @ (.)   zlfd s"   " zlfd
+      exa @ (.)  zlfd s"    "   zlfd fxa @ (.) zlfd s"    "  zlfd gxa @ (.) zlfd s"    "  zlfd
+    hxa @ (.)  zlfd s"    "   zlfd ixa @ (.) zlfd s"    " zlfd jxa @ (.) zlfd s"   " zlfw
 
-\ needs testbaall.f
-\ needs testbaall1.f
+s" AXB       " zlfd axb @ (.) zlfd  s"   "   zlfd  bxb @ (.) zlfd s"   " zlfd cxb @ (.) zlfd s"   "  zlfd  dxb @ (.) zlfd  s"   "  zlfd
+             exb @ (.) zlfd  s"    "   zlfd fxb @ (.) zlfd  s"    " zlfd gxd @ (.) zlfd  s"    " zlfd
+           hxb @ (.)  zlfd s"    "   zlfd ixb @ (.) zlfd  s"    " zlfd jxb @ (.)  zlfw
 
-\ needs letsfindspp.f
-\ needs letsfinishit.f
-\ needs findspp.f
-\ sets up SP in axa and axb
+s" AXC       " zlfd  axc @ (.)  zlfd s"   "   zlfd bxc @ (.) zlfd s"   " zlfd cxc @ (.) zlfd  s"   " zlfd dxc @ (.)   zlfd s"   " zlfd
+      exc @ (.)  zlfd s"    "   zlfd fxc @ (.) zlfd s"    "  zlfd gxc @ (.) zlfd s"    "  zlfd
+    hxc @ (.)  zlfd s"    "   zlfd ixc @ (.) zlfd s"    " zlfd jxc @ (.) zlfd s"   " zlfw
+
+s" AXD S2  " zlfd  axd @ (.)  zlfd s"   "   zlfd bxd @ (.) zlfd s"   " zlfd cxd @ (.) zlfd  s"   " zlfd dxd @ (.)   zlfd s"   " zlfd
+      exd @ (.)  zlfd s"    "   zlfd fxd @ (.) zlfd s"    "  zlfd gxd @ (.) zlfd s"    "  zlfd
+      hxd @ (.)  zlfd s"    "   zlfd ixd @ (.) zlfd s"    " zlfd jxd @ (.) zlfd s"   " zlfw
+
+s" XAD S3  " zlfd  xad @ (.)  zlfd s"   "   zlfd xbd @ (.) zlfd s"   " zlfd xcd @ (.) zlfd  s"   " zlfd xdd @ (.)   zlfd s"   " zlfd
+      xed @ (.)  zlfd s"    "   zlfd xfd @ (.) zlfd s"    "  zlfd xgd @ (.) zlfd s"    "  zlfd
+    xhd @ (.)  zlfd s"    "   zlfd xid @ (.) zlfd s"    " zlfd xjd @ (.) zlfd s"   " zlfw
 
 
-\ : ttw       1 axa !  0 axb !  axa @ axb @ xor dup axc ! xad !   axc @ . xad @ . ; \ xor axc !
-
-
-\ build pzip
-
-
+                                                                              zlfc
+                                                                                   ;
 
 
 

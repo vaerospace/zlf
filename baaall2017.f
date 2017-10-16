@@ -1,11 +1,16 @@
-\ THIS FILE INTILISES THE SYSTEM AND IS THE HEART OF THE ZLF SYSTEM
+\ THE HEART OF THE ZLF SYSTEM
 \ REQUIERED BY AZLF.F TO COMPILE .EXE
+
+\ To save stacks results to a file for checking
+\ TYPE:  >>   avstack    <<  in the F12 console window (will save a file vaerospace.f (a text file)
+\ in your current directory -   dont type the arrows
 \ YOU NEED 3 FILES TO COMPILE THIS APPLICATION aaall.f amenuron.f azlf.f
-\ jstyle  v3.0.0 (2017NewZLF)
-\ ver 11.0 (1 pos marker kernel private) vaerosoft
-\ kernel 11.0.0 (ALPHA )
-\ needs woxtable
-\ vocabulary vaero1 --- Were going Faster
+
+\ jstyle  v4.0.0 (NZLF)
+\ ver 4.0
+\ kernel 4.0.0 (ALPHA )
+
+
 create woxbuff 1024 allot
 \ needs WinEdColorize.f
 \ current state == now known as stack 1
@@ -1155,33 +1160,43 @@ variable xjd   variable xtd   variable  sp4x
           ." AxBSPP  "  doxsb cr cr ." AxC  R  " doxs2
       cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx   ;
 
-
-\ do unzip manually profiler  adds doxsp doxs2 to doaero in baaall
-
-\ needs testbaall.f
-\ needs testbaall1.f
-
-\ needs letsfindspp.f
-\ needs letsfinishit.f
-\ needs findspp.f
-\ sets up SP in axa and axb
-
-
-\ : ttw       1 axa !  0 axb !  axa @ axb @ xor dup axc ! xad !   axc @ . xad @ . ; \ xor axc !
-
-
-\ build pzip
+\ File Saving you test results from the F12   forth Console
+\ TYPE dob1 :: to file open vaerospace.f for writing
+\ then TYPE domagic to write the stack result of dox1 to vaerospace.f
+\ To save to a different file TYPE :         s" C: \path\to\file\mynamedfile.txt" r/w create file
+\  if you want it in the current directory   s" myfilestackresult1.f"   r/w create-file
+\                                            s"   <<< must be space"   after S"
 
 : dob1 s" vaerospace.f" zlfo ;
 : domagic     s"  Vaerospace ZLF Stack States: " zlfw s"    " zlfw
-     s" AX   " zlfd ax @ (.) zlfd  s"    "   zlfd  bx @ (.) zlfd s"   " zlfd cx @ (.) zlfd s"    "  zlfd  dx @ (.) zlfd  s"   "  zlfd
+     s" AX          " zlfd ax @ (.) zlfd  s"   "   zlfd  bx @ (.) zlfd s"   " zlfd cx @ (.) zlfd s"   "  zlfd  dx @ (.) zlfd  s"   "  zlfd
              ex @ (.) zlfd  s"    "   zlfd fx @ (.) zlfd  s"    " zlfd gx @ (.) zlfd  s"    " zlfd
            hx @ (.)  zlfd s"    "   zlfd ix @ (.) zlfd  s"    " zlfd jx @ (.)  zlfw
-s" BX   " zlfd  axa @ (.)  zlfd s"    "   zlfd bxa @ (.) zlfd s"   " zlfd cxa @ (.) zlfd  s"   " zlfd dxa @ (.)   zlfd s"   " zlfd
+
+s" AXA        " zlfd  axa @ (.)  zlfd s"   "   zlfd bxa @ (.) zlfd s"   " zlfd cxa @ (.) zlfd  s"   " zlfd dxa @ (.)   zlfd s"   " zlfd
       exa @ (.)  zlfd s"    "   zlfd fxa @ (.) zlfd s"    "  zlfd gxa @ (.) zlfd s"    "  zlfd
     hxa @ (.)  zlfd s"    "   zlfd ixa @ (.) zlfd s"    " zlfd jxa @ (.) zlfd s"   " zlfw
-                                                                              zlfc   ;
 
+s" AXB        " zlfd axb @ (.) zlfd  s"   "   zlfd  bxb @ (.) zlfd s"   " zlfd cxb @ (.) zlfd s"   "  zlfd  dxb @ (.) zlfd  s"   "  zlfd
+             exb @ (.) zlfd  s"    "   zlfd fxb @ (.) zlfd  s"    " zlfd gxd @ (.) zlfd  s"    " zlfd
+           hxb @ (.)  zlfd s"    "   zlfd ixb @ (.) zlfd  s"    " zlfd jxb @ (.)  zlfw
+
+s" AXC        " zlfd  axc @ (.)  zlfd s"   "   zlfd bxc @ (.) zlfd s"   " zlfd cxc @ (.) zlfd  s"   " zlfd dxc @ (.)   zlfd s"   " zlfd
+      exc @ (.)  zlfd s"    "   zlfd fxc @ (.) zlfd s"    "  zlfd gxc @ (.) zlfd s"    "  zlfd
+    hxc @ (.)  zlfd s"    "   zlfd ixc @ (.) zlfd s"    " zlfd jxc @ (.) zlfd s"   " zlfw
+
+s" AXD S2  " zlfd  axd @ (.)  zlfd s"   "   zlfd bxd @ (.) zlfd s"   " zlfd cxd @ (.) zlfd  s"   " zlfd dxd @ (.)   zlfd s"   " zlfd
+      exd @ (.)  zlfd s"    "   zlfd fxd @ (.) zlfd s"    "  zlfd gxd @ (.) zlfd s"    "  zlfd
+      hxd @ (.)  zlfd s"    "   zlfd ixd @ (.) zlfd s"    " zlfd jxd @ (.) zlfd s"   " zlfw
+
+s" XAD S3  " zlfd  xad @ (.)  zlfd s"   "   zlfd xbd @ (.) zlfd s"   " zlfd xcd @ (.) zlfd  s"   " zlfd xdd @ (.)   zlfd s"   " zlfd
+      xed @ (.)  zlfd s"    "   zlfd xfd @ (.) zlfd s"    "  zlfd xgd @ (.) zlfd s"    "  zlfd
+    xhd @ (.)  zlfd s"    "   zlfd xid @ (.) zlfd s"    " zlfd xjd @ (.) zlfd s"   " zlfw
+
+
+                                                                              zlfc
+\  save stacks result   to vaerospace.f                                                                                 ;
+: avstack dob1 domagic :
 
 
 
