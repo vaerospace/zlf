@@ -33,7 +33,7 @@ needs baaall2017.f
 \      cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx   ;
 \ : sdxx   gxx csp1 csp0 csp2 cs2pp c22   dxx csp1 csp0 csp2 cs2pp c22    jxx csp1 csp0 csp2 cs2pp c22  ;
 
-
+\ : vaero  FileSaveDialog SaveText "Save Text File" "Text Files|*.c;*.cpp;*.f;*.txt;*.seq;*.h;*.lst|All Files (*.*)|*.*|" ;
 
 
 \   c10 finds the J

@@ -47,13 +47,13 @@ needs baaall2017.f
 
 \ Proof it works
 
-\ AxBSPP  0 1 1 0 0 0 0 0 1 0   A
+\ AxBSPP   0 1 1 0 0 0 0 0 1   A
 
-\ AxC  R*  0 1 1 0 0 0 0 0 1 0   B
+\ AxC  R*  0 1 1 0 0 0 0 0 1   B
 
-\ AxD N2*  0 1 0 0 0 0 0 0 0 0   S1 <<<< this was unknown and we created it by xoring AxD N2*  with AxC R*
+\ AxD N2*  0 1 0 0 0 0 0 0 0    S1 <<<< this was unknown and we created it by xoring AxD N2*  with AxC R*
 
-\ S????   0 0 1* 0 0 0 0 1-0   we found C 1*  it cannot be i marked -1 coz thats what we used and was the number after C
+\ S????    0 0 1*0 0 0 0 1-0   we found C 1*  it cannot be i marked -1 coz thats what we used and was the number after C
 
 \ d and j
 \ AxA SP  0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
