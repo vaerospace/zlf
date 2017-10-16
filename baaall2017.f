@@ -25,6 +25,33 @@ variable hx   variable rx   variable  sp2
 variable ix   variable sx   variable  sp3
 variable jx   variable tx   variable  sp4
 
+\ temp vars TAX
+variable tax   variable tkx   variable  tux
+variable tbx   variable tlx   variable  tvx
+variable tcx   variable tmx   variable  twx
+variable tdx   variable tnx   variable  tzlfx
+variable tex   variable tox   variable  tyx
+variable tfx   variable tpx   variable  tzx
+variable tgx   variable tqx   variable  tsp1
+variable thx   variable trx   variable  tsp2
+variable tix   variable tsx   variable  tsp3
+variable tjx   variable ttx   variable  tsp4
+
+
+\ PUA SPP the previous
+variable puax   variable pukx   variable  puux
+variable pubx   variable pulx   variable  puvx
+variable pucx   variable pumx   variable  puwx
+variable pudx   variable punx   variable  puxx
+variable puex   variable puox   variable  puyx
+variable pufx   variable pupx   variable  puzx
+variable pugx   variable puqx   variable  pusp1
+variable puhx   variable purx   variable  pusp2
+variable puix   variable pusx   variable  pusp3
+variable pujx   variable putx   variable  pusp4
+
+
+
 \ full compile stack 1 prev
 variable axa   variable kxa   variable  uxa
 variable bxa   variable lxa   variable  vxa
@@ -47,6 +74,22 @@ variable gxb   variable qxb   variable  sp1b
 variable hxb   variable rxb   variable  sp2b
 variable ixb   variable sxb   variable  sp3b
 variable jxb   variable txb   variable  sp4b
+
+\ marker state stack 1 prev-prev
+variable axbp   variable kxbp   variable  uxbp
+variable bxbp   variable lxbp   variable  vxbp
+variable cxbp   variable mxbp   variable  wxbp
+variable dxbp   variable nxbp   variable  zlfxbp
+variable exbp   variable oxbp   variable  yxbp
+variable fxbp   variable pxbp   variable  zxbp
+variable gxbp   variable qxbp   variable  sp1bp
+variable hxbp   variable rxbp   variable  sp2bp
+variable ixbp   variable sxbp   variable  sp3bp
+variable jxbp   variable txbp   variable  sp4bp
+
+
+
+
 \ intermediate marker state  -- stack1 prev-prev test results
 variable axc   variable kxc   variable  uxc
 variable bxc   variable lxc   variable  vxc
@@ -58,6 +101,22 @@ variable gxc   variable qxc   variable  sp1c
 variable hxc   variable rxc   variable  sp2c
 variable ixc   variable sxc   variable  sp3c
 variable jxc   variable txc   variable  sp4c
+
+\ intermediate marker state  -- stack1 prev-prev test results
+variable axcp   variable kxcp   variable  uxcp
+variable bxcp   variable lxcp   variable  vxcp
+variable cxcp   variable mxcp   variable  wxcp
+variable dxcp   variable nxcp   variable  zlfxcp
+variable excp   variable oxcp   variable  yxcp
+variable fxcp   variable pxcp   variable  zxcp
+variable gxcp   variable qxcp   variable  sp1cp
+variable hxcp   variable rxcp   variable  sp2cp
+variable ixcp   variable sxcp   variable  sp3cp
+variable jxcp   variable txcp   variable  sp4cp
+
+
+
+
 \ lastmarker - prev          --stack 1 prev-prev test results two
 variable axd   variable kxd   variable  uxd
 variable bxd   variable lxd   variable  vxd
@@ -147,6 +206,13 @@ variable xjd   variable xtd   variable  sp4x
 : cuploop3   axd @ axc ! bxd @ bxc ! cxd @ cxd ! dxd @ dxc ! exd @ exc !       \ reverse SP to storeB
              fxd @ fxc ! gxd @ gxc ! hxd @ hxc ! ixd @ ixc ! jxd @ jxc ! kxd @ kxc ! ;
 \ setup for manual testing
+\ upzip moves
+: cu2   axc @ axcp ! bxc @ bxcp ! cxc @ cxcp ! dxc @ dxcp ! exc @ excp !       \ reverse SP to storeB
+             fxc @ fxcp ! gxc @ gxcp ! hxc @ hxcp ! ixc @ ixcp ! jxc @ jxcp ! ( kxc @ kx ! )  ;
+: cu3   axcp @ axc ! bxcp @ bxc ! cxcp @ cxc ! dxcp @ dxc ! excp @ exc !       \ reverse SP to storeB
+             fxcp @ fxc ! gxcp @ gxc ! hxcp @ hxc ! ixcp @ ixc ! jxcp @ jxc ! ( kxc @ kx ! )  ;
+
+
 
 : c22         axa @ axb @ xor  xad !   \  S2  A+B
               bxa @ bxb @ xor  xbd !
@@ -207,7 +273,7 @@ variable xjd   variable xtd   variable  sp4x
               jxa @ jx @ xor jx !
                                     ;
 : cbc0        axc @ axb @ xor axb !       \ C to B
-              bxc @ bxc @ xor bxb !
+              bxc @ bxb @ xor bxb !
               cxc @ cxb @ xor cxb !
               dxc @ dxb @ xor dxb !
               exc @ exb @ xor exb !
@@ -237,8 +303,68 @@ variable xjd   variable xtd   variable  sp4x
               gxc @ gxb @ xor gxc !
               hxc @ hxb @ xor hxc !
               ixc @ ixb @ xor ixc !
-              jxc @ jxb @ xor jxb !
+              jxc @ jxb @ xor jxc !
                                     ;
+
+: cbct        axc @ axb @ xor tax !       \ B to C
+              bxc @ bxb @ xor tbx !
+              cxc @ cxb @ xor tcx !
+              dxc @ dxb @ xor tdx !
+              exc @ exb @ xor tex !
+              fxb @ fxb @ xor tfx !
+              gxc @ gxb @ xor tgx !
+              hxc @ hxb @ xor thx !
+              ixc @ ixb @ xor tix !
+              jxc @ jxb @ xor tjx !
+                                    ;
+
+: cbtu        axc @ tax @ xor puax !       \ B to C
+              bxc @ tbx @ xor pubx !
+              cxc @ tcx @ xor pucx !
+              dxc @ tdx @ xor pudx !
+              exc @ tex @ xor puex !
+              fxb @ tfx @ xor pufx !
+              gxc @ tgx @ xor pugx !
+              hxc @ thx @ xor puhx !
+              ixc @ tix @ xor puix !
+              jxc @ tjx @ xor pujx !
+                                    ;
+
+: cbaxpu      axc @ puax @ xor axbp !       \ B to C
+              bxc @ pubx @ xor bxbp !
+              cxc @ pucx @ xor cxbp !
+              dxc @ pudx @ xor dxbp !
+              exc @ puex @ xor exbp !
+              fxb @ pufx @ xor fxbp !
+              gxc @ pugx @ xor gxbp !
+              hxc @ puhx @ xor hxbp !
+              ixc @ puix @ xor ixbp !
+              jxc @ pujx @ xor jxbp !
+                                    ;
+: cbbxpu      axcp @ axbp @ xor xad !       \ C to B
+              bxcp @ bxbp @ xor xbd !
+              cxcp @ cxbp @ xor xcd !
+              dxcp @ dxbp @ xor xdd !
+              excp @ exbp @ xor xed !
+              fxcp @ fxbp @ xor xfd !
+              gxcp @ gxbp @ xor xgd !
+              hxcp @ hxbp @ xor xhd !
+              ixcp @ ixbp @ xor xid !
+              jxcp @ jxbp @ xor xjd !
+                                    ;
+: cbbxpu1     axcp @ axbp @ xor axd !       \ C to B
+              bxcp @ bxbp @ xor bxd !
+              cxcp @ cxbp @ xor cxd !
+              dxcp @ dxbp @ xor dxd !
+              excp @ exbp @ xor exd !
+              fxcp @ fxbp @ xor fxd !
+              gxcp @ gxbp @ xor gxd !
+              hxcp @ hxbp @ xor hxd !
+              ixcp @ ixbp @ xor ixd !
+              jxcp @ jxbp @ xor jxd !
+                                    ;
+
+
 \ csp1 csp0 csp2 cs2pp c22
 
 : zlfclear
@@ -1141,12 +1267,23 @@ variable xjd   variable xtd   variable  sp4x
 
 : doaero  ax ?  bx ?  cx ?  dx ?  ex ?  fx ?  gx ?  hx ?  ix ?  jx ?
           kx ?  lx ?  mx ?  nx ?  ox ?  px ?  qx ?  rx ?  sx ?  tx ?  ux ? vx ? wx ? zlfx ? yx ?  zx  ?  sp1 ? ;
+
+: doct1   tax ?  tbx ?  tcx ?  tdx ?  tex ?  tfx ?  tgx ?  thx ?  tix ?  tjx ?
+          tkx ?  tlx ?  tmx ?  tnx ?  tox ?  tpx ?  tqx ?  trx ?  tsx ?  ttx ?  tux ? tvx ?
+          twx ? tzlfx ? tyx ?  tzx  ?  tsp1 ? ;
+
+
 : doxsb  axb ? bxb ? cxb ? dxb ? exb ? fxb ? gxb ? hxb ? ixb ? jxb ?
          kxb ? lxb ? mxb ? nxb ? oxb ? pxb ? qxb ? rxb ? sxb ? txb ?  uxb ? vxb ? wxb ? zlfxb ? yxb ?  zxb  ?  sp1b ? ;
+
 : doxs2  axc ? bxc ? cxc ? dxc ? exc ? fxc ? gxc ? hxc ? ixc ? jxc ?
          kxc ? lxc ? mxc ? nxc ? oxc ? pxc ? qxc ? rxc ? sxc ? txc ?  uxc ? vxc ? wxc ? zlfxc ? yxc ?  zxc  ?  sp1c ? ;
+
 : doxsa  axa ? bxa ? cxa ? dxa ? exa ? fxa ? gxa ? hxa ? ixa ? jxa ?
          kxa ? lxa ? mxa ? nxa ? oxa ? pxa ? qxa ? rxa ? sxa ? txa ?  uxa ? vxa ? wxa ? zlfxa ? yxa ?  zxa  ?  sp1a ? ;
+
+: doxspu  puax ? pubx ? pucx ? pudx ? puex ? pufx ? pugx ? puhx ? puix ? pujx ?
+         pukx ? pulx ? pumx ? punx ? puox ? pupx ? puqx ? purx ? pusx ? putx ?  puux ? puvx ? puwx ? puxx ? puyx ?  puzx  ?  pusp1 ? ;
 
 
 : doxs3  axd ? bxd ? cxd ? dxd ? exd ? fxd ? gxd ? hxd ? ixd ? jxd ?
@@ -1155,10 +1292,32 @@ variable xjd   variable xtd   variable  sp4x
 : dodx xad ?  xbd ?  xcd ?  xdd ?  xed ?  xfd ?  xgd ?  xhd ?  xid ?  xjd ?
           xkd ?  xld ?  xmd ?  xnd ?  xod ?  xpd ?  xqd ?  xrd ?  xsd ?  xtd ?  xud ? xvd ? xxd ? xxd ? xyd ?  xzd  ?  sp1x ? ;
 
+: dobp  axbp ?  bxbp ?  cxbp ?  dxbp ?  exbp ?  fxbp ?  gxbp ?  hxbp ?  ixbp ?  jxbp ?
+        kxbp ?  lxbp ?  mxbp ?  nxbp ?  oxbp ?  pxbp ?  qxbp ?  rxbp ?  sxbp ?  txbp ?  uxbp ? vxbp ? wxbp ? zlfxbp ?
+        yxbp ?  zxbp  ?  sp1bp ? ;
+
+: docp  axcp ?  bxcp ?  cxcp ?  dxcp ?  excp ?  fxcp ?  gxcp ?  hxcp ?  ixcp ?  jxcp ?
+        kxcp ?  lxcp ?  mxcp ?  nxcp ?  oxcp ?  pxcp ?  qxcp ?  rxcp ?  sxcp ?  txcp ?  uxcp ? vxcp ? wxcp ? zlfxcp ?
+        yxcp ?  zxcp  ?  sp1cp ? ;
+
+
+
+
+
+
 : dox1 cr srttt cr cr
         ." Ax  S1  " doaero  cr cr ." AxA SP  " doxsa cr cr
           ." AxBSPP  "  doxsb cr cr ." AxC  R  " doxs2
       cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx   ;
+
+\ test word for test System
+: dox1 cr srttt cr cr
+        ." AxT  S1  " doct1  cr cr ." AxB SP  " dobp cr cr
+          ." AxCSPP  "  docp cr cr ." Puax R  " dosxpu
+      cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx   ;
+
+
+
 
 \ File Saving you test results from the F12   forth Console
 \ TYPE dob1 :: to file open vaerospace.f for writing
@@ -1194,9 +1353,9 @@ s" XAD S3  " zlfd  xad @ (.)  zlfd s"   "   zlfd xbd @ (.) zlfd s"   " zlfd xcd 
     xhd @ (.)  zlfd s"    "   zlfd xid @ (.) zlfd s"    " zlfd xjd @ (.) zlfd s"   " zlfw
 
 
-                                                                              zlfc
-\  save stacks result   to vaerospace.f                                                                                 ;
-: avstack dob1 domagic :
+                                                                              zlfc ;
+\  save stacks result   to vaerospace.f
+: zlfstack   dob1  domagic  ;
 
 
 
