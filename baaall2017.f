@@ -76,21 +76,18 @@ variable xhd   variable xrd   variable  sp2x
 variable xid   variable xsd   variable  sp3x
 variable xjd   variable xtd   variable  sp4x
 
+0 value zlf-handle
+: zlfo ( addr len -- )
+  r/w open-file abort" file failed to open" to zlf-handle ;
+: zlfw ( addr len -- )
+  zlf-handle write-line abort" failed to write" ;
+: zlfd ( addr len -- )
+  zlf-handle write-file abort" failed to write" ;
+: zlfc ( -- )
+  zlf-handle close-file abort" failed to close" ;
 
 
 
-\ : zlfr
-
-\  ax ?  kx ?  ux ?
-\  bx ?  lx ?  vx ?
-\  cx ?  mx ?  wx ?
-\  dx ?  nx ?  zlfx ?
-\  ex ?  ox ?  yx ?
-\  fx ?  px ?  zx ?
-\ gx ?  qx ?
-\  hx ?  rx ?
-\  ix ?  sx ?
-\  jx ?  tx ?        ;
 
 : cspab      ax @ axa ! axb ! bx @ bxa ! bxb ! cx @ cxa ! cxb ! dx @ dxa ! dxb ! ex @ exa ! exb !
              fx @ fxa ! fxb ! gx @ gxa ! gxb ! hx @ hxa ! hxb ! ix @ ixa ! ixb ! jx @ jxa ! jxb !  ;
@@ -1175,7 +1172,15 @@ variable xjd   variable xtd   variable  sp4x
 
 \ build pzip
 
-
+: dob1 s" vaerospace.f" zlfo ;
+: domagic     s"  Vaerospace ZLF Stack States: " zlfw s"    " zlfw
+     s" AX   " zlfd ax @ (.) zlfd  s"    "   zlfd  bx @ (.) zlfd s"   " zlfd cx @ (.) zlfd s"    "  zlfd  dx @ (.) zlfd  s"   "  zlfd
+             ex @ (.) zlfd  s"    "   zlfd fx @ (.) zlfd  s"    " zlfd gx @ (.) zlfd  s"    " zlfd
+           hx @ (.)  zlfd s"    "   zlfd ix @ (.) zlfd  s"    " zlfd jx @ (.)  zlfw
+s" BX   " zlfd  axa @ (.)  zlfd s"    "   zlfd bxa @ (.) zlfd s"   " zlfd cxa @ (.) zlfd  s"   " zlfd dxa @ (.)   zlfd s"   " zlfd
+      exa @ (.)  zlfd s"    "   zlfd fxa @ (.) zlfd s"    "  zlfd gxa @ (.) zlfd s"    "  zlfd
+    hxa @ (.)  zlfd s"    "   zlfd ixa @ (.) zlfd s"    " zlfd jxa @ (.) zlfd s"   " zlfw
+                                                                              zlfc   ;
 
 
 
