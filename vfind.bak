@@ -129,35 +129,35 @@ variable spp1   variable sppp1
 
 : nottt4    \ only ouput if true
 
- cr          axd @  axc @ xor  1 =  if 1 sppp1 ! 1 spp1 !
-                                 \ else   1 spp1 !
+ cr           axd @ axc @ xor  1 = if
+                                     else  1 sppp1 ! 1 spp1 !
                                                  then
-                 bxd @  bxc @ 1 = if 1 sppp1 ! 2 spp1 !
-                            \ else     2 spp1  !
+                 bxd @  bxc @ xor 1 = if
+                                         else  1 sppp1 ! 2 spp1 !
                                                     then
-                   axd @  axc @ 1 =  if 1 sppp1 ! 3 spp1 !
-                                \ else     3 spp1 !
+                   cxd @  cxc @ xor 1 = if
+                                           else  1 sppp1 ! 3 spp1 !
                                                         then
-                      axd @  axc @ 1 =  if 1 sppp1 ! 4 spp1 !
-                                  \ else     4 spp1 !
+                      dxd @  dxc @ xor  1 = if
+                                             else  1 sppp1 ! 4 spp1 !
                                                             then
-                         axd @  axc @ 1 = if 1 sppp1 ! 5 spp1 !
-                                     \ else     5 spp1 !
+                         exd @  exc @ xor 1 = if
+                                              else   1 sppp1 ! 5 spp1
                                                                  then
-                           axd @  axc @ 1 = if 1 sppp1 ! 6 spp1 !
-                                         \  else    6 spp1 !
+                           fxd @  fxc @  xor 1 = if
+                                                else   1 sppp1 ! 6 spp1 !
                                                                     then
-                                axd @  axc @ 1 =  if 1 sppp1 !  7 spp1 !
-                                             \ else    7 spp1 !
+                               gxd @  gxc @ xor 1 =  if
+                                                   else  1 sppp1 !  7 spp1 !
                                                                         then
-                                   axd @  axc @ 1 =  if 1 sppp1 ! 8 spp1 !
-                                                 \ else   8 spp1 !
+                                  hxd @  hxc @ xor 1 =  if
+                                                     else 1 sppp1 ! 8 spp1 !
                                                                            then
-                                       axd @  axc @ 1 =  if 1 sppp1 ! 9 spp1 !
-                                                    \ else   9 spp1 !
+                                     ixd @  ixc @ xor  1 = if
+                                                      else  1 sppp1 ! 9 spp1 !
                                                                               then
-                                          axd @  axc @ 1 if 1 sppp1 !  10 spp1 !
-                                                       \ else    10 spp1 !
+                                        jxd @  jxc @ xor 1 = if
+                                                        else  1 sppp1 !  10 spp1 !
                                                                                   then
                                                                          spp1 @ . sppp1 @ .    ;
 : outzlf dob1 domagic ;
