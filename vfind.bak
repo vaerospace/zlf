@@ -133,7 +133,7 @@ variable spp1
 
 \ unzip
 
-\ Vaerospace ZLF Stack States: axx bxx cxx dxx exx fxx
+\ Vaerospace ZLF Stack States: axx bxx cxx dxx exx fxx  | BUILD WORDS| *  cab0 csppx  csp2  csp1 csp0 *
 
 \ AX         1  1  1  1  1   1   0   0   0   0
 \ AXA        1  1  1  1  1   1   0   0   0   0
@@ -144,8 +144,8 @@ variable spp1
 \ AXt        0  0  0  0  0   1   0   0   0   0
 
 \ outzlf  ok bragging
-\ nottt1 check SP2 :  \ nottt1  mulitlys(xores all the AcX vars with zero for only the ONES there can ever only be two Ones
-                      \ sp2 (AxT vars tell us wich of the ones IT IS NOT !!!!
+\ nottt1 check SP2 :  \ nottt1  mulitplys (xores all the AcX vars with zero for only the ONES there can ever only be two Ones)
+                      \ sp2 (AxT vars tell us which of the ones IT IS NOT !!!!
 \                     It's Not:6 thats now stored in variable spp1 ok
 
 \  WE CAN NOW CLEARLY SEE                                        6
