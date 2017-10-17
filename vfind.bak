@@ -37,25 +37,25 @@ needs baaall2017.f
 variable spp1   variable sppp1
 
 : nottt2          case
-                 1 of     1 spp1 ! ." It's Not:" bl spp1 @  .                          \ axx1
+                 1 of     axx2
                          endof
-                 2 of     2 spp1 !  ." It's Not:" bl spp1 @  .                         \ bxx1
+                 2 of     bxx2
                          endof
-                 3 of     3 spp1 !  ." It's Not:" bl spp1 @  .                         \ cxx1
+                 3 of     cxx2
                          endof
-                 4 of     4 spp1 !  ." It's Not:" bl spp1 @  .                         \ dxx1
+                 4 of     dxx2
                          endof
-                 5 of     5 spp1 !  ." It's Not:" bl spp1 @  .                         \ exx1
+                 5 of     exx2
                          endof
-                 6 of     6 spp1 !   ." It's Not:" bl spp1 @  .                        \ fxx1
+                 6 of     fxx2
                          endof
-                 7 of     7 spp1 !   ." It's Not:" bl spp1 @  .                        \ gxx1
+                 7 of     gxx2
                          endof
-                 8 of     8 spp1 !    ." It's Not:" bl spp1 @  .                       \ hxx1
+                 8 of     hxx2
                          endof
-                 9 of     9 spp1 !    ." It's Not:" bl spp1 @  .                       \ ixx1
+                 9 of     ixx2
                          endof
-                10 of     10 spp1 !    ." It's Not:" bl spp1 @  .                      \ jxx1
+                10 of     jxx2
                          endof
                              endcase    ;
 
@@ -160,6 +160,40 @@ variable spp1   variable sppp1
                                                         ( else ) 1 sppp1 !  10 spp1 !
                                                                                   then
                                                                          spp1 @ . sppp1 @ .    ;
+
+: nottt5    \ only ouput if true
+
+ cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if
+                                     ( else)  1 sppp1 ! 1 spp1 !
+                                                 then
+                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if
+                                         ( else)  1 sppp1 ! 2 spp1 !
+                                                    then
+                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if
+                                           ( else)  1 sppp1 ! 3 spp1 !
+                                                        then
+                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @1 = if
+                                             ( else)  1 sppp1 ! 4 spp1 !
+                                                            then
+                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @1 = if
+                                              ( else)   1 sppp1 ! 5 spp1
+                                                                 then
+                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if
+                                                ( else)   1 sppp1 ! 6 spp1 !
+                                                                    then
+                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if
+                                                   ( else)  1 sppp1 !  7 spp1 !
+                                                                        then
+                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @1 =  if
+                                                     ( else) 1 sppp1 ! 8 spp1 !
+                                                                           then
+                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if
+                                                      ( else)  1 sppp1 ! 9 spp1 !
+                                                                              then
+                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if
+                                                        ( else ) 1 sppp1 !  10 spp1 !
+                                                                                  then
+                                                                         spp1 @ . sppp1 @ .    ;
 : outzlf dob1 domagic ;
 
 \ Upbuild
@@ -252,5 +286,6 @@ variable spp1   variable sppp1
 \                                            IS IT A ZERO+1 NUMBER ?
 
 \                                                   ITS NOT AxTS24  ?      MAIN LOGIC
-
-: test3a tax2 @  axb @ xor  axb @ axc xor  .  .  ;
+\ variable  tax2 variable axb variable axc
+: dosss  1 tax2 !  0 axb ! 0 axc ! ;
+: test3a ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @ .   ;

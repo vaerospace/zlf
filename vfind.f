@@ -160,6 +160,40 @@ variable spp1   variable sppp1
                                                         ( else ) 1 sppp1 !  10 spp1 !
                                                                                   then
                                                                          spp1 @ . sppp1 @ .    ;
+
+: nottt5    \ only ouput if true
+
+ cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if
+                                     ( else)  1 sppp1 ! 1 spp1 !
+                                                 then
+                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if
+                                         ( else)  1 sppp1 ! 2 spp1 !
+                                                    then
+                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if
+                                           ( else)  1 sppp1 ! 3 spp1 !
+                                                        then
+                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if
+                                             ( else)  1 sppp1 ! 4 spp1 !
+                                                            then
+                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if
+                                              ( else)   1 sppp1 ! 5 spp1
+                                                                 then
+                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if
+                                                ( else)   1 sppp1 ! 6 spp1 !
+                                                                    then
+                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if
+                                                   ( else)  1 sppp1 !  7 spp1 !
+                                                                        then
+                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if
+                                                     ( else) 1 sppp1 ! 8 spp1 !
+                                                                           then
+                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if
+                                                      ( else)  1 sppp1 ! 9 spp1 !
+                                                                              then
+                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if
+                                                        ( else ) 1 sppp1 !  10 spp1 !
+                                                                                  then
+                                                                         spp1 @ . sppp1 @ .    ;
 : outzlf dob1 domagic ;
 
 \ Upbuild
