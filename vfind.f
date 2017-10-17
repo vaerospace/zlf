@@ -163,37 +163,37 @@ variable spp1   variable sppp1
 
 : nottt5    \ only ouput if true
 
- cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if
-                                     ( else)  1 sppp1 ! 1 spp1 !
+ cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one" cr
+                                    \ else  1 sppp1 ! 1 spp1 !
                                                  then
-                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if
-                                         ( else)  1 sppp1 ! 2 spp1 !
+                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two" cr
+                                       \  else  1 sppp1 ! 2 spp1 !
                                                     then
-                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if
-                                           ( else)  1 sppp1 ! 3 spp1 !
+                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" cr
+                                          \ else  1 sppp1 ! 3 spp1 !
                                                         then
-                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if
-                                             ( else)  1 sppp1 ! 4 spp1 !
+                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if  dxc @ . ." it's a four" cr
+                                            \ else  1 sppp1 ! 4 spp1 !
                                                             then
-                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if
-                                              ( else)   1 sppp1 ! 5 spp1
+                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five" cr
+                                            \  else   1 sppp1 ! 5 spp1
                                                                  then
-                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if
-                                                ( else)   1 sppp1 ! 6 spp1 !
+                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six" cr
+                                                \ else   1 sppp1 ! 6 spp1 !
                                                                     then
-                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if
-                                                   ( else)  1 sppp1 !  7 spp1 !
+                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if gxc @ . ." it's a seven" cr
+                                                  \ else  1 sppp1 !  7 spp1 !
                                                                         then
-                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if
-                                                     ( else) 1 sppp1 ! 8 spp1 !
+                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight"  cr
+                                                    \  else 1 sppp1 ! 8 spp1 !
                                                                            then
-                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if
-                                                      ( else)  1 sppp1 ! 9 spp1 !
+                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"  cr
+                                                     \ else  1 sppp1 ! 9 spp1 !
                                                                               then
-                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if
-                                                        ( else ) 1 sppp1 !  10 spp1 !
+                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if  jxc @ . ." it's a one"  cr
+                                                      \  else  1 sppp1 !  10 spp1 !
                                                                                   then
-                                                                         spp1 @ . sppp1 @ .    ;
+                                                                         ( spp1 @ . sppp1 @ . )   ;
 : outzlf dob1 domagic ;
 
 \ Upbuild
@@ -289,3 +289,41 @@ variable spp1   variable sppp1
 \ variable  tax2 variable axb variable axc
 : dosss  1 tax2 !  0 axb ! 0 axc ! ;
 : test3a ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @ .   ;
+
+
+\ oxd1  ok
+\ 2 nottt2  ok
+\ nottt5
+\ 1 it's a one
+\ 1 it's a three
+\  ok
+\ dox1
+\ ZLF     1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
+
+\ Ax  S1  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\ AxA SP  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\ AxBSPP  0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  <<<< AxB  is the answer
+
+\ AxC  R  1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\ AxD N2  1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\ XaD N3  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+
+\ AxT S2  0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\ AxTS23  0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\ AxTS24  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+
+
+
+
+
+
+
+
