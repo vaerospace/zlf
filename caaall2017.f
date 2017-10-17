@@ -889,9 +889,7 @@ variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable l
                        \      csp1 csp0 csp2 cs2pp c22
          csp0 cd1 cd2 cd3               ;
 
-
-: isdiga      \  move diit to vars for xor and restore in downzip
-: isdiga      \  move diit to vars for xor and restore in downzip
+: isdiga      \  move digit to vars for xor and restore in downzip
               case
                  1 of axx3 endof
                  2 of bxx3 endof
