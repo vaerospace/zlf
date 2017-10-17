@@ -235,6 +235,15 @@ variable xjd   variable xtd   variable  sp4x
 : ct1        axc @ tax ! bxc @ tcx ! cxc @ tcx ! dxc @ tdx ! exc @ tex !       \ reverse SP to storeB
              fxc @ tfx ! gxc @ tgx ! hxc @ thx ! ixc @ tix ! jxc @ tjx ! kxc @ tkx !  ;
 
+: ct2         axd @ tax1 ! bxd @ tcx1 !  cxd @ tcx1 !  dxd @ tdx1 ! exd @ tex1 !       \ reverse SP to storeB
+              fxd @ tfx1 ! gxd @ tgx1 !  hxd @ thx1 !  ixd @ tix1 ! jxd @ tjx1 ! kxd @ tkx1 ! ;
+
+: ct12        tax @ tax1 ! tbx @ tbx1 ! tcx @ tcx1 ! tdx @ tdx1 ! exd @ tex1 !       \ reverse SP to storeB
+              tfx @ tfx1 ! tgx @ tgx1 ! thx @ thx1 ! ixd @ tix1 ! jxd @ tjx1 ! tkx @ tkx1 ! ;
+
+: ct23        tax1 @ tax2 ! tbx1 @ tbx2 ! tcx1 @ tcx2 ! tdx1 @ tdx2 ! tex1 @ tex2 !       \ reverse SP to storeB
+              tfx1 @ tfx2 ! tgx1 @ tgx2 ! thx1 @ thx2 ! tix1 @ tix2 ! tjx1 @ tjx2 ! tkx1 @ tkx2 ! ;
+
 : cu2        axc @ axcp ! bxc @ bxcp ! cxc @ cxcp ! dxc @ dxcp ! exc @ excp !       \ reverse SP to storeB
              fxc @ fxcp ! gxc @ gxcp ! hxc @ hxcp ! ixc @ ixcp ! jxc @ jxcp ! ( kxc @ kx ! )  ;
 
@@ -506,7 +515,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
          \    csp1 csp0 csp2 cs2pp c22  ;
-    cab0   csppx  csp2  csp1 csp0  ;
+   ct23 ct12 cab0   csppx  csp2  csp1 csp0  ;
 
 : bxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -538,7 +547,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \       csp1 csp0 csp2 cs2pp c22  ;
-        cab0 csppx  csp2  csp1 csp0   ;
+     ct23 ct12   cab0 csppx  csp2  csp1 csp0   ;
 
 
 : cxx     ( n1 - n2 )
@@ -571,7 +580,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
   \         csp1 csp0 csp2 cs2pp c22 ;
-        cab0  csppx  csp2  csp1 csp0 ;
+   ct23 ct12     cab0  csppx  csp2  csp1 csp0 ;
 
 : dxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -603,7 +612,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \      csp1 csp0 csp2 cs2pp c22  ;
-       cab0  csppx  csp2  csp1 csp0 ;
+   ct23 ct12    cab0  csppx  csp2  csp1 csp0 ;
 
 : exx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -635,7 +644,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \         csp1 csp0 csp2 cs2pp c22 ;
-         cab0 csppx  csp2  csp1 csp0 ;
+    ct23 ct12     cab0 csppx  csp2  csp1 csp0 ;
 
 : fxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -667,7 +676,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \          csp1 csp0 csp2 cs2pp c22   ;
-       cab0 csppx  csp2  csp1 csp0 ;
+   ct23 ct12    cab0 csppx  csp2  csp1 csp0 ;
 
 : gxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -699,7 +708,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \              csp1 csp0 csp2 cs2pp c22    ;
-         cab0  csppx  csp2  csp1 csp0 ;
+   ct23 ct12      cab0  csppx  csp2  csp1 csp0 ;
 
 : hxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -731,7 +740,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \                csp1 csp0 csp2 cs2pp c22  ;
-        cab0  csppx  csp2  csp1 csp0 ;
+     ct23 ct12   cab0  csppx  csp2  csp1 csp0 ;
 
 : ixx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -763,7 +772,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 \                 csp1 csp0 csp2 cs2pp c22 ;
-        cab0 csppx  csp2  csp1 csp0  ;
+    ct23 ct12    cab0 csppx  csp2  csp1 csp0  ;
 
 : jxx     ( n1 - n2 )  \ Last DATA DIGIT
      ax @ 0 xor  ax !
@@ -795,7 +804,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 \                 csp1 csp0 csp2 cs2pp c22 ;
-       cab0     csppx  csp2  csp1 csp0 ;
+    ct23 ct12   cab0     csppx  csp2  csp1 csp0 ;
 
 : kxx     ( n1 - n2 )  \ Forward State Flag 1
      ax @ 0 xor  ax !
@@ -826,7 +835,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                csp1 csp0 csp2 cs2pp c22 ;
+        ct23 ct12     cab0   csp1 csp0 csp2 cs2pp c22 ;
 
 : lxx     ( n1 - n2 ) \ Ascii flag 2
      ax @ 0 xor  ax !
@@ -1309,6 +1318,17 @@ variable xjd   variable xtd   variable  sp4x
           tkx ?  tlx ?  tmx ?  tnx ?  tox ?  tpx ?  tqx ?  trx ?  tsx ?  ttx ?  tux ? tvx ?
           twx ? tzlfx ? tyx ?  tzx  ?  tsp1 ? ;
 
+: doct2   tax1 ?  tbx1 ?  tcx1 ?  tdx1 ?  tex1 ?  tfx1 ?  tgx1 ?  thx1 ?  tix1 ?  tjx1 ?
+          tkx1 ?  tlx1 ?  tmx1 ?  tnx1 ?  tox1 ?  tpx1 ?  tqx1 ?  trx1 ?  tsx1 ?  ttx1 ?  tux1 ? tvx1 ?
+          twx1 ? tzlfx1 ? tyx1 ?  tzx1  ?  tsp11 ? ;
+
+: doct3   tax2 ?  tbx2 ?  tcx2 ?  tdx2 ?  tex2 ?  tfx2 ?  tgx2 ?  thx2 ?  tix2 ?  tjx2 ?
+          tkx2 ?  tlx2 ?  tmx2 ?  tnx2 ?  tox2 ?  tpx2 ?  tqx2 ?  trx2 ?  tsx2 ?  ttx2 ?  tux2 ? tvx2 ?
+          twx2 ? tzlfx2 ? tyx2 ?  tzx2  ?  tsp12 ? ;
+
+
+
+
 
 : doxsb  axb ? bxb ? cxb ? dxb ? exb ? fxb ? gxb ? hxb ? ixb ? jxb ?
          kxb ? lxb ? mxb ? nxb ? oxb ? pxb ? qxb ? rxb ? sxb ? txb ?  uxb ? vxb ? wxb ? zlfxb ? yxb ?  zxb  ?  sp1b ? ;
@@ -1345,7 +1365,11 @@ variable xjd   variable xtd   variable  sp4x
 : dox1 cr srttt cr cr
         ." Ax  S1  " doaero  cr cr ." AxA SP  " doxsa cr cr
           ." AxBSPP  "  doxsb cr cr ." AxC  R  " doxs2
-      cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx cr cr cr ." AxT S2  " doct1  cr cr  ;
+      cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx cr cr cr
+." AxT S2  " doct1  cr cr  ." AxTS23  " doct2  cr cr  ." AxTS24  " doct3  cr cr ;
+
+
+
 
 \ test word for test System
 : dox2 cr srttt cr cr
