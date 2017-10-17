@@ -25,6 +25,18 @@ variable hx   variable rx   variable  sp2
 variable ix   variable sx   variable  sp3
 variable jx   variable tx   variable  sp4
 
+\ current state == now known as stack 1
+variable ttax   variable ttkx   variable  ttux
+variable ttbx   variable ttlx   variable  ttvx
+variable ttcx   variable ttmx   variable  ttwx
+variable ttdx   variable ttnx   variable  ttzlfx
+variable ttex   variable ttox   variable  ttyx
+variable ttfx   variable ttpx   variable  ttzx
+variable ttgx   variable ttqx   variable  ttsp1
+variable tthx   variable ttrx   variable  ttsp2
+variable ttix   variable ttsx   variable  ttsp3
+variable ttjx   variable tttx   variable  ttsp4
+
 \ temp vars TAX
 variable tax   variable tkx   variable  tux
 variable tbx   variable tlx   variable  tvx

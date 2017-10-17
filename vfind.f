@@ -37,25 +37,25 @@ needs baaall2017.f
 variable spp1   variable sppp1
 
 : nottt2          case
-                 1 of     1 spp1 ! ." It's Not:" bl spp1 @  .                          \ axx1
+                 1 of     axx2
                          endof
-                 2 of     2 spp1 !  ." It's Not:" bl spp1 @  .                         \ bxx1
+                 2 of     bxx2
                          endof
-                 3 of     3 spp1 !  ." It's Not:" bl spp1 @  .                         \ cxx1
+                 3 of     cxx2
                          endof
-                 4 of     4 spp1 !  ." It's Not:" bl spp1 @  .                         \ dxx1
+                 4 of     dxx2
                          endof
-                 5 of     5 spp1 !  ." It's Not:" bl spp1 @  .                         \ exx1
+                 5 of     exx2
                          endof
-                 6 of     6 spp1 !   ." It's Not:" bl spp1 @  .                        \ fxx1
+                 6 of     fxx2
                          endof
-                 7 of     7 spp1 !   ." It's Not:" bl spp1 @  .                        \ gxx1
+                 7 of     gxx2
                          endof
-                 8 of     8 spp1 !    ." It's Not:" bl spp1 @  .                       \ hxx1
+                 8 of     hxx2
                          endof
-                 9 of     9 spp1 !    ." It's Not:" bl spp1 @  .                       \ ixx1
+                 9 of     ixx2
                          endof
-                10 of     10 spp1 !    ." It's Not:" bl spp1 @  .                      \ jxx1
+                10 of     jxx2
                          endof
                              endcase    ;
 
@@ -215,7 +215,7 @@ variable spp1   variable sppp1
 
 \ AxTS23  0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-\ AxTS24  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   <<<< now slove for AxD
+\ AxTS24  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   <<<< now solve for AxD
 
 \ result-
 
@@ -252,45 +252,6 @@ variable spp1   variable sppp1
 \                                            IS IT A ZERO+1 NUMBER ?
 
 \                                                   ITS NOT AxTS24  ?      MAIN LOGIC
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\ variable  tax2 variable axb variable axc
+: dosss  1 tax2 !  0 axb ! 0 axc ! ;
+: test3a ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @ .   ;
