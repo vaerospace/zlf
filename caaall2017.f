@@ -1,8 +1,8 @@
 \ UNZIP STACK RESET
 needs baaall2017.f
 
-variable nezz1   variable nezz2     variable nezz3
-
+variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable lastdig2 variable lastdig3
+: mvdowndig   lastdig1 @ lastdig2 !  lastdig2 @ lastdig3 ! ;
 
 : cd1         axa @ axb @ xor axb !       \ A to B
               bxa @ bxb @ xor bxb !
@@ -888,3 +888,35 @@ variable nezz1   variable nezz2     variable nezz3
      sp2 @ 0 xor sp2 !
                        \      csp1 csp0 csp2 cs2pp c22
          csp0 cd1 cd2 cd3               ;
+
+
+: isdiga      \  move diit to vars for xor and restore in downzip
+: isdiga      \  move diit to vars for xor and restore in downzip
+              case
+                 1 of axx3 endof
+                 2 of bxx3 endof
+                 3 of cxx3 endof
+                 4 of dxx4 endof
+                 5 of dxx4 endof
+                 6 of dxx4 endof
+                 7 of dxx4 endof
+                 8 of dxx4 endof
+                 9 of dxx4 endof
+                10 of dxx4 endof
+                               endcase
+                                    ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
