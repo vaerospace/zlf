@@ -1,5 +1,6 @@
 \ vfind.f    find and file output spp to prepare for rebuild for next loop
 needs baaall2017.f
+needs caaall2017.f
 
 \ How do we find SPP     answer (xor AxD AxC) then (Xor result AxC  = AxE  previous in knnown string digit)
 

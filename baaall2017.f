@@ -253,6 +253,12 @@ variable xjd   variable xtd   variable  sp4x
 : ct12        tax @ tax1 ! tbx @ tbx1 ! tcx @ tcx1 ! tdx @ tdx1 ! exd @ tex1 !       \ reverse SP to storeB
               tfx @ tfx1 ! tgx @ tgx1 ! thx @ thx1 ! ixd @ tix1 ! jxd @ tjx1 ! tkx @ tkx1 ! ;
 
+: ctd1        axb @ tax1 ! bxb @ tbx1 ! cxb @ tcx1 ! dxb @ tdx1 ! exb @ tex1 !       \ reverse SP to storeB
+              fxb @ tfx1 ! gxb @ tgx1 ! hxb @ thx1 ! ixb @ tix1 ! jxb @ tjx1 ! kxb @ tkx1 ! ;
+
+: ctd2         axc @ tax2 ! bxc @ tbx2 ! cxc @ tcx2 ! dxc @ tdx2 ! exc @ tex2 !       \ reverse SP to storeB
+               fxc @ tfx2 ! gxc @ tgx2 ! hxc @ thx2 ! ixc @ tix2 ! jxd @ tjx2 ! kxc @ tkx2 ! ;
+
 : ct23        tax1 @ tax2 ! tbx1 @ tbx2 ! tcx1 @ tcx2 ! tdx1 @ tdx2 ! tex1 @ tex2 !       \ reverse SP to storeB
               tfx1 @ tfx2 ! tgx1 @ tgx2 ! thx1 @ thx2 ! tix1 @ tix2 ! tjx1 @ tjx2 ! tkx1 @ tkx2 ! ;
 
@@ -429,17 +435,29 @@ variable xjd   variable xtd   variable  sp4x
 0 ix ! 0 sx !
 0 jx ! 0 tx !        ;
 
-: ttclear
-0 ttax ! 0 ttkx ! 0 ttux !
-0 ttbx ! 0 ttlx ! 0 ttvx !
-0 ttcx ! 0 ttmx ! 0 ttwx !
-0 ttdx ! 0 ttnx ! 0 ttzlfx !
-0 ttex ! 0 ttox ! 0 ttyx !
-0 ttfx ! 0 ttpx ! 0 ttzx !
-0 ttgx ! 0 ttqx !
-0 tthx ! 0 ttrx !
-0 ttix ! 0 ttsx !
-0 ttjx ! 0 tttx !        ;
+: t1clear
+0 tax1 ! 0 tkx1 ! 0 tux1 !
+0 tbx1 ! 0 tlx1 ! 0 tvx1 !
+0 tcx1 ! 0 tmx1 ! 0 twx1 !
+0 tdx1 ! 0 tnx1 ! 0 tzlfx1 !
+0 tex1 ! 0 tox1 ! 0 tyx1 !
+0 tfx1 ! 0 tpx1 ! 0 tzx1 !
+0 tgx1 ! 0 tqx1 !
+0 thx1 ! 0 trx1 !
+0 tix1 ! 0 tsx1 !
+0 tjx1 ! 0 ttx1 !        ;
+
+: t2clear
+0 tax2 ! 0 tkx2 ! 0 tux2 !
+0 tbx2 ! 0 tlx2 ! 0 tvx2 !
+0 tcx2 ! 0 tmx2 ! 0 twx2 !
+0 tdx2 ! 0 tnx2 ! 0 tzlfx2 !
+0 tex2 ! 0 tox2 ! 0 tyx2 !
+0 tfx2 ! 0 tpx2 ! 0 tzx2 !
+0 tgx2 ! 0 tqx2 !
+0 thx2 ! 0 trx2 !
+0 tix2 ! 0 tsx2 !
+0 tjx2 ! 0 ttx2 !        ;
 
 : saclear
 0 axa ! 0 kxa ! 0 uxa !

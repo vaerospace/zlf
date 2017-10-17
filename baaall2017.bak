@@ -253,6 +253,12 @@ variable xjd   variable xtd   variable  sp4x
 : ct12        tax @ tax1 ! tbx @ tbx1 ! tcx @ tcx1 ! tdx @ tdx1 ! exd @ tex1 !       \ reverse SP to storeB
               tfx @ tfx1 ! tgx @ tgx1 ! thx @ thx1 ! ixd @ tix1 ! jxd @ tjx1 ! tkx @ tkx1 ! ;
 
+: ctd1        axb @ tax1 ! bxb @ tbx1 ! cxb1 @ tcx1 ! dxb1 @ tdx1 ! exb1 @ tex1 !       \ reverse SP to storeB
+              fxb1 @ tfx1 ! gxb1 @ tgx1 ! hxb1 @ thx1 ! ixb1 @ tix1 ! jx1b @ tjx1 ! kx1b @ tkx1 ! ;
+
+: ctd2         axc @ tax2 ! bxc @ tbx2 ! cxc @ tcx2 ! dxc @ tdx2 ! exc @ tex2 !       \ reverse SP to storeB
+              fxc @ tfx2 ! gxc @ tgx2 ! hxc @ thx2 ! ixc @ tix2 ! jxd @ tjx2 ! kxc @ tkx2 ! ;
+
 : ct23        tax1 @ tax2 ! tbx1 @ tbx2 ! tcx1 @ tcx2 ! tdx1 @ tdx2 ! tex1 @ tex2 !       \ reverse SP to storeB
               tfx1 @ tfx2 ! tgx1 @ tgx2 ! thx1 @ thx2 ! tix1 @ tix2 ! tjx1 @ tjx2 ! tkx1 @ tkx2 ! ;
 
@@ -428,6 +434,30 @@ variable xjd   variable xtd   variable  sp4x
 0 hx ! 0 rx !
 0 ix ! 0 sx !
 0 jx ! 0 tx !        ;
+
+: t1clear
+0 tax1 ! 0 tkx1 ! 0 tux1 !
+0 tbx1 ! 0 tlx1 ! 0 tvx1 !
+0 tcx1 ! 0 tmx1 ! 0 twx1 !
+0 tdx1 ! 0 tnx1 ! 0 tzlfx1 !
+0 tex1 ! 0 tox1 ! 0 tyx1 !
+0 tfx1 ! 0 tpx1 ! 0 tzx1 !
+0 tgx1 ! 0 tqx1 !
+0 thx1 ! 0 trx1 !
+0 tix1 ! 0 tsx1 !
+0 tjx1 ! 0 ttx1 !        ;
+
+: t2clear
+0 tax2 ! 0 tkx2 ! 0 tux2 !
+0 tbx2 ! 0 tlx2 ! 0 tvx2 !
+0 tcx2 ! 0 tmx2 ! 0 twx2 !
+0 tdx2 ! 0 tnx2 ! 0 tzlfx2 !
+0 tex2 ! 0 tox2 ! 0 tyx2 !
+0 tfx2 ! 0 tpx2 ! 0 tzx2 !
+0 tgx2 ! 0 tqx2 !
+0 thx2 ! 0 trx2 !
+0 tix2 ! 0 tsx2 !
+0 tjx2 ! 0 ttx2 !        ;
 
 : saclear
 0 axa ! 0 kxa ! 0 uxa !
@@ -1317,310 +1347,310 @@ variable xjd   variable xtd   variable  sp4x
 
 
 : axx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 1 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 1 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb zero ttzx after run
 
 : bxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 1 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 1 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 
 : cxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 1 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 1 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 
 : dxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 1 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 1 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 : exx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 1 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 1 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 : fxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 1 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 1 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 : gxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 1 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 1 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 : hxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 1 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 1 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 : ixx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 1 xor  ttjx !
-     jxb @ 0 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 1 xor  ttjx !
+     ttjx @ 0 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 
 
 : jxx2     ( n1 - n2 )  \ Last DATA DIGIT
-     axb @ 0 xor  ttax !
-     bxb @ 0 xor  ttbx !
-     cxb @ 0 xor  ttcx !
-     dxb @ 0 xor  ttdx !
-     exb @ 0 xor  ttex !
-     fxb @ 0 xor  ttfx !
-     gxb @ 0 xor  ttgx !
-     hxb @ 0 xor  tthx !
-     ixb @ 0 xor  ttjx !
-     jxb @ 1 xor  ttix !
-     kxb @ 0 xor  ttjx !
-     lxb @ 0 xor  xld !
-     mxb @ 0 xor  xmd !
-     nxb @ 0 xor  xnd !
-     oxb @ 0 xor  xod !
-     pxb @ 0 xor  xpd !
-     qxb @ 0 xor  xqd !
-     rxb @ 0 xor  xrd !
-     sxb @ 0 xor  xsd !
-     txb @ 0 xor  xtd !
-     uxb @ 0 xor  xud !
-     vxb @ 0 xor  xvd !
-     wxb @ 0 xor  xwd !
-     zlfxb @ 0 xor xxd !
-     yxb @ 0 xor  xyd !
-     zxb @ 0 xor xzd !
-     sp1b @ 0 xor sp1x !
-     sp2b @ 0 xor sp2x !
-               ;
+     ttax @ 0 xor  ttax !
+     ttbx @ 0 xor  ttbx !
+     ttcx @ 0 xor  ttcx !
+     ttdx @ 0 xor  ttdx !
+     ttex @ 0 xor  ttex !
+     ttfx @ 0 xor  ttfx !
+     ttgx @ 0 xor  ttgx !
+     tthx @ 0 xor  tthx !
+     ttix @ 0 xor  ttjx !
+     ttjx @ 1 xor  ttix !
+     ttkx @ 0 xor  ttjx !
+     ttlx @ 0 xor  ttlx !
+     ttmx @ 0 xor  ttmx !
+     ttnx @ 0 xor  ttnx !
+     ttox @ 0 xor  ttox !
+     ttpx @ 0 xor  ttpx !
+     ttqx @ 0 xor  ttqx !
+     ttrx @ 0 xor  ttrx !
+     ttsx @ 0 xor  ttsx !
+     tttx @ 0 xor  tttx !
+     ttux @ 0 xor  ttux !
+     ttvx @ 0 xor  ttvx !
+     ttwx @ 0 xor  ttwx !
+     ttzlfx @ 0 xor ttzlfx !
+     ttyx @ 0 xor  ttyx !
+     ttzx @ 0 xor ttzx !
+     ttsp1 @ 0 xor ttsp1 !
+     ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb z
 
 : srttt ." ZLF     " ." 1 " ." 2 " ." 3 " ." 4 " ." 5 " ." 6 " ." 7 " ." 8 " ." 9 " ." 0 "
                        ." 1 " ." 2 " ." 3 " ." 4 " ." 5 " ." 6 " ." 7 "
