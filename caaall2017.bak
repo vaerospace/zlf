@@ -1,7 +1,7 @@
 \ UNZIP STACK RESET
 needs baaall2017.f
 
-
+variable nezz1   variable nezz2     variable nezz3
 
 
 : cd1         axa @ axb @ xor axb !       \ A to B
@@ -67,11 +67,16 @@ needs baaall2017.f
      yx @ 0 xor  yx !
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
-     sp2 @ 0 xor sp2 !
+     sp2 @ 0 xor sp2 !    \ dont forget to store D? (our new discovred digitd to temps and update temp order !!!
          \    csp1 csp0 csp2 cs2pp c22  ;
    \ ct23 ct12 cab0   csppx  csp2  csp1 csp0
    \  xor axa axb axb! xor axb axc ! xor axc axd !
-     csp0 cd1 cd2 cd3                   ;
+    \ csp0 cd1 cd2 cd3
+     \    NOTE DOWNZIP DAISY CHAINS  SO AxC DIGIT XOR  IS MOVED DOWN AND XORED WITH DIGI MOVED DOWN XORED WITH DIGIT ECT
+     \    NOTE DOWNZIP DAISY CHAINS  SO AxC DIGIT XOR  IS MOVED DOWN AND XORED WITH DIGI MOVED DOWN XORED WITH DIGIT ECT
+     \    csp0   ( move AxA to temp and xor it with prev)
+                  ( move AxB to temp and xor it WITH THE STORE DIGIT XORED AxB)
+                     ( move AxC to temp and xor it with prev)            ;
 
 : bxx3     ( n1 - n2 )
      ax @ 0 xor  ax !

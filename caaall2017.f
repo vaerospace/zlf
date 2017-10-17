@@ -72,7 +72,7 @@ variable nezz1   variable nezz2     variable nezz3
    \ ct23 ct12 cab0   csppx  csp2  csp1 csp0
    \  xor axa axb axb! xor axb axc ! xor axc axd !
     \ csp0 cd1 cd2 cd3
-     \    NOTE DOWNZIP DAISY CHAINS  SO AxC DIGIT XOR  IS MOVED DOWN AND XORED WITH DIGI MOVED DOWN XORED WITH DIGIT ECT
+
      \    NOTE DOWNZIP DAISY CHAINS  SO AxC DIGIT XOR  IS MOVED DOWN AND XORED WITH DIGI MOVED DOWN XORED WITH DIGIT ECT
      \    csp0   ( move AxA to temp and xor it with prev)
                   ( move AxB to temp and xor it WITH THE STORE DIGIT XORED AxB)
