@@ -155,12 +155,55 @@ variable spp1
 
 \  so we record Axt prev prev now
 
+doxd1  ok
+dox1
+ZLF     1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
+
+Ax  S1  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+AxA SP  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+AxBSPP  1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+AxC  R  1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 <<< we add Bxx
+
+AxD N2  1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 <<< if we xor (???) do we get AxB
+
+XaD N3  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   \ or what digit do we need to make this number  AxD N2
 
 
-\
+AxT S2  0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
+AxTS23  0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
+AxTS24  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   <<<< now slove for AxD
 
+result-
+
+\ if  AxB is xored with AxD  compared with AxTS24
+
+\ MAIN LOGIC
+
+\ logic flow  is ? xor N2 = to R    ---- we try all digits only one digit can be n2 xor R
+
+\   digittry?   xor R  does it equall AxTS24 ?  IF NO ITS OUR NUMBER  >>>>>  MAIN LOGIC  <<<<<
+\ WE XOR N2 R  WITH DIGITS    ----if its not  AxTS24  --- its our digit
+
+\   >>>>Compare N2 R logic<<<<
+
+\     zero + 1 number ?
+
+\          is it AxTS24  ?
+
+\                its our number we can rebuild for next number
+
+\     check logic for D? xor N2  xor R    --- main logic loop
+
+\                  D? @  xor N2  xor R  1 =     if   IT OUR MAN STORE IT
+
+\                                           else         ITS A ZERO
+
+\  SETUP AXX TO TEMP VAR d?  RUN LOOP  IS IT A ZERO+1 NUMBER ?  ITS NOT AxTS24  ?   MAIN LOGIC
 
 
 

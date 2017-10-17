@@ -187,9 +187,9 @@ result-
 \ logic flow  is ? xor N2 = to R    ---- we try all digits only one digit can be n2 xor R
 
 \   digittry?   xor R  does it equall AxTS24 ?  IF NO ITS OUR NUMBER  >>>>>  MAIN LOGIC  <<<<<
-\ WE XOR N2 R  WITH DIGITS    ----if its not  AxTS24  --- its our digit
+\ WE XOR N2 R  WITH ALL DIGITS    ----if its not  AxTS24  --- its our digit
 
-\   >>>>Compare N2 R logic<<<<
+\                                 >>>>Compare N2 R logic<<<<
 
 \     zero + 1 number ?
 
@@ -203,7 +203,16 @@ result-
 
 \                                           else         ITS A ZERO
 
-\  SETUP AXX TO TEMP VAR d?  RUN LOOP  IS IT A ZERO+1 NUMBER ?  ITS NOT AxTS24  ?   MAIN LOGIC
+\                                         >>>> MAIN LOGIC<<<<
+
+\
+\                                  SETUP AXX-JXX  TO TEMP VAR d?
+
+\                                        RUN LOOP  ---   D? XOR N2 XOR R 1 =   ?
+\
+\                                            IS IT A ZERO+1 NUMBER ?
+
+\                                                   ITS NOT AxTS24  ?      MAIN LOGIC
 
 
 
