@@ -34,7 +34,7 @@ needs baaall2017.f
 \ Now that our stack is setup -hpefully we can unzip it
 
 \  what number made AxC ? and can we find it ?
-variable spp1
+variable spp1   variable sppp1
 
 : nottt2          case
                  1 of     1 spp1 ! ." It's Not:" bl spp1 @  .                          \ axx1
@@ -121,6 +121,45 @@ variable spp1
                                                         else    10 spp1 !                \ ." its 0"  cr \ 10 xt1 cr
                                                                                   then
                                                                       arsult   drop    ;
+
+\ : dosppxx
+\                 10 0 do I nottt2  sppp1 @ 1 = leave loop ;
+
+
+
+: nottt4    \ only ouput if true
+
+ cr           axd @ axc @ xor  1 = if
+                                     else  1 sppp1 ! 1 spp1 !
+                                                 then
+                 bxd @  bxc @ xor 1 = if
+                                         else  1 sppp1 ! 2 spp1 !
+                                                    then
+                   cxd @  cxc @ xor 1 = if
+                                           else  1 sppp1 ! 3 spp1 !
+                                                        then
+                      dxd @  dxc @ xor  1 = if
+                                             else  1 sppp1 ! 4 spp1 !
+                                                            then
+                         exd @  exc @ xor 1 = if
+                                              else   1 sppp1 ! 5 spp1
+                                                                 then
+                           fxd @  fxc @  xor 1 = if
+                                                else   1 sppp1 ! 6 spp1 !
+                                                                    then
+                               gxd @  gxc @ xor 1 =  if
+                                                   else  1 sppp1 !  7 spp1 !
+                                                                        then
+                                  hxd @  hxc @ xor 1 =  if
+                                                     else 1 sppp1 ! 8 spp1 !
+                                                                           then
+                                     ixd @  ixc @ xor  1 = if
+                                                      else  1 sppp1 ! 9 spp1 !
+                                                                              then
+                                        jxd @  jxc @ xor 1 = if
+                                                        else  1 sppp1 !  10 spp1 !
+                                                                                  then
+                                                                         spp1 @ . sppp1 @ .    ;
 : outzlf dob1 domagic ;
 
 \ Upbuild
@@ -155,30 +194,30 @@ variable spp1
 
 \  so we record Axt prev prev now
 
-doxd1  ok
-dox1
-ZLF     1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
+\ doxd1  ok
+\ dox1
+\ ZLF     1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
 
-Ax  S1  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+\ Ax  S1  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-AxA SP  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+\ AxA SP  1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-AxBSPP  1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+\ AxBSPP  1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-AxC  R  1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 <<< we add Bxx
+\ AxC  R  1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 <<< we add Bxx
 
-AxD N2  1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 <<< if we xor (???) do we get AxB
+\ AxD N2  1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 <<< if we xor (???) do we get AxB
 
-XaD N3  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   \ or what digit do we need to make this number  AxD N2
+\ XaD N3  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   \ or what digit do we need to make this number  AxD N2
 
 
-AxT S2  0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+\ AxT S2  0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-AxTS23  0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+\ AxTS23  0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-AxTS24  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   <<<< now slove for AxD
+\ AxTS24  0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   <<<< now slove for AxD
 
-result-
+\ result-
 
 \ if  AxB is xored with AxD  compared with AxTS24
 

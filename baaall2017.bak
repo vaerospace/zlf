@@ -242,7 +242,7 @@ variable xjd   variable xtd   variable  sp4x
               tfx @ tfx1 ! tgx @ tgx1 ! thx @ thx1 ! ixd @ tix1 ! jxd @ tjx1 ! tkx @ tkx1 ! ;
 
 : ct23        tax1 @ tax2 ! tbx1 @ tbx2 ! tcx1 @ tcx2 ! tdx1 @ tdx2 ! tex1 @ tex2 !       \ reverse SP to storeB
-              tfx1 @ tfx2 ! tgx1 @ tgx2 ! thx1 @ thx2 ! ixd1 @ tix2 ! tjx1 @ tjx2 ! tkx1 @ tkx2 ! ;
+              tfx1 @ tfx2 ! tgx1 @ tgx2 ! thx1 @ thx2 ! tix1 @ tix2 ! tjx1 @ tjx2 ! tkx1 @ tkx2 ! ;
 
 : cu2        axc @ axcp ! bxc @ bxcp ! cxc @ cxcp ! dxc @ dxcp ! exc @ excp !       \ reverse SP to storeB
              fxc @ fxcp ! gxc @ gxcp ! hxc @ hxcp ! ixc @ ixcp ! jxc @ jxcp ! ( kxc @ kx ! )  ;
