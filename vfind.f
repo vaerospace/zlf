@@ -91,34 +91,32 @@ variable nn2 variable nn3
                             nn2 @ nn3 @ = if  leave then loop ;
 
 
-: arsult ." It's Not:" bl spp1 @  .  ." thats now stored in variable spp1" ;
+: arsult ( ." It's Not:" bl) spp1 @  .  ( ." thats now stored in variable spp1") ;
 
-: nottt3          case
-                 1 of       ax                         \ axx1
-                         endof
-                 2 of       bx                          \ bxx1
-                         endof
-                 3 of       cx                           \ cxx1
-                         endof
-                 4 of       dx                           \ dxx1
-                         endof
-                 5 of       ex                           \ exx1
-                         endof
-                 6 of       fx                          \ fxx1
-                         endof
-                 7 of       gx                           \ gxx1
-                         endof
-                 8 of       hx                           \ hxx1
-                         endof
-                 9 of       ix                                 \ ixx1
-                         endof
-                10 of       jx                           \ jxx1
-                         endof
-                             endcase    ;
+: nottt3    taxclear   spp1 @  taxclear      case
 
-
-
-
+                          1 of       axx                         \ axx1
+                         endof
+                          2 of       bxx                         \ bxx1
+                         endof
+                          3 of       cxx                           \ cxx1
+                         endof
+                          4 of       dxx                           \ dxx1
+                         endof
+                          5 of       exx                           \ exx1
+                         endof
+                          6 of       fxx                          \ fxx1
+                         endof
+                          7 of       gxx                           \ gxx1
+                         endof
+                          8 of       hxx                           \ hxx1
+                         endof
+                          9 of       ixx                                 \ ixx1
+                         endof
+                         10 of       jxx                           \ jxx1
+                         endof
+                             endcase
+                                               ;
 
 
 : nottt1
