@@ -1,6 +1,7 @@
 \ vfind.f    find and file output spp to prepare for rebuild for next loop
 needs baaall2017.f
-\  needs caaall2017.f
+needs caaall2017.f
+needs dzaaal2017.f
 
 \ How do we find SPP     answer (xor AxD AxC) then (Xor result AxC  = AxE  previous in knnown string digit)
 
@@ -35,9 +36,11 @@ needs baaall2017.f
 \ Now that our stack is setup -hpefully we can unzip it
 
 \  what number made AxC ? and can we find it ?
-variable spp1   variable sppp1
+variable spp1   variable sppp1   variable ourboy  variable hardcount
 
-: nottt2
+: hardreset  0 hardcount ! ;
+
+: nottt2  \ lasdig1 to temp vars spp1 @
  case
                  1 of     axx2
                          endof
@@ -62,7 +65,8 @@ variable spp1   variable sppp1
                              endcase    ;
 variable nn2 variable nn3
 
-: not2  cr
+: not2  \   ournext char
+
  case
                  1 of      1  nn3 !  ." axx2" cr
                          endof
@@ -86,12 +90,11 @@ variable nn2 variable nn3
                          endof
                              endcase    ;
 
-
-: donottt2    11  0 do I not2
-                            nn2 @ nn3 @ = if  leave then loop ;
+\  dnt2 runs not until they are equal and exits leaving  MAINSEARCH LOOP
 
 
-: arsult ( ." It's Not:" bl) spp1 @  .  ( ." thats now stored in variable spp1") ;
+
+: arsult ( ." It's Not:" bl) spp1 @  nn2 ! ( nn2 @ .  ." thats now stored in variable spp1") ;
 
 : nottt3    taxclear   spp1 @  taxclear      case
 
@@ -116,18 +119,15 @@ variable nn2 variable nn3
                          10 of       jxx                           \ jxx1
                          endof
                              endcase
+                                               ;
 
 
-
-
-
-
-: nottt1
+: nottt1   \ leaves S2 in spp1
          cr   tax @  0=  if \ ." it's a zero @ 1" cr
                           else   1 spp1 !               \  1 nottt2 \  ." its 1"  cr \ 1   xt1   cr
                                                  then
                  tbx @   0=  if \ ." it's a zero @ 2" cr
-                             else     2 spp1  !            \ n2 nottt2  ." its 2" cr  \  2 xt1  cr
+                             else     2 spp1 !            \ n2 nottt2  ." its 2" cr  \  2 xt1  cr
                                                     then
                     txc @   0=  if \  ." it's a zero @ 3" cr
                                 else     3 spp1 !              \ 3  nottt2     \  ." its 3"  cr \  3 xt1 cr
@@ -153,82 +153,141 @@ variable nn2 variable nn3
                                             tjx @  0=  if  \ ." it's a zero @ 10" cr
                                                         else    10 spp1 !                \ ." its 0"  cr \ 10 xt1 cr
                                                                                   then
-                                                                      arsult   drop    ;
+                                                                      arsult       ;
 
 \ : dosppxx
 \                 10 0 do I nottt2  sppp1 @ 1 = leave loop ;
 
 
 
-: nottt4    \ only ouput if true
 
- cr           axd @ axc @ xor  1 = if
-                                     ( else)  1 sppp1 ! 1 spp1 !
+\ now we loop nottt5 looking for axc @ 0=
+: oboy     axc @ 0= if
+                else leave
+                     then
+                 bxc @ 0= if
+                     else leave
+                          then
+                      cxc @ 0= if
+                              else leave
+                              then
+                              dxc @ 0= if
+                                 else leave
+                                   then
+                                   exc @ 0= if
+                                     else leave
+                                         then
+                                         fxc @ 0= if
+                                           else leave
                                                  then
-                 bxd @  bxc @ xor 1 = if
-                                         ( else)  1 sppp1 ! 2 spp1 !
-                                                    then
-                   cxd @  cxc @ xor 1 = if
-                                           ( else)  1 sppp1 ! 3 spp1 !
+                                              gxc @ 0= if
+                                                else leave
+                                                     then
+                                                  hxc @ 0= if
+                                                    else leave
                                                         then
-                      dxd @  dxc @ xor  1 = if
-                                             ( else)  1 sppp1 ! 4 spp1 !
-                                                            then
-                         exd @  exc @ xor 1 = if
-                                              ( else)   1 sppp1 ! 5 spp1
-                                                                 then
-                           fxd @  fxc @  xor 1 = if
-                                                ( else)   1 sppp1 ! 6 spp1 !
-                                                                    then
-                               gxd @  gxc @ xor 1 =  if
-                                                   ( else)  1 sppp1 !  7 spp1 !
-                                                                        then
-                                  hxd @  hxc @ xor 1 =  if
-                                                     ( else) 1 sppp1 ! 8 spp1 !
-                                                                           then
-                                     ixd @  ixc @ xor  1 = if
-                                                      ( else)  1 sppp1 ! 9 spp1 !
-                                                                              then
-                                        jxd @  jxc @ xor 1 = if
-                                                        ( else ) 1 sppp1 !  10 spp1 !
-                                                                                  then
-                                                                         spp1 @ . sppp1 @ .    ;
+                                                         ixc @ 0= if
+                                                              else leave
+                                                                   then
+                                                                  jxc @ 0=  if
+                                                                     else leave
+                                                                       then
+                                                                     1 ourboy !  ;
 
-: nottt5  csp2ct csp2bt     \ only ouput if true  write axc to temp and restore after op
+: nottt5  csp2ct csp2bt   \  only nn2 can create AxC !!! outputs that digit to nn2 @
 
- cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one"  1 nn2 cr
+ cr    ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one"  1 nn2 ! cr
                                     \ else  1 sppp1 ! 1 spp1 !
                                                  then
-                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two"  2 nn2  cr
+         ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two"  2 nn2 ! cr
                                        \  else  1 sppp1 ! 2 spp1 !
                                                     then
-                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" 3 nn2 cr
+          ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" 3 nn2 ! cr
                                           \ else  1 sppp1 ! 3 spp1 !
                                                         then
-                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if  dxc @ . ." it's a four"  4 nn2 cr
+            ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if   dxc @ . ." it's a four"  4  nn2 ! cr
                                             \ else  1 sppp1 ! 4 spp1 !
                                                             then
-                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five"   5 nn2 cr
+              ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five"   5  nn2 ! cr
                                             \  else   1 sppp1 ! 5 spp1
                                                                  then
-                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six"    6 nn2 cr
+               ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six"    6   nn2 ! cr
                                                 \ else   1 sppp1 ! 6 spp1 !
                                                                     then
-                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if gxc @ . ." it's a seven"  7 nn2 cr
+                 ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if  gxc @ . ." it's a seven"  7  nn2 ! cr
                                                   \ else  1 sppp1 !  7 spp1 !
                                                                         then
-                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight" 8 nn2 cr
+                   tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight" 8   nn2 ! cr
                                                     \  else 1 sppp1 ! 8 spp1 !
                                                                            then
-                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"   9 nn2 cr
+                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"   9  nn2  ! cr
                                                      \ else  1 sppp1 ! 9 spp1 !
                                                                               then
-                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if  jxc @ . ." it's a one"   10 nn2 cr
+                      ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if jxc @ . ." it's a one"   10   nn2  ! cr
                                                       \  else  1 sppp1 !  10 spp1 !
                                                                                   then
-                                                ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt
- ;
+                                                ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt   ;
+
+: not3  \   ournext char  MAINSEARCH LOOP
+
+          case
+                 1  of      axx3  nottt5 oboy ourboy @ 1 = if 1  nn3 !  ." axx3" then
+                         endof
+                 2  of      bxx3  nottt5 oboy ourboy @ 1 = if 2  nn3 !  ." bxx3" then
+                         endof
+                 3  of      cxx3  nottt5 oboy ourboy @ 1 = if 3  nn3 !  ." cxx3" then
+                         endof
+                 4  of      dxx3  nottt5 oboy ourboy @ 1 = if 4  nn3 !  ." dxx3" then
+                         endof
+                 5  of      exx3  nottt5 oboy ourboy @ 1 = if 5  nn3 !  ." exx3" then
+                         endof
+                 6  of      fxx3  nottt5 oboy ourboy @ 1 = if 6  nn3 !  ." xfx3" then
+                         endof
+                 7  of      gxx3  nottt5 oboy ourboy @ 1 = if 7  nn3 !  ." bxx3" then
+                         endof
+                 8  of      hxx3  nottt5 oboy ourboy @ 1 = if 8  nn3 !  ." bxx3" then
+                         endof
+                 9  of      ixx3  nottt5 oboy ourboy @ 1 = if 9  nn3 !  ." bxx3" then
+                         endof
+                10  of      jxx3  nottt5 oboy ourboy @ 1 = if 10  nn3 ! ." bxx2" then
+                         endof
+                             endcase    ;
+
+
+
+: grt1   \ load digits into tt vars  check for 0  output correct var for upzip loop
+            noop ;
+
+\ variable ad variable bd variabe cd
+
+
+: dowox 11 0 do I hardcount ! I . ( I @ hardcount !) loop ;
+
 : outzlf dob1 domagic ;
+
+
+: nottt4    \ only ouput if true   MAINTEST LOGIC LOOP
+
+ cr           nn2 @ nn3 @  = if    spp1 @ .
+
+                             then
+                             ;
+
+: nottt44    11  0 do I not3 I .
+                            nn2 @ nn3 @ = if  leave then loop ;
+
+
+
+
+
+
+: fld
+       nottt1  (  nn2 found and loaded  )
+       nn3 @ spp1 !  ( we have out digit lets move it)
+       nottt2   ( execute axx digit on main data stack  )
+
+                            ;
+
 
 \ Upbuild
 

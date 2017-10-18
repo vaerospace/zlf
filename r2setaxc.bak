@@ -1,0 +1,34 @@
+\ buildown A  xors AxA and moves to AxB
+\ move lastdig to a temp store   axbp vars
+needs baaall2017.f
+: axxrr     ( n1 - n2 )  \ Raw reset of main stack   to ttax
+       \ move axa temp   -- move lastdig to temp xor them store to Axb
+     axb  @  axbp @  1 xor  axc !
+     axb  @  bxbp @  0 xor  bxc !
+     cxb  @  cxbp @  0 xor  cxc !
+     dxb  @  dxbp @  0 xor  dxc !
+     exb  @  exbp @  0 xor  exc !
+     fxb  @  fxbp @  0 xor  fxc !
+     gxb  @  gxbp @  0 xor  gxc !
+     hxb  @  hxbp @  0 xor  hxc !
+     ixb  @  ixbp @  0 xor  ixc !
+     jxb  @  jxbp @  0 xor  jxc !
+     kxb  @  kxbp @  0 xor  kxc !
+     lxb  @  lxbp @  0 xor  lxc !
+     mxb  @  mxbp @  0 xor  mxc !
+     nxb  @  nxbp @  0 xor  nxc !
+     oxb  @  oxbp @  0 xor  oxc !
+     pxb  @  pxbp @  0 xor  pxc !
+     qxb  @  qxbp @  0 xor  qxc !
+     rxb  @  rxbp @  0 xor  rxc !
+     sxb  @  sxbp @  0 xor  sxc !
+     txb  @  txbp @  0 xor  txc !
+     uxb  @  uxbp @  0 xor  uxc !
+     vxb  @  vxbp @  0 xor  vxc !
+     wxb  @  wxbp @  0 xor  wxc !
+     zlfxb @ zlfxbp @ 0 xor zlfxc !
+     yxb  @  yxbp @  0 xor  yxc !
+     zxb  @  zxbp @  0 xor  zxc !
+     \ ttsp1 @ 0 xor ttsp1 !
+     \ ttsp2 @ 0 xor ttsp2 !
+               ;  \  nb zero ttzx after run
