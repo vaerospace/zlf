@@ -123,7 +123,28 @@ variable hxbp   variable rxbp   variable  sp2bp
 variable ixbp   variable sxbp   variable  sp3bp
 variable jxbp   variable txbp   variable  sp4bp
 
+variable axct   variable kxct   variable  uxct
+variable bxct   variable lxct   variable  vxct
+variable cxct   variable mxct   variable  wxct
+variable dxct   variable nxct   variable  zlfxct
+variable exct   variable oxct   variable  yxct
+variable fxct   variable pxct   variable  zxct
+variable gxct   variable qxct   variable  sp1ct
+variable hxct   variable rxct   variable  sp2ct
+variable ixct   variable sxct   variable  sp3ct
+variable jxct   variable txct   variable  sp4ct
 
+
+variable axbt   variable kxbt   variable  uxbt
+variable bxbt   variable lxbt   variable  vxbt
+variable cxbt   variable mxbt   variable  wxbt
+variable dxbt   variable nxbt   variable  zlfxbt
+variable exbt   variable oxbt   variable  yxbt
+variable fxbt   variable pxbt   variable  zxbt
+variable gxbt   variable qxbt   variable  sp1bt
+variable hxbt   variable rxbt   variable  sp2bt
+variable ixbt   variable sxbt   variable  sp3bt
+variable jxbt   variable txbt   variable  sp4bt
 
 
 \ intermediate marker state  -- stack1 prev-prev test results
@@ -268,6 +289,17 @@ variable xjd   variable xtd   variable  sp4x
 : cu3        axcp @ axc ! bxcp @ bxc ! cxcp @ cxc ! dxcp @ dxc ! excp @ exc !       \ reverse SP to storeB
              fxcp @ fxc ! gxcp @ gxc ! hxcp @ hxc ! ixcp @ ixc ! jxcp @ jxc ! ( kxc @ kx ! )  ;
 
+: csp2ct       axc @ axct ! bxc @ bxct ! cxc @ cxct ! dxc @ dxct ! exc @ exct !      \ B to C
+               fxc @ fxct ! gxc @ gxct ! hxc @ hxct ! ixc @ ixct ! jxc @ jxct ! kxb @ kxct ! ;
+
+: csp3cct       axct @ axc ! bxct @ bxc ! cxct @ cxc ! dxct @ dxc ! exct @ exc !      \ B to C
+                fxct @ fxc ! gxct @ gxc ! hxct @ hxc ! ixct @ ixc ! jxct @ jxc ! kxct @ kxc ! ;
+
+: csp2bt        axb @ axbt ! bxb @ bxbt ! cxb @ cxbt ! dxb @ dxbt ! exb @ exbt !      \ B to C
+                fxb @ fxbt ! gxb @ gxbt ! hxb @ hxbt ! ixb @ ixbt ! jxb @ jxbt ! kxb @ kxct ! ;
+
+: csp2bbt       axbt @ axb ! bxbt @ bxb ! cxbt @ cxb ! dxbt @ dxb ! exbt @ exb !      \ B to C
+                fxbt @ fxb ! gxbt @ gxb ! hxbt @ hxb ! ixbt @ ixb ! jxbt @ jxb ! kxbt @ kxb ! ;
 
 
 : c22         axa @ axb @ xor  xad !   \  S2  A+B

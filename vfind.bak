@@ -1,5 +1,6 @@
 \ vfind.f    find and file output spp to prepare for rebuild for next loop
 needs baaall2017.f
+\  needs caaall2017.f
 
 \ How do we find SPP     answer (xor AxD AxC) then (Xor result AxC  = AxE  previous in knnown string digit)
 
@@ -36,7 +37,8 @@ needs baaall2017.f
 \  what number made AxC ? and can we find it ?
 variable spp1   variable sppp1
 
-: nottt2          case
+: nottt2
+ case
                  1 of     axx2
                          endof
                  2 of     bxx2
@@ -58,6 +60,36 @@ variable spp1   variable sppp1
                 10 of     jxx2
                          endof
                              endcase    ;
+variable nn2 variable nn3
+
+: not2
+ case
+                 1 of      1  nn3 !  ." axx2" cr
+                         endof
+                 2 of      2  nn3 !  ." bxx2" cr
+                         endof
+                 3 of      3  nn3 !  ." cxx2" cr
+                         endof
+                 4 of      4  nn3 !  ." dxx2" cr
+                         endof
+                 5 of      5  nn3 !   ." exx2" cr
+                         endof
+                 6 of      6  nn3 !   ." fxx2"  cr
+                         endof
+                 7 of      7  nn3 !   ." gxx2"  cr
+                         endof
+                 8 of      8  nn3 !   ." hxx2"  cr
+                         endof
+                 9 of      9  nn3 !   ." ixx2"  cr
+                         endof
+                10 of     10  nn3 !   ." jxx2"  cr
+                         endof
+                             endcase    ;
+
+
+: donottt2    10  0 do I not2
+                            nn2 @ nn3 @ = if  leave then loop ;
+
 
 : arsult ." It's Not:" bl spp1 @  .  ." thats now stored in variable spp1" ;
 
@@ -161,39 +193,40 @@ variable spp1   variable sppp1
                                                                                   then
                                                                          spp1 @ . sppp1 @ .    ;
 
-: nottt5    \ only ouput if true
+: nottt5  csp2ct csp2bt     \ only ouput if true  write axc to temp and restore after op
 
- cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one" cr
+ cr          ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one"  1 nn2 cr
                                     \ else  1 sppp1 ! 1 spp1 !
                                                  then
-                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two" cr
+                 ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two"  2 nn2  cr
                                        \  else  1 sppp1 ! 2 spp1 !
                                                     then
-                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" cr
+                   ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" 3 nn2 cr
                                           \ else  1 sppp1 ! 3 spp1 !
                                                         then
-                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if  dxc @ . ." it's a four" cr
+                      ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if  dxc @ . ." it's a four"  4 nn2 cr
                                             \ else  1 sppp1 ! 4 spp1 !
                                                             then
-                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five" cr
+                         ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five"   5 nn2 cr
                                             \  else   1 sppp1 ! 5 spp1
                                                                  then
-                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six" cr
+                           ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six"    6 nn2 cr
                                                 \ else   1 sppp1 ! 6 spp1 !
                                                                     then
-                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if gxc @ . ." it's a seven" cr
+                               ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if gxc @ . ." it's a seven"  7 nn2 cr
                                                   \ else  1 sppp1 !  7 spp1 !
                                                                         then
-                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight"  cr
+                                  tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight" 8 nn2 cr
                                                     \  else 1 sppp1 ! 8 spp1 !
                                                                            then
-                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"  cr
+                                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"   9 nn2 cr
                                                      \ else  1 sppp1 ! 9 spp1 !
                                                                               then
-                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if  jxc @ . ." it's a one"  cr
+                                       ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if  jxc @ . ." it's a one"   10 nn2 cr
                                                       \  else  1 sppp1 !  10 spp1 !
                                                                                   then
-                                                                         ( spp1 @ . sppp1 @ . )   ;
+                                                ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt
+ ;
 : outzlf dob1 domagic ;
 
 \ Upbuild

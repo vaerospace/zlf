@@ -1,7 +1,58 @@
 \ UNZIP STACK RESET
 needs baaall2017.f
+\ intermediate marker state  -- stack1 prev-prev test results
+variable axct   variable kxct   variable  uxct
+variable bxct   variable lxct   variable  vxct
+variable cxct   variable mxct   variable  wxct
+variable dxct   variable nxct   variable  zlfxct
+variable exct   variable oxct   variable  yxct
+variable fxct   variable pxct   variable  zxct
+variable gxct   variable qxct   variable  sp1ct
+variable hxct   variable rxct   variable  sp2ct
+variable ixct   variable sxct   variable  sp3ct
+variable jxct   variable txct   variable  sp4ct
+
+
+variable axbt   variable kxbt   variable  uxbt
+variable bxbt   variable lxbt   variable  vxbt
+variable cxbt   variable mxbt   variable  wxbt
+variable dxbt   variable nxbt   variable  zlfxbt
+variable exbt   variable oxbt   variable  yxbt
+variable fxbt   variable pxbt   variable  zxbt
+variable gxbt   variable qxbt   variable  sp1bt
+variable hxbt   variable rxbt   variable  sp2bt
+variable ixbt   variable sxbt   variable  sp3bt
+variable jxbt   variable txbt   variable  sp4bt
 
 variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable lastdig2 variable lastdig3
+
+: cspc0       axa @ ax !  bxa @ bxa !  cx @ cxa !  dx @ dxa ! ex @ exa !
+              fx @ fxa !  gx @ gxa !  hx @ hxa !  ix @ ixa ! jx @ jxa !  kx @ kxa ! ;
+
+: cspc1         axb @ axa ! bxa @ bxb ! cxa @ cxb ! dxa @ dxb ! exa @ exb !      \ move A to B
+               fxa @ fxb ! gxa @ gxb ! hxa @ hxb ! ixa @ ixb ! jxa @ jxb ! kxa @ kxb !  ;
+
+: cspc2         axc @ axb ! bxb @ bxc ! cxb @ cxc ! dxb @ dxc ! exb @ exc !      \ B to C
+               fxb @ fxc ! gxb @ gxc ! hxb @ hxc ! ixb @ ixc ! jxb @ jxc ! kxb @ kxc ! ;
+
+: csp2ct       axc @ axct ! bxc @ bxct ! cxc @ cxct ! dxc @ dxct ! exc @ exct !      \ B to C
+               fxc @ fxct ! gxc @ gxct ! hxc @ hxct ! ixc @ ixct ! jxc @ jxct ! kxb @ kxct ! ;
+
+: csp3cct       axct @ axc ! bxct @ bxc ! cxct @ cxc ! dxct @ dxc ! exct @ exc !      \ B to C
+                fxct @ fxc ! gxct @ gxc ! hxct @ hxc ! ixct @ ixc ! jxct @ jxc ! kxct @ kxc ! ;
+
+: csp2bt        axb @ axbt ! bxb @ bxbt ! cxb @ cxbt ! dxb @ dxbt ! exb @ exbt !      \ B to C
+                fxb @ fxbt ! gxb @ gxbt ! hxb @ hxbt ! ixb @ ixbt ! jxb @ jxbt ! kxb @ kxct ! ;
+
+: csp2bbt       axbt @ axb ! bxbt @ bxb ! cxbt @ cxb ! dxbt @ dxb ! exbt @ exb !      \ B to C
+                fxbt @ fxb ! gxbt @ gxb ! hxbt @ hxb ! ixbt @ ixb ! jxbt @ jxb ! kxbt @ kxb ! ;
+
+
+: csppcx      axd @ axc ! bxc @ bxd ! cxc @ cxd ! dxc @ dxd ! exc @ exd !       \ move B to C
+             fxc @ fxd ! gxc @ gxd ! hxc @ hxd ! ixc @ ixd ! jxc @ jxd ! kxc @ kxd ! ;
+
+
+
 : mvdowndig   lastdig1 @ lastdig2 !  lastdig2 @ lastdig3 ! ;
 
 : cd1         axa @ axb @ xor axb !       \ A to B
@@ -76,7 +127,8 @@ variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable l
      \    NOTE DOWNZIP DAISY CHAINS  SO AxC DIGIT XOR  IS MOVED DOWN AND XORED WITH DIGI MOVED DOWN XORED WITH DIGIT ECT
      \    csp0   ( move AxA to temp and xor it with prev)
                   ( move AxB to temp and xor it WITH THE STORE DIGIT XORED AxB)
-                     ( move AxC to temp and xor it with prev)            ;
+                     ( move AxC to temp and xor it with prev)
+                                            ;
 
 : bxx3     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -108,8 +160,9 @@ variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable l
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \       csp1 csp0 csp2 cs2pp c22  ;
-     ct23 ct12   cab0 csppx  csp2  csp1 csp0
-          csp0 cd1 cd2 cd3             ;
+    \ ct23 ct12   cab0 csppx  csp2  csp1 csp0
+    \      csp0 cd1 cd2 cd3
+                                 ;
 
 
 : cxx3    ( n1 - n2 )
@@ -889,18 +942,18 @@ variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable l
                        \      csp1 csp0 csp2 cs2pp c22
          csp0 cd1 cd2 cd3               ;
 
-: isdiga      \  move digit to vars for xor and restore in downzip
+: isdiga      \  move digit to temp vars for xor and restore in downzip
               case
                  1 of axx3 endof
                  2 of bxx3 endof
                  3 of cxx3 endof
-                 4 of dxx4 endof
-                 5 of dxx4 endof
-                 6 of dxx4 endof
-                 7 of dxx4 endof
-                 8 of dxx4 endof
-                 9 of dxx4 endof
-                10 of dxx4 endof
+                 4 of dxx3 endof
+                 5 of exx3 endof
+                 6 of fxx3 endof
+                 7 of gxx3 endof
+                 8 of hxx3 endof
+                 9 of ixx3 endof
+                10 of jxx3 endof
                                endcase
                                     ;
 
