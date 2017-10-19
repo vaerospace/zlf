@@ -5,6 +5,7 @@ needs dzaaal2017.f
 needs r1setaxb.f
 needs r2setaxc.f
 needs r3setaxd.f
+needs rawaaall.f
 
 
 \ How do we find SPP     answer (xor AxD AxC) then (Xor result AxC  = AxE  previous in knnown string digit)

@@ -1,6 +1,6 @@
 \ buildown A  xors AxA and moves to AxB
 \ move lastdig to a temp store   axbp vars
-
+needs baaall2017.f
 : axxr     ( n1 - n2 )  \ Raw reset of main stack   to ttax
        \ move axa temp   -- move lastdig to temp xor them store to Axb
      axa  @  axbp @  1 xor  axb !
