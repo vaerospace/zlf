@@ -129,7 +129,11 @@ needs vfind.f
 
 : dodwn1  lastxdig1 @ down1 ;
 : dodwn2  lastxdig2 @ down2 ;
-: dodwn3  lastxdig3 @ down3 :
+: dodwn3  lastxdig3 @ down3 ;
+\ : doxd1  axx bxx cxx dxx exx fxx gxx ;
+\ create unknown CPP for nottt6 xor loop
+\ we xor AXC with lastdig?
+: setunz    lastxdig4 @ down2 nottt5  ;
 
 
 

@@ -405,6 +405,17 @@ variable xjd   variable xtd   variable  sp4x
               ixc @ ixb @ xor tix !
               jxc @ jxb @ xor tjx !
                                     ;
+: cbct1       axd @ axc @ xor tax2 !       \ B to C
+              bxd @ bxc @ xor tbx2 !
+              cxd @ cxc @ xor tcx2 !
+              dxd @ dxc @ xor tdx2 !
+              exd @ exc @ xor tex2 !
+              fxd @ fxc @ xor tfx2 !
+              gxd @ gxc @ xor tgx2 !
+              hxd @ hxc @ xor thx2 !
+              ixd @ ixc @ xor tix2 !
+              jxd @ jxc @ xor tjx2 !
+                                    ;
 
 : cbtu        axc @ tax @ xor puax !       \ B to C
               bxc @ tbx @ xor pubx !

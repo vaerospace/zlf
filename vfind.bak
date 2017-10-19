@@ -5,6 +5,7 @@ needs dzaaal2017.f
 needs r1setaxb.f
 needs r2setaxc.f
 needs r3setaxd.f
+needs rawaaall.f
 
 
 \ How do we find SPP     answer (xor AxD AxC) then (Xor result AxC  = AxE  previous in knnown string digit)
@@ -128,34 +129,34 @@ variable nn2 variable nn3
 
 : nottt1   \ leaves S2 in spp1
          cr   tax @  0=  if \ ." it's a zero @ 1" cr
-                          else   1 spp1 !               \  1 nottt2 \  ." its 1"  cr \ 1   xt1   cr
+                          else   1 lastxdig4 !               \  1 nottt2 \  ." its 1"  cr \ 1   xt1   cr
                                                  then
                  tbx @   0=  if \ ." it's a zero @ 2" cr
-                             else     2 spp1 !            \ n2 nottt2  ." its 2" cr  \  2 xt1  cr
+                             else     2 lastxdig4 !            \ n2 nottt2  ." its 2" cr  \  2 xt1  cr
                                                     then
                     txc @   0=  if \  ." it's a zero @ 3" cr
-                                else     3 spp1 !              \ 3  nottt2     \  ." its 3"  cr \  3 xt1 cr
+                                else     3 lastxdig4 !              \ 3  nottt2     \  ." its 3"  cr \  3 xt1 cr
                                                         then
                        tdx @  0=  if \  ." it's a zero @ 4" cr
-                                  else     4 spp1 !               \ 4  nottt2   \ ." its 4"  cr   4 xt1 cr
+                                  else      4 lastxdig4 !               \ 4  nottt2   \ ." its 4"  cr   4 xt1 cr
                                                             then
                            tex @  0=  if \  ." it's a zero @ 5" cr
-                                      else     5 spp1 !               \ ." its 5"  cr \ 5 xt1 cr
+                                      else     5 lastxdig4 !               \ ." its 5"  cr \ 5 xt1 cr
                                                                  then
                               tfx @  0=  if \ ." it's a zero @ 6" cr
-                                          else    6 spp1 !                \ ." its 6"  cr \ 6 xt1 cr
+                                          else    6 lastxdig4 !                \ ." its 6"  cr \ 6 xt1 cr
                                                                     then
                                   tgx @  0=  if \ ." it's a zero @ 7" cr
-                                              else    7 spp1 !               \ ." its 7"  cr \  7 xt1 cr
+                                              else    7 lastxdig4 !               \ ." its 7"  cr \  7 xt1 cr
                                                                         then
                                       thx @  0=  if  \ ." it's a zero @ 8" cr
-                                                  else   8 spp1 !                  \ ." its a 8" cr \ 8 xt1 cr
+                                                  else   8 lastxdig4 !                  \ ." its a 8" cr \ 8 xt1 cr
                                                                            then
                                          tix @  0=  if  \ ." it's a zero @ 9" cr
-                                                     else   9 spp1 !                   \ ." its 9"  cr \  9 xt1 cr
+                                                     else   9 lastxdig4 !                   \ ." its 9"  cr \  9 xt1 cr
                                                                               then
                                             tjx @  0=  if  \ ." it's a zero @ 10" cr
-                                                        else    10 spp1 !                \ ." its 0"  cr \ 10 xt1 cr
+                                                        else    10 lastxdig4 !                \ ." its 0"  cr \ 10 xt1 cr
                                                                                   then
                                                                       arsult       ;
 
@@ -231,6 +232,40 @@ variable nn2 variable nn3
                                                       \  else  1 sppp1 !  10 spp1 !
                                                                                   then
                                                 ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt   ;
+: nottt6  csp2ct csp2bt   \  only nn2 can create AxC !!! outputs that digit to nn2 @
+
+ cr    tax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one"  1 lastxdig4 ! cr
+                                    \ else  1 sppp1 ! 1 spp1 !
+                                                 then
+         tbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two"  2 lastxdig4 ! cr
+                                       \  else  1 sppp1 ! 2 spp1 !
+                                                    then
+          tcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" 3 lastxdig4 ! cr
+                                          \ else  1 sppp1 ! 3 spp1 !
+                                                        then
+            tdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if   dxc @ . ." it's a four"  4  lastxdig4 ! cr
+                                            \ else  1 sppp1 ! 4 spp1 !
+                                                            then
+              tex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five"   5  lastxdig4 ! cr
+                                            \  else   1 sppp1 ! 5 spp1
+                                                                 then
+               tfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six"    6   lastxdig4 ! cr
+                                                \ else   1 sppp1 ! 6 spp1 !
+                                                                    then
+                 tgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if  gxc @ . ." it's a seven"  7  lastxdig4 ! cr
+                                                  \ else  1 sppp1 !  7 spp1 !
+                                                                        then
+                   thx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight" 8   lastxdig4 ! cr
+                                                    \  else 1 sppp1 ! 8 spp1 !
+                                                                           then
+                    tix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"   9  lastxdig4  ! cr
+                                                     \ else  1 sppp1 ! 9 spp1 !
+                                                                              then
+                      tjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if jxc @ . ." it's a one"   10   lastxdig4  ! cr
+                                                      \  else  1 sppp1 !  10 spp1 !
+                                                                                  then
+                                                ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt   ;
+
 
 : not3  \   ournext char  MAINSEARCH LOOP
 
