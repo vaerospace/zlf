@@ -1,7 +1,7 @@
 needs baaall2017.f
 
 \ raw ax vars for downzip setup
-
+\ do loop index to vars
 : axxd     ( n1 - n2 )  \ Last DATA DIGIT
      ax @ 1 xor  ax !
      bx @ 0 xor  bx !

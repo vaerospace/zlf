@@ -1,3 +1,12 @@
+needs baaall2017.f
+needs caaall2017.f
+needs dzaaal2017.f
+needs r1setaxb.f
+needs r2setaxc.f
+needs r3setaxd.f
+needs rawaaall.f
+needs indextovar.f
+
 \ nottt6 we have 6
 \ state and how we got there
 \ how do we use the dix to reset down ?
@@ -29,6 +38,22 @@
 \           ... xor AxB AxC to tax
 
 \               loop
+\ doxd1
+: cupcb   \   ... AxC to AxB
+
+             axc @ axb ! bxc @ bxb ! cxc @ cxb ! dxc @ dxb ! exc @ exb !       \ reverse SP to storeB
+             fxc @ fxb ! gxc @ gxb ! hxc @ hxb ! ixc @ ixb ! jxc @ jxb ! kxc @ kxb !  ;
+
+\  The FINAL UNZIP LOOP !!!
+
+: cup11    \ ( i @ )  down4  axbp store
+           \ AxC xor AxBp AxC store
+           \ AxB AxC XoR tax
+           \ doloop nottt6
+                  noop
+                    ;
+
+
 
 
 
