@@ -127,6 +127,9 @@ needs vfind.f
           26 of zxxrrr endof
                    endcase ;
 
+: dodwn1  lastxdig1 @ down1 ;
+: dodwn2  lastxdig2 @ down2 ;
+: dodwn3  lastxdig3 @ down3 :
 
 
 
