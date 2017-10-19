@@ -2,7 +2,7 @@
 \ state and how we got there
 \ how do we use the dix to reset down ?
 
-we subtract the 6 from AxC and restore AxD
+\  we subtract the 6 from AxC and restore AxD
 
 \ A   we compare Axd  SEARCDIG  NEW AxC   == New Tax   if nottt6 returns 0 to lastxdig 4 we have our next digit down
 

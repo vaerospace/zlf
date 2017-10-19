@@ -14,13 +14,21 @@
 
 \ The  Unzip Process
 
-\  We need to create the stack state before AxC   withe the digit that created AxC
+\  We need to create the stack state before AxC   with the digit that created AxC
 
 \ We do this by a zero answer ( lasrxdig4 = 0)  and the loop number is our laSTDIG  (  i )
 
 \ We now update AxB and AxC with this new data AxB is updated by moving AxC to AxB and  AxC is xored by the (i found digit)
 
 \ and the process is looped
+
+\  Fulltest
+
+\  logic    ... AxC to AxB
+\           ... xor AxC  with ( I ) @   store AxC
+\           ... xor AxB AxC to tax
+
+\               loop
 
 
 
