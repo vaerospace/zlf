@@ -570,7 +570,8 @@ variable xjd   variable xtd   variable  sp4x
 \ : letsfind  \ sets up word for checking
  \   is it the number on S2  --then ingnore flag  retry
   \  load number for testing into vars  ---- load SP into vars
-
+variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxdig2 variable lastxdig3
+: movedig  bxdig @ cxdig ! @ axdig @ bxdig ! ;
 : axx     ( n1 - n2 )
      ax @ 1 xor  ax !
      bx @ 0 xor  bx !
@@ -601,7 +602,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
          \    csp1 csp0 csp2 cs2pp c22  ;
-   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  1 axdig !  ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
 
 : bxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -633,7 +634,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \       csp1 csp0 csp2 cs2pp c22  ;
-     ct23 ct12   cab0 csppx  csp2  csp1 csp0  cbct ;
+  2 axdig !   ct23 ct12   cab0 csppx  csp2  csp1 csp0  cbct ;
 
 
 : cxx     ( n1 - n2 )
@@ -666,7 +667,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
   \         csp1 csp0 csp2 cs2pp c22 ;
-   ct23 ct12     cab0  csppx  csp2  csp1 csp0 cbct ;
+  3 axdig !  ct23 ct12     cab0  csppx  csp2  csp1 csp0 cbct ;
 
 : dxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -698,7 +699,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \      csp1 csp0 csp2 cs2pp c22  ;
-   ct23 ct12    cab0  csppx  csp2  csp1 csp0 cbct ;
+ 4 axdig !   ct23 ct12    cab0  csppx  csp2  csp1 csp0 cbct ;
 
 : exx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -730,7 +731,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \         csp1 csp0 csp2 cs2pp c22 ;
-    ct23 ct12     cab0 csppx  csp2  csp1 csp0 cbct ;
+   5 axdig !  ct23 ct12     cab0 csppx  csp2  csp1 csp0 cbct ;
 
 : fxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -762,7 +763,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \          csp1 csp0 csp2 cs2pp c22   ;
-   ct23 ct12    cab0 csppx  csp2  csp1 csp0  cbct ;
+  6 axdig !  ct23 ct12    cab0 csppx  csp2  csp1 csp0  cbct ;
 
 : gxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -794,7 +795,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \              csp1 csp0 csp2 cs2pp c22    ;
-   ct23 ct12      cab0  csppx  csp2  csp1 csp0 cbct ;
+  7 axdig !  ct23 ct12      cab0  csppx  csp2  csp1 csp0 cbct ;
 
 : hxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -826,7 +827,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  \                csp1 csp0 csp2 cs2pp c22  ;
-     ct23 ct12   cab0  csppx  csp2  csp1 csp0 cbct ;
+   8 axdig !   ct23 ct12   cab0  csppx  csp2  csp1 csp0 cbct ;
 
 : ixx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -858,7 +859,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 \                 csp1 csp0 csp2 cs2pp c22 ;
-    ct23 ct12    cab0 csppx  csp2 cbct csp1 csp0 cbct ;
+   9 axdig !  ct23 ct12    cab0 csppx  csp2 cbct csp1 csp0 cbct ;
 
 : jxx     ( n1 - n2 )  \ Last DATA DIGIT
      ax @ 0 xor  ax !
@@ -890,7 +891,7 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 \                 csp1 csp0 csp2 cs2pp c22 ;
-    ct23 ct12   cab0     csppx  csp2   csp1 csp0 cbct ;
+   10 axdig !  ct23 ct12   cab0     csppx  csp2   csp1 csp0 cbct ;
 
 : kxx     ( n1 - n2 )  \ Forward State Flag 1
      ax @ 0 xor  ax !
@@ -921,7 +922,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-        ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22 ;
+    11 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22 ;
 
 : lxx     ( n1 - n2 ) \ Ascii flag 2
      ax @ 0 xor  ax !
@@ -953,7 +954,8 @@ variable xjd   variable xtd   variable  sp4x
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
   \            csp1 csp0 csp2 cs2pp c22 ;
-                     ;
+     12 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22
+                        ;
 : mxx     ( n1 - n2 )  \ M is now  Ascii Flag 3
      ax @ 0 xor  ax !
      bx @ 0 xor  bx !
@@ -983,7 +985,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-              csp1 csp0 csp2 cs2pp c22 ;
+     13 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22 ;
 
 
 : nxx     ( n1 - n2 )
@@ -1015,7 +1017,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                csp1 csp0 csp2 cs2pp c22 ;
+       14 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22 ;
 
 : oxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1046,7 +1048,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                 csp1 csp0 csp2 cs2pp c22  ;
+     15 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22  ;
 
 : pxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1077,7 +1079,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                   csp1 csp0 csp2 cs2pp c22 ;
+     16 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22 ;
 
 : qxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1108,7 +1110,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                csp1 csp0 csp2 cs2pp c22   ;
+     17 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22   ;
 
 : rxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1139,7 +1141,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                   csp1 csp0 csp2 cs2pp c22   ;
+     18 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22   ;
 
 : sxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1170,7 +1172,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                     csp1 csp0 csp2 cs2pp c22   ;
+     19 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22   ;
 
 : txx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1201,7 +1203,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                     csp1 csp0 csp2 cs2pp c22  ;
+      20 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22  ;
 
 : uxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1232,7 +1234,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                    csp1 csp0 csp2 cs2pp c22     ;
+     21 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22     ;
 
 : vxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1263,7 +1265,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                          csp1 csp0 csp2 cs2pp c22     ;
+     22 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22     ;
 
 : wxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1294,7 +1296,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                        csp1 csp0 csp2 cs2pp c22    ;
+      23 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22    ;
 
 : zlfxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1325,7 +1327,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                     csp1 csp0 csp2 cs2pp c22    ;
+      24 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22    ;
 
 : yxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1356,7 +1358,7 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 0 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                        csp1 csp0 csp2 cs2pp c22   ;
+     25 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22  ;
 
 : zxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1387,10 +1389,10 @@ variable xjd   variable xtd   variable  sp4x
      zx @ 1 xor zx !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
-                             csp1 csp0 csp2 cs2pp c22  ;
+     27 axdig !     ct23 ct12     cab0   csp1 csp0 csp2 cbct cs2pp c22  ;
 
 
-: axx2     ( n1 - n2 )  \ Last DATA DIGIT
+: axx2     ( n1 - n2 )  \ Raw reset of main stack   to ttax
      ttax @ 1 xor  ttax !
      ttbx @ 0 xor  ttbx !
      ttcx @ 0 xor  ttcx !

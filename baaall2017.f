@@ -570,7 +570,9 @@ variable xjd   variable xtd   variable  sp4x
 \ : letsfind  \ sets up word for checking
  \   is it the number on S2  --then ingnore flag  retry
   \  load number for testing into vars  ---- load SP into vars
-variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxdig2 variable lastxdig3
+
+\ VARIBLES TO CHOOSE AN RAW AX EXECUTE FOR DOWNBUILD
+variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxdig2 variable lastxdig3 variable lastxdig4
 : movedig  bxdig @ cxdig ! @ axdig @ bxdig ! ;
 : axx     ( n1 - n2 )
      ax @ 1 xor  ax !
