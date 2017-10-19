@@ -14,7 +14,7 @@ needs rawaaall.f
 
 
 \ setup stack   put 7 digits on ax  ( will also setup axa axb axc axd and xad )
-: doxd1  axx bxx cxx dxx exx ;
+: doxd1  axx bxx cxx dxx exx fxx gxx ;
 
 \ xor AxB and AxC   xor T with C = previous unknown digit(pua)
 \ find digit of S3 by excluding last digit

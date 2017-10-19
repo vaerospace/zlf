@@ -232,6 +232,8 @@ variable nn2 variable nn3
                                                       \  else  1 sppp1 !  10 spp1 !
                                                                                   then
                                                 ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt   ;
+
+\ we shouls restore AxC  to its previous state afte operation
 : nottt6  csp2ct csp2bt   \  only nn2 can create AxC !!! outputs that digit to nn2 @
 
  cr    tax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one"  1 lastxdig4 ! cr

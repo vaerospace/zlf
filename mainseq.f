@@ -261,10 +261,10 @@ needs indextovar.f
 
 : not55    \ only ouput if true   MAINTEST LOGIC LOOP
 
-      11 0 do       nottt6   lastXdig4 @  I nn2 ! 0= if
-
+      11 0 do       nottt6    I nn2 ! lastxdig4 @  0= if leave
+                              else ." not a zlf number"
                              then loop
-                             ;
+                          nn2 @ .   ;
 
 
 
@@ -279,6 +279,8 @@ needs indextovar.f
            \ doloop nottt6
                   noop
                     ;
+
+: cup221  lastxdig4 @ down5 axic ;
 
 
 
