@@ -92,3 +92,62 @@ variable nezz1   variable nezz2     variable nezz3  variable lastdig1 variable l
               ixc @ ixd @ xor ixd !
               jxc @ jxd @ xor jxd !
                                     ;
+
+: nottt5  csp2ct csp2bt   \  only nn2 can create AxC !!! outputs that digit to nn2 @
+
+ cr    ttax @  axb @ xor axb !  axb @ axc @ xor axc  !  axc @  1 = if  axc @ .  ." it's a one"  1 nn2 ! cr
+                                    \ else  1 sppp1 ! 1 spp1 !
+                                                 then
+         ttbx @  bxb @ xor cxb !  bxb @ bxc @ xor bxc  !  bxc @ 1 = if  bxc @ . ." it's a two"  2 nn2 ! cr
+                                       \  else  1 sppp1 ! 2 spp1 !
+                                                    then
+          ttcx @  cxb @ xor cxb !  cxb @ cxc @ xor cxc  !  cxc @ 1 = if  cxc @ . ." it's a three" 3 nn2 ! cr
+                                          \ else  1 sppp1 ! 3 spp1 !
+                                                        then
+            ttdx @  dxb @ xor dxb !  dxb @ dxc @ xor dxc  !  dxc @ 1 = if   dxc @ . ." it's a four"  4  nn2 ! cr
+                                            \ else  1 sppp1 ! 4 spp1 !
+                                                            then
+              ttex @  exb @ xor exb !  exb @ exc @ xor exc  !  exc @ 1 = if exc @ . ." it's a five"   5  nn2 ! cr
+                                            \  else   1 sppp1 ! 5 spp1
+                                                                 then
+               ttfx @  fxb @ xor fxb !  fxb @ fxc @ xor fxc  !  fxc @ 1 = if fxc @ . ." it's a six"    6   nn2 ! cr
+                                                \ else   1 sppp1 ! 6 spp1 !
+                                                                    then
+                 ttgx @  gxb @ xor gxb !  gxb @ gxc @ xor gxc  !  gxc @ 1 =  if  gxc @ . ." it's a seven"  7  nn2 ! cr
+                                                  \ else  1 sppp1 !  7 spp1 !
+                                                                        then
+                   tthx @  hxb @ xor hxb !  hxb @ hxc @ xor hxc  !  hxc @ 1 =  if hxc @ . ." it's a eight" 8   nn2 ! cr
+                                                    \  else 1 sppp1 ! 8 spp1 !
+                                                                           then
+                    ttix @  ixb @ xor ixb !  ixb @ ixc @ xor ixc  !  ixc @ 1 = if  ixc @ . ." it's a nine"   9  nn2  ! cr
+                                                     \ else  1 sppp1 ! 9 spp1 !
+                                                                              then
+                      ttjx @  jxb @ xor jxb !  jxb @ jxc @ xor jxc  !  jxc @ 1 = if jxc @ . ." it's a one"   10   nn2  ! cr
+                                                      \  else  1 sppp1 !  10 spp1 !
+                                                                                  then
+                                                ( spp1 @ . sppp1 @ . ) csp3cct csp2bbt   ;
+
+: not3  \   ournext char  MAINSEARCH LOOP
+
+          case
+                 1  of      axx3  nottt5 oboy ourboy @ 1 = if 1  nn3 !  ." axx3" then
+                         endof
+                 2  of      bxx3  nottt5 oboy ourboy @ 1 = if 2  nn3 !  ." bxx3" then
+                         endof
+                 3  of      cxx3  nottt5 oboy ourboy @ 1 = if 3  nn3 !  ." cxx3" then
+                         endof
+                 4  of      dxx3  nottt5 oboy ourboy @ 1 = if 4  nn3 !  ." dxx3" then
+                         endof
+                 5  of      exx3  nottt5 oboy ourboy @ 1 = if 5  nn3 !  ." exx3" then
+                         endof
+                 6  of      fxx3  nottt5 oboy ourboy @ 1 = if 6  nn3 !  ." xfx3" then
+                         endof
+                 7  of      gxx3  nottt5 oboy ourboy @ 1 = if 7  nn3 !  ." bxx3" then
+                         endof
+                 8  of      hxx3  nottt5 oboy ourboy @ 1 = if 8  nn3 !  ." bxx3" then
+                         endof
+                 9  of      ixx3  nottt5 oboy ourboy @ 1 = if 9  nn3 !  ." bxx3" then
+                         endof
+                10  of      jxx3  nottt5 oboy ourboy @ 1 = if 10  nn3 ! ." bxx2" then
+                         endof
+                             endcase    ;

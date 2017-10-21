@@ -44,11 +44,20 @@ needs indextovar.f
              axc @ axb ! bxc @ bxb ! cxc @ cxb ! dxc @ dxb ! exc @ exb !       \ reverse SP to storeB
              fxc @ fxb ! gxc @ gxb ! hxc @ hxb ! ixc @ ixb ! jxc @ jxb ! kxc @ kxb !  ;
 
-: cup11    \ ( i @ )  down4  axbp store
-           \ AxC xor AxBp AxC store
-           \ AxB AxC XoR tax
-           \ doloop nottt6
-                  noop
+\  The FINAL UNZIP LOOP !!!  ---    DONE
+: cup11
+           \ RUN NOTTT6 FORLASTDIG  >>>>>> OUTPUT DIG TO FILE
+
+           \ COPY AXC TO AXB ---WERE DONE WITH AXA NOW AND IS NO LONGER NEEDED
+
+           \ XOR AXC WITH LASTDIG
+
+           \ RUN NOTTT 6
+
+
+
+
+
                     ;
 
 

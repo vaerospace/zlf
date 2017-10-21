@@ -6,7 +6,7 @@ needs r2setaxc.f
 needs r3setaxd.f
 needs rawaaall.f
 needs vfind.f
-needs indextovar.f
+needs bpindex.f
 \ The Downbuild  when it completes nottt5 finds previous unkown digit !!!!  (unzip sequence complete)
 
 \ AxA = mainstack copy
@@ -255,7 +255,7 @@ needs indextovar.f
 \ : doxd1  axx bxx cxx dxx exx fxx gxx ;
 \ create unknown CPP for nottt6 xor loop
 \ we xor AXC with lastdig?
-: setunz    lastxdig4 @ down2 nottt5  ;
+\ : setunz    lastxdig4 @ down2 nottt5  ;
 
 \   MAIN SEARCH LOOP
 
@@ -280,7 +280,90 @@ needs indextovar.f
                   noop
                     ;
 
-: cup221  nottt6 lastxdig4 @ down5 axic ;
+: cup221  lastxdig4 @ down5 \ update tax
+
+            axic   \ we need to load lastxdig4 to axbp
+
+              cupcb ;
+
+: cup51
+           \ RUN NOTTT6 FORLASTDIG  >>>>>> OUTPUT DIG TO FILE
+
+           \ notty6   n0t tax  axb (old axc old becomes axb             ---WERE DONE WITH AXA NOW AND IS NO LONGER NEEDED
+           \ axc and axd are xored with the difference result of axd axb and (5 and six) and used to reunzip
+
+           \ XOR AXC WITH LASTDIG
+
+           \ RUN NOTTT 6
+            nottt6               \  outputs lastdig to lastxtdig4  .... it cant be six  |  axa and ax remain unchanged
+                                 \ not6 other dig and tax can all be done in one
+
+                                 \ xor axd with axb   gives five an six but it cant be six ( because six is tax )
+
+
+                                 \ xor  axb with six (or tax they're the same)  store result    is new axc
+                                 \ xor axb with lastxdig4
+
+
+                                 \ and axc with 5 (other dig )    store result    is new axd
+                                 \ determine other dig and zor with axc creating new axd
+
+                                 \  loop
+
+
+
+                                 \  xor axd axb get......  not6 other number and .... is not six tax ?
+
+                                 \  axc  xor other dig becomes axb (now contains the 5) axc but remains unchaged now
+                                 \  but its current state is moved to axb and is the new axb
+
+                                 \  nottt6 run on axd axc   reveals axd was created by a four
+
+                                 \  we xor the four onto axd and save it back to axd
+                                 \  we now xor the five onto axc and change it
+                                 \  we can now loop
+
+
+                   noop ;
+
+
+\ the real solution comes by asking if axc (now 5 ) were xored with the current axd what would the digit have to be  ????
+\ a four of course , so we now know that axd (xored with four is three and we can now save and store that
+\   axd 1 1 1 1 00000
+\     4 0 0 0 1 00000
+\  xored  axd is now three  and we stup to loop
+
+\ so lets set up the conditions and do the search
+
+variable  unknown
+
+: do423  doxd1   ( axic)  11  0  do   I  down5   if nottt7 nn2 @   0=
+                         else ." search failed " I . cr
+                                 then loop nn2 @ .  0 nn2 ! ;
+
+\   doxd1 3 down5  unk12
+
+\ previous stack state  axbp xor axd axc 0=           i . is you number you xor it onto axd for prev stack or new axd
+
+
+\ axd axc we need to know
+
+\      what  DIG created axc ? SETUP procs to find and store
+     \    we do this using tax   which is set to 4
+       \  we execute 4 onto axc
+
+
+\     what created axd   ie        dig nottt7 nn2 @ 0=
+\   what state of axd will zero   (we know its 3 ) so lets find it  ??? xor axc xor axb 0=
+
+            \  we xor axd with 1 -0    if    ??? xor axc xor axb 0=   its our number and we write it as new axd and update TAX !!!!
+
+
+\                          axb     1111100000
+\ if we do a 4 down5    ie axc now 1111000000    =   tax  0001000000
+\                          axd     1111000000
+\                          ???     0000000000    ie what dig xored with axd  will yield all zeros
+\                                                   if axd xor axc xor axb
 
 
 

@@ -146,6 +146,17 @@ variable hxbt   variable rxbt   variable  sp2bt
 variable ixbt   variable sxbt   variable  sp3bt
 variable jxbt   variable txbt   variable  sp4bt
 
+variable axdt   variable kxdt   variable  uxdt
+variable bxdt   variable lxdt   variable  vxdt
+variable cxdt   variable mxdt   variable  wxdt
+variable dxdt   variable nxdt   variable  zlfxdt
+variable exdt   variable oxdt   variable  yxdt
+variable fxdt   variable pxdt   variable  zxdt
+variable gxdt   variable qxdt   variable  sp1dt
+variable hxdt   variable rxdt   variable  sp2dt
+variable ixdt   variable sxdt   variable  sp3dt
+variable jxdt   variable txdt   variable  sp4dt
+
 
 \ intermediate marker state  -- stack1 prev-prev test results
 variable axc   variable kxc   variable  uxc
@@ -271,8 +282,8 @@ variable xjd   variable xtd   variable  sp4x
 : ct2         axd @ tax1 ! bxd @ tcx1 !  cxd @ tcx1 !  dxd @ tdx1 ! exd @ tex1 !       \ reverse SP to storeB
               fxd @ tfx1 ! gxd @ tgx1 !  hxd @ thx1 !  ixd @ tix1 ! jxd @ tjx1 ! kxd @ tkx1 ! ;
 
-: ct12        tax @ tax1 ! tbx @ tbx1 ! tcx @ tcx1 ! tdx @ tdx1 ! exd @ tex1 !       \ reverse SP to storeB
-              tfx @ tfx1 ! tgx @ tgx1 ! thx @ thx1 ! ixd @ tix1 ! jxd @ tjx1 ! tkx @ tkx1 ! ;
+: ct12        tax @ tax1 ! tbx @ tbx1 ! tcx @ tcx1 ! tdx @ tdx1 ! tex @ tex1 !       \ reverse SP to storeB
+              tfx @ tfx1 ! tgx @ tgx1 ! thx @ thx1 ! tix @ tix1 ! tjx @ tjx1 ! tkx @ tkx1 ! ;
 
 : ctd1        axb @ tax1 ! bxb @ tbx1 ! cxb @ tcx1 ! dxb @ tdx1 ! exb @ tex1 !       \ reverse SP to storeB
               fxb @ tfx1 ! gxb @ tgx1 ! hxb @ thx1 ! ixb @ tix1 ! jxb @ tjx1 ! kxb @ tkx1 ! ;
@@ -295,11 +306,11 @@ variable xjd   variable xtd   variable  sp4x
 : csp3cct       axct @ axc ! bxct @ bxc ! cxct @ cxc ! dxct @ dxc ! exct @ exc !      \ B to C
                 fxct @ fxc ! gxct @ gxc ! hxct @ hxc ! ixct @ ixc ! jxct @ jxc ! kxct @ kxc ! ;
 
-: csp2bt        axb @ axbt ! bxb @ bxbt ! cxb @ cxbt ! dxb @ dxbt ! exb @ exbt !      \ B to C
-                fxb @ fxbt ! gxb @ gxbt ! hxb @ hxbt ! ixb @ ixbt ! jxb @ jxbt ! kxb @ kxct ! ;
+: csp2dt        axd @ axdt ! bxd @ bxdt ! cxd @ cxdt ! dxd @ dxdt ! exd @ exdt !      \ B to C
+                fxd @ fxdt ! gxd @ gxdt ! hxd @ hxdt ! ixd @ ixdt ! jxd @ jxdt ! kxd @ kxdt ! ;
 
-: csp2bbt       axbt @ axb ! bxbt @ bxb ! cxbt @ cxb ! dxbt @ dxb ! exbt @ exb !      \ B to C
-                fxbt @ fxb ! gxbt @ gxb ! hxbt @ hxb ! ixbt @ ixb ! jxbt @ jxb ! kxbt @ kxb ! ;
+: csp2ddt       axdt @ axd ! bxdt @ bxd ! cxdt @ cxd ! dxdt @ dxd ! exdt @ exd !      \ B to C
+                fxdt @ fxd ! gxdt @ gxd ! hxdt @ hxd ! ixdt @ ixd ! jxdt @ jxd ! kxdt @ kxd ! ;
 
 
 : c22         axa @ axb @ xor  xad !   \  S2  A+B
@@ -416,6 +427,17 @@ variable xjd   variable xtd   variable  sp4x
               ixd @ ixc @ xor tix2 !
               jxd @ jxc @ xor tjx2 !
                                     ;
+: unkn        axd @ axc @ xor axd !       \ B to C
+              bxd @ bxc @ xor bxd !
+              cxd @ cxc @ xor cxd !
+              dxd @ dxc @ xor dxd !
+              exd @ exc @ xor exd !
+              fxd @ fxc @ xor fxd !
+              gxd @ gxc @ xor gxd !
+              hxd @ hxc @ xor hxd !
+              ixd @ ixc @ xor ixd !
+              jxd @ jxc @ xor jxd !
+                                    ;
 
 : cbtu        axc @ tax @ xor puax !       \ B to C
               bxc @ tbx @ xor pubx !
@@ -466,7 +488,7 @@ variable xjd   variable xtd   variable  sp4x
 
 \ csp1 csp0 csp2 cs2pp c22
 
-: zlfclear
+: axclear
 0 ax ! 0 kx ! 0 ux !
 0 bx ! 0 lx ! 0 vx !
 0 cx ! 0 mx ! 0 wx !
@@ -477,6 +499,18 @@ variable xjd   variable xtd   variable  sp4x
 0 hx ! 0 rx !
 0 ix ! 0 sx !
 0 jx ! 0 tx !        ;
+
+: bpclear
+0 axbp ! 0 kxbp ! 0 uxbp !
+0 bxbp ! 0 lxbp ! 0 vxbp !
+0 cxbp ! 0 mxbp ! 0 wxbp !
+0 dxbp ! 0 nxbp ! 0 zlfxbp !
+0 exbp ! 0 oxbp ! 0 yxbp !
+0 fxbp ! 0 pxbp ! 0 zxbp !
+0 gxbp ! 0 qxbp !
+0 hxbp ! 0 rxbp !
+0 ixbp ! 0 sxbp !
+0 jxbp ! 0 txbp !        ;
 
 : taxclear
 0 tax ! 0 tkx ! 0 tux !
@@ -549,6 +583,18 @@ variable xjd   variable xtd   variable  sp4x
 0 hxc ! 0 rxc !
 0 ixc ! 0 sxc !
 0 jxc ! 0 txc !        ;
+
+: s3clear
+0 axd ! 0 kxd ! 0 uxd !
+0 bxd ! 0 lxd ! 0 vxd !
+0 cxd ! 0 mxd ! 0 wxd !
+0 dxd ! 0 nxd ! 0 zlfxd !
+0 exd ! 0 oxd ! 0 yxd !
+0 fxd ! 0 pxd ! 0 zxd !
+0 gxd ! 0 qxd !
+0 hxd ! 0 rxd !
+0 ixd ! 0 sxd !
+0 jxd ! 0 txd !        ;
 \ cxaall clears al stacks
 
 : xadclear
@@ -563,7 +609,7 @@ variable xjd   variable xtd   variable  sp4x
 0 xid ! 0 xsd !
 0 xjd ! 0 xtd ! ;
 
-: cxaall  zlfclear saclear sbclear s2clear xadclear ;
+: zlfclear  axclear saclear sbclear s2clear s3clear taxclear t1clear t2clear xadclear ;
 
 
 : aafilo
@@ -616,7 +662,7 @@ variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxd
      sp2 @ 0 xor sp2 !
          \    csp1 csp0 csp2 cs2pp c22  ;
    lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  1 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  1 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : bxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -648,7 +694,7 @@ variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxd
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  2 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  2 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : cxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -681,7 +727,7 @@ variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxd
      sp2 @ 0 xor sp2 !
   \         csp1 csp0 csp2 cs2pp c22 ;
   lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  3 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  3 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : dxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -714,7 +760,7 @@ variable axdig variable bxdig variable cxdig  variable lastxdig1 variable lastxd
      sp2 @ 0 xor sp2 !
  \      csp1 csp0 csp2 cs2pp c22  ;
 lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  4 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  4 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : exx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -746,7 +792,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  5 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  5 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : fxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -778,7 +824,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  6 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  6 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 : gxx     ( n1 - n2 )
      ax @ 0 xor  ax !
      bx @ 0 xor  bx !
@@ -809,7 +855,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  7 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  7 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0  ( cbct)  ;
 
 : hxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -841,7 +887,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
  lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  8 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  8 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : ixx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -873,7 +919,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  9 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  9 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : jxx     ( n1 - n2 )  \ Last DATA DIGIT
      ax @ 0 xor  ax !
@@ -905,7 +951,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
 lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  10 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  10 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : kxx     ( n1 - n2 )  \ Forward State Flag 1
      ax @ 0 xor  ax !
@@ -937,7 +983,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
     lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-  11 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+  11 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : lxx     ( n1 - n2 ) \ Ascii flag 2
      ax @ 0 xor  ax !
@@ -970,7 +1016,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     12 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     12 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : mxx     ( n1 - n2 )  \ M is now  Ascii Flag 3
      ax @ 0 xor  ax !
@@ -1003,7 +1049,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     13 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     13 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 
 : nxx     ( n1 - n2 )
@@ -1037,7 +1083,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     14 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     14 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : oxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1070,7 +1116,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     15 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     15 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : pxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1103,7 +1149,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     16 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     16 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : qxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1135,7 +1181,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     17 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     17 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : rxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1168,7 +1214,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     18 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     18 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : sxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1200,7 +1246,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     19 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     19 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0  ( cbct)  ;
 
 : txx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1232,7 +1278,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     20 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     20 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : uxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1265,7 +1311,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     21 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     21 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : vxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1298,7 +1344,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp2 @ 0 xor sp2 !
 
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     22 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     22 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : wxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1330,7 +1376,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     23 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     23 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : zlfxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1362,7 +1408,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     24 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     24 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : yxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1394,7 +1440,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     25 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     25 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : zxx     ( n1 - n2 )
      ax @ 0 xor  ax !
@@ -1426,7 +1472,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
      sp1 @ 0 xor sp1 !
      sp2 @ 0 xor sp2 !
      lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
-     26 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 cbct  ;
+     26 axdig !   ct23 ct12 cab0   csppx  csp2  csp1 csp0 ( cbct)  ;
 
 : axx2     ( n1 - n2 )  \ Raw reset of main stack   to ttax
      ttax @ 1 xor  ttax !
@@ -1796,7 +1842,7 @@ lastxdig1 @ lastxdig2 ! lastxdig2 @ lastxdig3 ! axdig @ lastxdig1 !
 : dox1 cr srttt cr cr
         ." Ax  S1  " doaero  cr cr ." AxA SP  " doxsa cr cr
           ." AxBSPP  "  doxsb cr cr ." AxC  R  " doxs2
-      cr cr ." AxD N2  " doxs3 cr cr   ." XaD N3  " dodx cr cr cr
+      cr cr ." AxD N2  " doxs3 cr cr   ." BP      " dobp cr cr cr
               ." AxT S2  " doct1  cr cr  ." AxTS23  " doct2  cr cr  ." AxTS24  " doct3  cr cr
                 ." AxTSTT  " doctt
                   ;

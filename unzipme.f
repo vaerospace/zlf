@@ -44,14 +44,7 @@ needs indextovar.f
              axc @ axb ! bxc @ bxb ! cxc @ cxb ! dxc @ dxb ! exc @ exb !       \ reverse SP to storeB
              fxc @ fxb ! gxc @ gxb ! hxc @ hxb ! ixc @ ixb ! jxc @ jxb ! kxc @ kxb !  ;
 
-\  The FINAL UNZIP LOOP !!!
-
-: cup11    \ ( i @ )  down4  axbp store
-           \ AxC xor AxBp AxC store
-           \ AxB AxC XoR tax
-           \ doloop nottt6
-                  noop
-                    ;
+\  The FINAL UNZIP LOOP !!!  ---    DONE
 
 
 
